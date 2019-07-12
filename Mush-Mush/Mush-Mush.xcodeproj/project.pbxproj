@@ -1,0 +1,352 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1004169022D8ED6E0050E838 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1004168F22D8ED6E0050E838 /* AppDelegate.m */; };
+		1004169622D8ED6E0050E838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1004169422D8ED6E0050E838 /* Main.storyboard */; };
+		1004169822D8ED6F0050E838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1004169722D8ED6F0050E838 /* Assets.xcassets */; };
+		1004169B22D8ED6F0050E838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1004169922D8ED6F0050E838 /* LaunchScreen.storyboard */; };
+		1004169E22D8ED6F0050E838 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1004169D22D8ED6F0050E838 /* main.m */; };
+		100416A622D8EF3D0050E838 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100416A522D8EF3D0050E838 /* MapViewController.m */; };
+		100416A922D8F12B0050E838 /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100416A822D8F12B0050E838 /* AddPointViewController.m */; };
+		100416AC22D8F2AA0050E838 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100416AB22D8F2AA0050E838 /* HistoryViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1004168B22D8ED6E0050E838 /* Mush-Mush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mush-Mush.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1004168E22D8ED6E0050E838 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1004168F22D8ED6E0050E838 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1004169522D8ED6E0050E838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1004169722D8ED6F0050E838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1004169A22D8ED6F0050E838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1004169C22D8ED6F0050E838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1004169D22D8ED6F0050E838 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		100416A422D8EF3D0050E838 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		100416A522D8EF3D0050E838 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		100416A722D8F12B0050E838 /* AddPointViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
+		100416A822D8F12B0050E838 /* AddPointViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
+		100416AA22D8F2AA0050E838 /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		100416AB22D8F2AA0050E838 /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1004168822D8ED6E0050E838 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1004168222D8ED6E0050E838 = {
+			isa = PBXGroup;
+			children = (
+				1004168D22D8ED6E0050E838 /* Mush-Mush */,
+				1004168C22D8ED6E0050E838 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1004168C22D8ED6E0050E838 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1004168B22D8ED6E0050E838 /* Mush-Mush.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1004168D22D8ED6E0050E838 /* Mush-Mush */ = {
+			isa = PBXGroup;
+			children = (
+				1004168E22D8ED6E0050E838 /* AppDelegate.h */,
+				1004168F22D8ED6E0050E838 /* AppDelegate.m */,
+				1004169422D8ED6E0050E838 /* Main.storyboard */,
+				1004169722D8ED6F0050E838 /* Assets.xcassets */,
+				1004169922D8ED6F0050E838 /* LaunchScreen.storyboard */,
+				1004169C22D8ED6F0050E838 /* Info.plist */,
+				1004169D22D8ED6F0050E838 /* main.m */,
+				100416A422D8EF3D0050E838 /* MapViewController.h */,
+				100416A522D8EF3D0050E838 /* MapViewController.m */,
+				100416A722D8F12B0050E838 /* AddPointViewController.h */,
+				100416A822D8F12B0050E838 /* AddPointViewController.m */,
+				100416AA22D8F2AA0050E838 /* HistoryViewController.h */,
+				100416AB22D8F2AA0050E838 /* HistoryViewController.m */,
+			);
+			path = "Mush-Mush";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1004168A22D8ED6E0050E838 /* Mush-Mush */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 100416A122D8ED6F0050E838 /* Build configuration list for PBXNativeTarget "Mush-Mush" */;
+			buildPhases = (
+				1004168722D8ED6E0050E838 /* Sources */,
+				1004168822D8ED6E0050E838 /* Frameworks */,
+				1004168922D8ED6E0050E838 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mush-Mush";
+			productName = "Mush-Mush";
+			productReference = 1004168B22D8ED6E0050E838 /* Mush-Mush.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1004168322D8ED6E0050E838 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Tatyana Shut";
+				TargetAttributes = {
+					1004168A22D8ED6E0050E838 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 1004168622D8ED6E0050E838 /* Build configuration list for PBXProject "Mush-Mush" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1004168222D8ED6E0050E838;
+			productRefGroup = 1004168C22D8ED6E0050E838 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1004168A22D8ED6E0050E838 /* Mush-Mush */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1004168922D8ED6E0050E838 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1004169B22D8ED6F0050E838 /* LaunchScreen.storyboard in Resources */,
+				1004169822D8ED6F0050E838 /* Assets.xcassets in Resources */,
+				1004169622D8ED6E0050E838 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1004168722D8ED6E0050E838 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100416A622D8EF3D0050E838 /* MapViewController.m in Sources */,
+				100416A922D8F12B0050E838 /* AddPointViewController.m in Sources */,
+				1004169E22D8ED6F0050E838 /* main.m in Sources */,
+				100416AC22D8F2AA0050E838 /* HistoryViewController.m in Sources */,
+				1004169022D8ED6E0050E838 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1004169422D8ED6E0050E838 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1004169522D8ED6E0050E838 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1004169922D8ED6F0050E838 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1004169A22D8ED6F0050E838 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1004169F22D8ED6F0050E838 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		100416A022D8ED6F0050E838 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		100416A222D8ED6F0050E838 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Mush-Mush/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "TatyanaShut.Mush-Mush";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		100416A322D8ED6F0050E838 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Mush-Mush/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "TatyanaShut.Mush-Mush";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1004168622D8ED6E0050E838 /* Build configuration list for PBXProject "Mush-Mush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1004169F22D8ED6F0050E838 /* Debug */,
+				100416A022D8ED6F0050E838 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		100416A122D8ED6F0050E838 /* Build configuration list for PBXNativeTarget "Mush-Mush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				100416A222D8ED6F0050E838 /* Debug */,
+				100416A322D8ED6F0050E838 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1004168322D8ED6E0050E838 /* Project object */;
+}
