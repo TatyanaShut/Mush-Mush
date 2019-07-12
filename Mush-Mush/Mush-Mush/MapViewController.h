@@ -13,7 +13,7 @@
 @interface MapViewController : UIViewController {
     MKMapView *mapView;
 }
-@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @end
 
 

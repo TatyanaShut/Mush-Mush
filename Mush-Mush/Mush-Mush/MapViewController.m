@@ -8,10 +8,12 @@
 
 #import "MapViewController.h"
 #import "AddPointViewController.h"
+#import "LocationManager.h"
 #import <MapKit/MapKit.h>
 
 @interface MapViewController () <MKMapViewDelegate>
 @property (weak, nonatomic) UIView *pickerView;
+@property (strong, nonatomic) LocationManager *locationManager;
 @end
 
 @implementation MapViewController
@@ -22,13 +24,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = [[[NSBundle mainBundle]infoDictionary] valueForKey:@"CFBundleName"];
     self.view.backgroundColor = [UIColor redColor];
     [self setupNavigationBar];
     [self createYearPickerView];
     [self setupPickerView];
     [self createMapView];
     [self setupMapView];
-    self.title = [[[NSBundle mainBundle]infoDictionary] valueForKey:@"CFBundleName"];
+    [self setupLocationManager];
     
     //load defaults
     
@@ -42,6 +45,13 @@
 }
 
 #pragma mark - Private
+
+- (void)setupLocationManager {
+    LocationManager *locationManager = [[LocationManager alloc]init];
+    self.locationManager = locationManager;
+    [self.locationManager checkPermission];
+}
+
 
 - (void)setupNavigationBar {
     [self.navigationController.navigationBar setTranslucent:NO];

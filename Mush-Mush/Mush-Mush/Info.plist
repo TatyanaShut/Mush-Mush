@@ -2,15 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppTransportSecurity</key>
-	<dict/>
-	<key>NSAllowsArbitraryLoads</key>
-	<true/>
 	<key>UISupportsDocumentBrowser</key>
 	<false/>
 	<key>NSLocationUsageDescription</key>
 	<string>We track you location in order to point mushroom places.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We track you location in order to point mushroom places.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We track you location in order to point mushroom places.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>We track you location in order to point mushroom places.</string>
