@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 #import "AddPointViewController.h"
+#import <MapKit/MapKit.h>
 
 @interface MapViewController ()
 
@@ -22,6 +23,8 @@
    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPointAction)];
 }
+
+
 
 - (void) addPointAction {
     AddPointViewController* addVc = [[AddPointViewController alloc] init];

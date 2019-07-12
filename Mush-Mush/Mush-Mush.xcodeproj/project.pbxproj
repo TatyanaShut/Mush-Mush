@@ -15,6 +15,7 @@
 		100416A622D8EF3D0050E838 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100416A522D8EF3D0050E838 /* MapViewController.m */; };
 		100416A922D8F12B0050E838 /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100416A822D8F12B0050E838 /* AddPointViewController.m */; };
 		100416AC22D8F2AA0050E838 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100416AB22D8F2AA0050E838 /* HistoryViewController.m */; };
+		33797EF422D90553007C3473 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33797EF322D90553007C3473 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		100416A822D8F12B0050E838 /* AddPointViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
 		100416AA22D8F2AA0050E838 /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		100416AB22D8F2AA0050E838 /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		33797EF322D90553007C3473 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33797EF422D90553007C3473 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +53,7 @@
 			children = (
 				1004168D22D8ED6E0050E838 /* Mush-Mush */,
 				1004168C22D8ED6E0050E838 /* Products */,
+				33797EF222D90552007C3473 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +83,14 @@
 				100416AB22D8F2AA0050E838 /* HistoryViewController.m */,
 			);
 			path = "Mush-Mush";
+			sourceTree = "<group>";
+		};
+		33797EF222D90552007C3473 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33797EF322D90553007C3473 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +310,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Mush-Mush/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,6 +327,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Mush-Mush/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
