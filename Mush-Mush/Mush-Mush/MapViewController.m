@@ -108,6 +108,30 @@
                                               ]];
 }
 
+#pragma mark - MapView Delegate
 
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
+    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    
+}
+
+
+//func centerMapOnCurrentLocation() {
+//
+//    guard currentLocation != nil else {
+//        print("Current location is not available.")
+//        return
+//    }
+//
+//    mapView.setCenter(currentLocation!.coordinate, animated: true)
+//
+//    let currentRegion = mapView.regionThatFits(MKCoordinateRegionMake(CLLocationCoordinate2DMake(currentLocation!.coordinate.latitude, currentLocation!.coordinate.longitude), MKCoordinateSpanMake(0.5, 0.5)))
+//
+//    mapView.setRegion(currentRegion, animated: true)
+//
+//
+//}
 
 @end
