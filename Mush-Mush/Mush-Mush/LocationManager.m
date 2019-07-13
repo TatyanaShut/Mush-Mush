@@ -23,7 +23,7 @@
     if (self) {
         _locationManager = [[CLLocationManager alloc]init];
         _locationManager.delegate = self;
-        _location = [[CLLocation alloc]init];
+        //_location = [[CLLocation alloc]init];
     }
     return self;
 }
@@ -34,7 +34,7 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
     else if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse){
-       
+    
         [self.locationManager stopUpdatingLocation];
         [self.locationManager startUpdatingLocation];
     }
@@ -48,12 +48,12 @@
     }
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    if (locations.count > 0) {
-        [self.locationManager startUpdatingLocation];
-        self.location = locations.lastObject;
-        [self.locationManager stopUpdatingLocation];
-    }
-}
+//- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+//    if (locations.count > 0) {
+//        [self.locationManager startUpdatingLocation];
+//        self.location = locations.lastObject;
+//        [self.locationManager stopUpdatingLocation];
+//    }
+//}
 
 @end
