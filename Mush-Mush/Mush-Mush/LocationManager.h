@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LocationManager : NSObject
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) CLLocation *location;
+//@property (strong, nonatomic) CLLocation *location;
 - (void)checkPermission;
 @end
 

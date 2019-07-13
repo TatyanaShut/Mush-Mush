@@ -14,6 +14,7 @@
 @interface MapViewController () <MKMapViewDelegate>
 @property (weak, nonatomic) UIView *pickerView;
 @property (strong, nonatomic) LocationManager *locationManager;
+@property (strong, nonatomic) MKAnnotationView *selectedAnnotationView;
 @end
 
 @implementation MapViewController
@@ -37,14 +38,29 @@
     
 }
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    //reload annotations
+}
+
 #pragma mark - Actions
 
 - (void) addPointAction {
     AddPointViewController* addViewController = [[AddPointViewController alloc] init];
+    //addViewController.pinLocation = self.locationManager.location;
     [self.navigationController pushViewController:addViewController animated:YES];
 }
 
+
+- (void) deletePointAction {
+    [self addAnnotationToMapView];
+    //[self.mapView removeAnnotation:<#(nonnull id<MKAnnotation>)#>];
+}
+
+
 #pragma mark - Private
+
 
 - (void)setupLocationManager {
     LocationManager *locationManager = [[LocationManager alloc]init];
@@ -61,7 +77,19 @@
                                                                        NSForegroundColorAttributeName: [UIColor whiteColor],
                                                                        NSFontAttributeName: [UIFont systemFontOfSize:17.0 weight:UIFontWeightSemibold]
                                                                        }];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPointAction)];
+    [self createActionButtons];
+}
+
+
+
+- (void)createActionButtons {
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPointAction)];
+    UIBarButtonItem *deleteButton  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deletePointAction)];
+   
+    NSArray <UIBarButtonItem *> *array = [NSArray <UIBarButtonItem *> arrayWithObjects:addButton,deleteButton, nil];
+    
+    
+    [self.navigationController.navigationBar.topItem setRightBarButtonItems:array animated:YES];
 }
 
 - (void)createMapView {
@@ -111,27 +139,25 @@
 #pragma mark - MapView Delegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-    
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
     
 }
 
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    self.selectedAnnotationView = view;
+}
 
-//func centerMapOnCurrentLocation() {
-//
-//    guard currentLocation != nil else {
-//        print("Current location is not available.")
-//        return
-//    }
-//
-//    mapView.setCenter(currentLocation!.coordinate, animated: true)
-//
-//    let currentRegion = mapView.regionThatFits(MKCoordinateRegionMake(CLLocationCoordinate2DMake(currentLocation!.coordinate.latitude, currentLocation!.coordinate.longitude), MKCoordinateSpanMake(0.5, 0.5)))
-//
-//    mapView.setRegion(currentRegion, animated: true)
-//
-//
-//}
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+    self.selectedAnnotationView = nil;
+}
 
+
+- (void)addAnnotationToMapView {
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = self.mapView.userLocation.coordinate;
+    point.title = @"Where am I?";
+    point.subtitle = @"I'm here!!!";
+    [self.mapView addAnnotation:point];
+}
 @end
