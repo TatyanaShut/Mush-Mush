@@ -23,6 +23,7 @@
 @property (assign, nonatomic) BOOL isUserLocationUpdated;
 @property (weak, nonatomic) MKUserTrackingButton *trackingButton;
 @property (weak, nonatomic) MKScaleView *scaleView;
+@property (strong, nonatomic) NSMutableArray<Marker *> *markerArray;
 @end
 
 @implementation MapViewController
@@ -41,6 +42,7 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     self = [super init];
     if (self) {
         _isUserLocationUpdated = NO;
+        _markerArray = [NSMutableArray<Marker *> array];
     }
     return self;
 }
@@ -105,6 +107,14 @@ static NSString *const kCancelButtonTitle = @"Cancel";
 }
 
 #pragma mark - Private
+
+- (NSArray<Marker *>*)fetchAnnotations {
+    
+    
+    return nil;
+}
+
+
 
 - (void)setupCalendarManager {
     CalendarManager *calendarManager = [[CalendarManager alloc]init];
@@ -275,7 +285,6 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     self.selectedAnnotationView = nil;
     [self createAddActionButton];
 }
-
 
 - (void)addAnnotationToMapView {
     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
