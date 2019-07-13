@@ -13,8 +13,11 @@
 		1004169B22D8ED6F0050E838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1004169922D8ED6F0050E838 /* LaunchScreen.storyboard */; };
 		1004169E22D8ED6F0050E838 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1004169D22D8ED6F0050E838 /* main.m */; };
 		100416A622D8EF3D0050E838 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100416A522D8EF3D0050E838 /* MapViewController.m */; };
-		100416A922D8F12B0050E838 /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100416A822D8F12B0050E838 /* AddPointViewController.m */; };
 		100416AC22D8F2AA0050E838 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100416AB22D8F2AA0050E838 /* HistoryViewController.m */; };
+		10321C7B22DA09BE003D8DBA /* StyleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7622DA09BE003D8DBA /* StyleApp.m */; };
+		10321C7C22DA09BE003D8DBA /* MKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7722DA09BE003D8DBA /* MKAnnotation.m */; };
+		10321C7D22DA09BE003D8DBA /* AddPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10321C7822DA09BE003D8DBA /* AddPointViewController.xib */; };
+		10321C7E22DA09BE003D8DBA /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7922DA09BE003D8DBA /* AddPointViewController.m */; };
 		334550ED22D92A4F00A3A5C1 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 334550EC22D92A4F00A3A5C1 /* LocationManager.m */; };
 		33797EF422D90553007C3473 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33797EF322D90553007C3473 /* MapKit.framework */; };
 		CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3ED22D9D33900FEF04F /* Marker.m */; };
@@ -32,10 +35,15 @@
 		1004169D22D8ED6F0050E838 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		100416A422D8EF3D0050E838 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		100416A522D8EF3D0050E838 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		100416A722D8F12B0050E838 /* AddPointViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
-		100416A822D8F12B0050E838 /* AddPointViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
 		100416AA22D8F2AA0050E838 /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		100416AB22D8F2AA0050E838 /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		10321C7422DA09BE003D8DBA /* MKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKAnnotation.h; sourceTree = "<group>"; };
+		10321C7522DA09BE003D8DBA /* StyleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleApp.h; sourceTree = "<group>"; };
+		10321C7622DA09BE003D8DBA /* StyleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleApp.m; sourceTree = "<group>"; };
+		10321C7722DA09BE003D8DBA /* MKAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKAnnotation.m; sourceTree = "<group>"; };
+		10321C7822DA09BE003D8DBA /* AddPointViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPointViewController.xib; sourceTree = "<group>"; };
+		10321C7922DA09BE003D8DBA /* AddPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
+		10321C7A22DA09BE003D8DBA /* AddPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
 		334550EB22D92A4F00A3A5C1 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		334550EC22D92A4F00A3A5C1 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		33797EF322D90553007C3473 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -88,14 +96,19 @@
 				100416A522D8EF3D0050E838 /* MapViewController.m */,
 				334550EB22D92A4F00A3A5C1 /* LocationManager.h */,
 				334550EC22D92A4F00A3A5C1 /* LocationManager.m */,
-				100416A722D8F12B0050E838 /* AddPointViewController.h */,
-				100416A822D8F12B0050E838 /* AddPointViewController.m */,
 				100416AA22D8F2AA0050E838 /* HistoryViewController.h */,
 				100416AB22D8F2AA0050E838 /* HistoryViewController.m */,
 				CE55A3EC22D9D33900FEF04F /* Marker.h */,
 				CE55A3ED22D9D33900FEF04F /* Marker.m */,
 				CE55A3EF22D9D35300FEF04F /* MarkerRepository.h */,
 				CE55A3F022D9D35300FEF04F /* MarkerRepository.m */,
+				10321C7A22DA09BE003D8DBA /* AddPointViewController.h */,
+				10321C7922DA09BE003D8DBA /* AddPointViewController.m */,
+				10321C7822DA09BE003D8DBA /* AddPointViewController.xib */,
+				10321C7422DA09BE003D8DBA /* MKAnnotation.h */,
+				10321C7722DA09BE003D8DBA /* MKAnnotation.m */,
+				10321C7522DA09BE003D8DBA /* StyleApp.h */,
+				10321C7622DA09BE003D8DBA /* StyleApp.m */,
 			);
 			path = "Mush-Mush";
 			sourceTree = "<group>";
@@ -174,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1004169B22D8ED6F0050E838 /* LaunchScreen.storyboard in Resources */,
+				10321C7D22DA09BE003D8DBA /* AddPointViewController.xib in Resources */,
 				1004169822D8ED6F0050E838 /* Assets.xcassets in Resources */,
 				1004169622D8ED6E0050E838 /* Main.storyboard in Resources */,
 			);
@@ -188,12 +202,14 @@
 			files = (
 				334550ED22D92A4F00A3A5C1 /* LocationManager.m in Sources */,
 				100416A622D8EF3D0050E838 /* MapViewController.m in Sources */,
-				100416A922D8F12B0050E838 /* AddPointViewController.m in Sources */,
 				1004169E22D8ED6F0050E838 /* main.m in Sources */,
 				100416AC22D8F2AA0050E838 /* HistoryViewController.m in Sources */,
 				1004169022D8ED6E0050E838 /* AppDelegate.m in Sources */,
 				CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */,
+				10321C7C22DA09BE003D8DBA /* MKAnnotation.m in Sources */,
 				CE55A3F122D9D35300FEF04F /* MarkerRepository.m in Sources */,
+				10321C7B22DA09BE003D8DBA /* StyleApp.m in Sources */,
+				10321C7E22DA09BE003D8DBA /* AddPointViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
