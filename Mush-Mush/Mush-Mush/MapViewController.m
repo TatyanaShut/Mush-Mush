@@ -46,10 +46,10 @@
 #pragma mark - Actions
 
 - (void) addPointAction {
-    [self addAnnotationToMapView];
+    //[self addAnnotationToMapView];
     AddPointViewController* addViewController = [[AddPointViewController alloc] init];
-    //addViewController.pinLocation = self.locationManager.location;
-    //[self.navigationController pushViewController:addViewController animated:YES];
+    addViewController.location = self.mapView.userLocation.coordinate;
+    [self.navigationController pushViewController:addViewController animated:YES];
 }
 
 - (void) deletePointAction {
