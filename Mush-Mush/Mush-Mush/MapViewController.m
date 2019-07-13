@@ -48,7 +48,9 @@
 - (void) addPointAction {
     //[self addAnnotationToMapView];
     AddPointViewController* addViewController = [[AddPointViewController alloc] init];
-    addViewController.location = self.mapView.userLocation.coordinate;
+    NSInteger latitude = self.mapView.userLocation.coordinate.latitude;
+    NSInteger longitude = self.mapView.userLocation.coordinate.longitude;
+    addViewController.location = [[CLLocation alloc]initWithLatitude:latitude longitude:longitude];
     [self.navigationController pushViewController:addViewController animated:YES];
 }
 
