@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface Marker : NSObject <NSCoding>
-@property (assign, nonatomic) NSUInteger year;
+@property (strong, nonatomic) NSString* identifier;
+@property (strong, nonatomic) NSString* year;
 @property (strong, nonatomic) NSString* name;
 @property (strong, nonatomic) NSString* descript;
-@property (assign, nonatomic) float coordinateX;
-@property (assign, nonatomic) float coordinateY;
+@property (strong, nonatomic) NSString* mushroomsWeight;
+@property (strong, nonatomic) NSString* coordinateX;
+@property (strong, nonatomic) NSString* coordinateY;
 
-- (instancetype)initWithName:(NSString*) name descript:(NSString*) description year:(NSUInteger) year x:(float) x y:(float) y;
+- (instancetype)initWithName:(NSString*) name descript:(NSString*) description year:(NSString*) year mushroomsWeight:(NSString*) mushroomsWeight x:(NSString*) x y:(NSString*) y;
 @end

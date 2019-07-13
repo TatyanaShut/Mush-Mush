@@ -19,6 +19,7 @@
 		33797EF422D90553007C3473 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33797EF322D90553007C3473 /* MapKit.framework */; };
 		CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3ED22D9D33900FEF04F /* Marker.m */; };
 		CE55A3F122D9D35300FEF04F /* MarkerRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3F022D9D35300FEF04F /* MarkerRepository.m */; };
+		CE55A3F422DA136900FEF04F /* CustomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3F322DA136900FEF04F /* CustomHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		CE55A3ED22D9D33900FEF04F /* Marker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Marker.m; sourceTree = "<group>"; };
 		CE55A3EF22D9D35300FEF04F /* MarkerRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkerRepository.h; sourceTree = "<group>"; };
 		CE55A3F022D9D35300FEF04F /* MarkerRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarkerRepository.m; sourceTree = "<group>"; };
+		CE55A3F222DA136900FEF04F /* CustomHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomHeaderView.h; sourceTree = "<group>"; };
+		CE55A3F322DA136900FEF04F /* CustomHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomHeaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				100416A822D8F12B0050E838 /* AddPointViewController.m */,
 				100416AA22D8F2AA0050E838 /* HistoryViewController.h */,
 				100416AB22D8F2AA0050E838 /* HistoryViewController.m */,
+				CE55A3F222DA136900FEF04F /* CustomHeaderView.h */,
+				CE55A3F322DA136900FEF04F /* CustomHeaderView.m */,
 				CE55A3EC22D9D33900FEF04F /* Marker.h */,
 				CE55A3ED22D9D33900FEF04F /* Marker.m */,
 				CE55A3EF22D9D35300FEF04F /* MarkerRepository.h */,
@@ -186,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE55A3F422DA136900FEF04F /* CustomHeaderView.m in Sources */,
 				334550ED22D92A4F00A3A5C1 /* LocationManager.m in Sources */,
 				100416A622D8EF3D0050E838 /* MapViewController.m in Sources */,
 				100416A922D8F12B0050E838 /* AddPointViewController.m in Sources */,
