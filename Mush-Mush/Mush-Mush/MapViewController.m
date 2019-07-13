@@ -9,12 +9,16 @@
 #import "MapViewController.h"
 #import "AddPointViewController.h"
 #import "LocationManager.h"
+#import "CalendarManager.h"
+#import "YearPickerView.h"
 #import <MapKit/MapKit.h>
 
 @interface MapViewController () <MKMapViewDelegate>
-@property (weak, nonatomic) UIView *pickerView;
+@property (weak, nonatomic) YearPickerView *pickerView;
 @property (strong, nonatomic) LocationManager *locationManager;
 @property (strong, nonatomic) MKAnnotationView *selectedAnnotationView;
+@property (strong, nonatomic) CalendarManager *calendarManager;
+@property (assign, nonatomic) BOOL isUserLocationUpdated;
 @end
 
 @implementation MapViewController
@@ -22,6 +26,16 @@
 @synthesize mapView = _mapView;
 
 #pragma mark - Lifecycle
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _isUserLocationUpdated = NO;
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +47,8 @@
     [self createMapView];
     [self setupMapView];
     [self setupLocationManager];
+    [self setupCalendarManager];
+    
     
     //load defaults
 }
@@ -40,6 +56,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.isUserLocationUpdated = NO;
+    NSString *text = [NSString stringWithFormat:@"%ld", (long)[self.calendarManager currentYear]];
+    [self.pickerView setYearText:text];
+    
     //reload annotations
 }
 
@@ -60,9 +80,27 @@
     //remove from defaults
 }
 
+- (void)nextButtonTapped:(id)sender {
+    if (self.calendarManager) {
+         NSString *text = [NSString stringWithFormat:@"%ld", (long)[self.calendarManager nextYear]];
+        [self.pickerView setYearText:text animated:YES direction:kLeft];
+    }
+}
+
+- (void)prevButtonTapped:(id)sender {
+    if (self.calendarManager) {
+        NSString *text = [NSString stringWithFormat:@"%ld", (long)[self.calendarManager prevYear]];
+        [self.pickerView setYearText:text animated:YES direction:kRight];
+    }
+}
 
 #pragma mark - Private
 
+- (void)setupCalendarManager {
+    CalendarManager *calendarManager = [[CalendarManager alloc]init];
+    self.calendarManager = calendarManager;
+    
+}
 
 - (void)setupLocationManager {
     LocationManager *locationManager = [[LocationManager alloc]init];
@@ -82,7 +120,10 @@
     [self createAddActionButton];
 }
 
-
+- (void)centerMapOnUserLoacation {
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 800, 800);
+    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+}
 
 - (void)createAddActionButton {
     NSUInteger itemsCount = self.navigationController.navigationBar.topItem.rightBarButtonItems.count;
@@ -105,7 +146,6 @@
     [self.navigationController.navigationBar.topItem setRightBarButtonItems:array animated:NO];
 }
 
-
 - (void)createMapView {
     MKMapView *mapView = [[MKMapView alloc]init];
     [self.view addSubview:mapView];
@@ -113,14 +153,16 @@
 }
 
 - (void)createYearPickerView {
-    UIView *pickerView = [[UIView alloc]initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, 64.0f)];
+   YearPickerView *pickerView = (YearPickerView *)[[NSBundle mainBundle] loadNibNamed:@"YearPickerView" owner:self options:nil].firstObject;
     [self.view addSubview:pickerView];
     self.pickerView = pickerView;
-    [self.pickerView setBackgroundColor:[UIColor lightGrayColor]];
 }
 
 - (void)setupPickerView {
     [self setConstraintsToPickerView];
+    [self.pickerView setBackgroundColor:[UIColor lightGrayColor]];
+    [self.pickerView.prevButton addTarget:self action:@selector(prevButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.pickerView.nextButton addTarget:self action:@selector(nextButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setupMapView {
@@ -153,8 +195,10 @@
 #pragma mark - MapView Delegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
-    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    if (!self.isUserLocationUpdated) {
+        [self centerMapOnUserLoacation];
+        self.isUserLocationUpdated = YES;
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {

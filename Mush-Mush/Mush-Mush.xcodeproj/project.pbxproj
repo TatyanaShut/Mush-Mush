@@ -19,6 +19,9 @@
 		10321C7D22DA09BE003D8DBA /* AddPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10321C7822DA09BE003D8DBA /* AddPointViewController.xib */; };
 		10321C7E22DA09BE003D8DBA /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7922DA09BE003D8DBA /* AddPointViewController.m */; };
 		334550ED22D92A4F00A3A5C1 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 334550EC22D92A4F00A3A5C1 /* LocationManager.m */; };
+		334550F022DA2CA500A3A5C1 /* YearPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 334550EF22DA2CA500A3A5C1 /* YearPickerView.m */; };
+		334550F222DA2CBB00A3A5C1 /* YearPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 334550F122DA2CBB00A3A5C1 /* YearPickerView.xib */; };
+		334550F522DA30D000A3A5C1 /* CalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 334550F422DA30D000A3A5C1 /* CalendarManager.m */; };
 		33797EF422D90553007C3473 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33797EF322D90553007C3473 /* MapKit.framework */; };
 		CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3ED22D9D33900FEF04F /* Marker.m */; };
 		CE55A3F122D9D35300FEF04F /* MarkerRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3F022D9D35300FEF04F /* MarkerRepository.m */; };
@@ -46,6 +49,11 @@
 		10321C7A22DA09BE003D8DBA /* AddPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
 		334550EB22D92A4F00A3A5C1 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		334550EC22D92A4F00A3A5C1 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		334550EE22DA2CA500A3A5C1 /* YearPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YearPickerView.h; sourceTree = "<group>"; };
+		334550EF22DA2CA500A3A5C1 /* YearPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YearPickerView.m; sourceTree = "<group>"; };
+		334550F122DA2CBB00A3A5C1 /* YearPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YearPickerView.xib; sourceTree = "<group>"; };
+		334550F322DA30D000A3A5C1 /* CalendarManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarManager.h; sourceTree = "<group>"; };
+		334550F422DA30D000A3A5C1 /* CalendarManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarManager.m; sourceTree = "<group>"; };
 		33797EF322D90553007C3473 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CE55A3EC22D9D33900FEF04F /* Marker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Marker.h; sourceTree = "<group>"; };
 		CE55A3ED22D9D33900FEF04F /* Marker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Marker.m; sourceTree = "<group>"; };
@@ -94,6 +102,11 @@
 				1004169D22D8ED6F0050E838 /* main.m */,
 				100416A422D8EF3D0050E838 /* MapViewController.h */,
 				100416A522D8EF3D0050E838 /* MapViewController.m */,
+				334550EE22DA2CA500A3A5C1 /* YearPickerView.h */,
+				334550EF22DA2CA500A3A5C1 /* YearPickerView.m */,
+				334550F122DA2CBB00A3A5C1 /* YearPickerView.xib */,
+				334550F322DA30D000A3A5C1 /* CalendarManager.h */,
+				334550F422DA30D000A3A5C1 /* CalendarManager.m */,
 				334550EB22D92A4F00A3A5C1 /* LocationManager.h */,
 				334550EC22D92A4F00A3A5C1 /* LocationManager.m */,
 				100416AA22D8F2AA0050E838 /* HistoryViewController.h */,
@@ -189,6 +202,7 @@
 				1004169B22D8ED6F0050E838 /* LaunchScreen.storyboard in Resources */,
 				10321C7D22DA09BE003D8DBA /* AddPointViewController.xib in Resources */,
 				1004169822D8ED6F0050E838 /* Assets.xcassets in Resources */,
+				334550F222DA2CBB00A3A5C1 /* YearPickerView.xib in Resources */,
 				1004169622D8ED6E0050E838 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,9 +219,11 @@
 				1004169E22D8ED6F0050E838 /* main.m in Sources */,
 				100416AC22D8F2AA0050E838 /* HistoryViewController.m in Sources */,
 				1004169022D8ED6E0050E838 /* AppDelegate.m in Sources */,
+				334550F522DA30D000A3A5C1 /* CalendarManager.m in Sources */,
 				CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */,
 				10321C7C22DA09BE003D8DBA /* MKAnnotation.m in Sources */,
 				CE55A3F122D9D35300FEF04F /* MarkerRepository.m in Sources */,
+				334550F022DA2CA500A3A5C1 /* YearPickerView.m in Sources */,
 				10321C7B22DA09BE003D8DBA /* StyleApp.m in Sources */,
 				10321C7E22DA09BE003D8DBA /* AddPointViewController.m in Sources */,
 			);
