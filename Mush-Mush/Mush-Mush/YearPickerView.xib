@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="YearPickerView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMf-iF-cns">
+                    <rect key="frame" x="185.5" y="11.5" width="43" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6LC-VO-yD7">
+                    <rect key="frame" x="362" y="7" width="32" height="30"/>
+                    <state key="normal" title="Next">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yw6-xm-wqW">
+                    <rect key="frame" x="20" y="7" width="31" height="30"/>
+                    <state key="normal" title="Prev">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="dMf-iF-cns" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1FI-Fk-85Y"/>
+                <constraint firstItem="dMf-iF-cns" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5nc-yh-QBx"/>
+                <constraint firstItem="yw6-xm-wqW" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="AbT-Uc-skn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6LC-VO-yD7" secondAttribute="trailing" constant="20" id="Lkf-8i-rDB"/>
+                <constraint firstItem="yw6-xm-wqW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="st2-So-3Zh"/>
+                <constraint firstItem="6LC-VO-yD7" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tpW-95-Hkg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="nextButton" destination="6LC-VO-yD7" id="d1c-c8-3Kg"/>
+                <outlet property="prevButton" destination="yw6-xm-wqW" id="GM7-VM-ZML"/>
+                <outlet property="yearLabel" destination="dMf-iF-cns" id="ssw-Qf-f9l"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="231.69642857142856"/>
+        </view>
+    </objects>
+</document>
