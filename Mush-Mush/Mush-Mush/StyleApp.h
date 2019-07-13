@@ -10,11 +10,7 @@
 //#import <MapKit/MKAnnotation.h>
 #import <UIKit/UIKit.h>
 
-@interface StyleApp : NSObject //<MKAnnotation>
-
-//@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
-//@property (nonatomic, copy) NSString *title;
-//@property (nonatomic, copy) NSString *subtitle;
+@interface StyleApp : NSObject
 
 + (void) styleLabel:(UILabel *)label;
 + (void) styleTextField:(UITextField *) textField  andPlaceholder:(NSString *)placeholder;

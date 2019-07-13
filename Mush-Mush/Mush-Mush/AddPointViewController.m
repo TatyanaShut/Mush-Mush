@@ -26,18 +26,23 @@
     [super viewDidLoad];
     
     self.view.backgroundColor =[UIColor whiteColor];
-   
+    
+    MKCoordinateSpan span; span.latitudeDelta = .01;
+    span.longitudeDelta = .01;
+    MKCoordinateRegion region;
+    region.center = self.location.coordinate; region.span = span;
+    [self.mapView setRegion:region animated:YES];
     
     UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeTextInput)];
     tapGesture.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapGesture];
-
+    
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager startUpdatingLocation];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePointAction)];
-
-
+    
+    
     [StyleApp styleLabel:self.currentYearLabel];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy"];
@@ -45,7 +50,7 @@
     self.currentYearLabel.text = yearString;
     
     [StyleApp styleTextField:self.namePointTextField andPlaceholder:@"Name"];
-  
+    
     [StyleApp styleTextField:self.massOfMushroomsTextField andPlaceholder:@"Mass of mushrooms"];
     self.massOfMushroomsTextField.keyboardType = UIKeyboardTypePhonePad;
     
@@ -55,9 +60,19 @@
     [StyleApp styleLabel:self.longitudeCoordinatesLabel];
     self.longitudeCoordinatesLabel.text = @"longitude";
     
-
+    
     [StyleApp styleTextView:self.descriptionTextView];
-
+    
+    
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self addAnnotation];
+        //self.latitudeCoordinatesLabel.text = self.location.coordinate.latitude
+        self.latitudeCoordinatesLabel.text = [NSString stringWithFormat:@"%.7lf", self.location.coordinate.latitude];
+        self.longitudeCoordinatesLabel.text = [NSString stringWithFormat:@"%.7lf", self.location.coordinate.longitude];
+    });
+    
 }
 
 - (void) donePointAction{
@@ -69,7 +84,7 @@
     
     if (self.namePointTextField.text.length == 0 )
     {
-
+        
         [self shakeAnimation:self.namePointTextField];
     }
     if  (self.massOfMushroomsTextField.text.length == 0 ){
@@ -89,13 +104,13 @@
         return nil;
     }
     static NSString *identifier = @"Annotation";
-
+    
     MKPinAnnotationView *pin = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
     if (!pin){
         pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:identifier];
-    pin.pinTintColor =[UIColor redColor];
-    pin.animatesDrop = YES;
-    pin.canShowCallout = YES;
+        pin.pinTintColor =[UIColor redColor];
+        pin.animatesDrop = YES;
+        pin.canShowCallout = YES;
         pin.draggable = YES;
     }
     else{
@@ -108,23 +123,23 @@
     
     if(newState == MKAnnotationViewDragStateEnding) {
         CLLocationCoordinate2D location = view.annotation.coordinate;
-
-        self.latitudeCoordinatesLabel.text = [NSString stringWithFormat:@"%.7lf", location.latitude];
-         self.longitudeCoordinatesLabel.text = [NSString stringWithFormat:@"%.7lf", location.longitude];
         
-       
+        self.latitudeCoordinatesLabel.text = [NSString stringWithFormat:@"%.7lf", location.latitude];
+        self.longitudeCoordinatesLabel.text = [NSString stringWithFormat:@"%.7lf", location.longitude];
+        
+        
     }
 }
 - (void) closeTextInput {
     [[self view] endEditing:YES];
 }
 
-- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered{
+-(void) addAnnotation{
     
     MKAnnotation *annotation = [[MKAnnotation alloc]init];
     annotation.title = @"Test";
     annotation.subtitle = @"TestSubtitle";
-    annotation.coordinate = self.mapView.region.center;
+    annotation.coordinate = self.location.coordinate;
     [self.mapView addAnnotation:annotation];
     
 }
@@ -153,7 +168,8 @@
                          }
                      }];
 }
-@end
 
+
+@end
 
 
