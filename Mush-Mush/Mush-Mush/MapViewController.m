@@ -11,6 +11,8 @@
 #import "LocationManager.h"
 #import "CalendarManager.h"
 #import "YearPickerView.h"
+#import "Marker.h"
+#import "MarkerRepository.h"
 #import <MapKit/MapKit.h>
 
 @interface MapViewController () <MKMapViewDelegate>
@@ -19,9 +21,16 @@
 @property (strong, nonatomic) MKAnnotationView *selectedAnnotationView;
 @property (strong, nonatomic) CalendarManager *calendarManager;
 @property (assign, nonatomic) BOOL isUserLocationUpdated;
+@property (weak, nonatomic) MKUserTrackingButton *trackingButton;
+@property (weak, nonatomic) MKScaleView *scaleView;
 @end
 
 @implementation MapViewController
+
+static NSString *const kMessageTitle = @"Warning";
+static NSString *const kMessageBody = @"Do you want to delete the pin?";
+static NSString *const kOkButtonTitle = @"Ok";
+static NSString *const kCancelButtonTitle = @"Cancel";
 
 @synthesize mapView = _mapView;
 
@@ -36,11 +45,10 @@
     return self;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = [[[NSBundle mainBundle]infoDictionary] valueForKey:@"CFBundleName"];
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self setupNavigationBar];
     [self createYearPickerView];
     [self setupPickerView];
@@ -48,6 +56,8 @@
     [self setupMapView];
     [self setupLocationManager];
     [self setupCalendarManager];
+    [self setupTrackingButton];
+    [self setupScaleView];
     
     
     //load defaults
@@ -106,6 +116,42 @@
     LocationManager *locationManager = [[LocationManager alloc]init];
     self.locationManager = locationManager;
     [self.locationManager checkPermission];
+}
+
+- (void)setupTrackingButton {
+    MKUserTrackingButton *trackingButton = [MKUserTrackingButton userTrackingButtonWithMapView:self.mapView];
+    [trackingButton.layer setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.8].CGColor];
+    [trackingButton.layer setBorderColor:[UIColor colorWithWhite:1.0 alpha:0.8].CGColor];
+    [trackingButton.layer setBorderWidth:1.0f];
+    [trackingButton.layer setCornerRadius:6.0f];
+    [self.view addSubview:trackingButton];
+    self.trackingButton = trackingButton;
+    [self setConstraintsForTrackingButton];
+}
+
+- (void)setConstraintsForTrackingButton {
+    self.trackingButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:@[
+                                              [self.trackingButton.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-self.trackingButton.frame.size.height/2.0],
+                                              [self.trackingButton.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor constant: -5.0f]
+                                              ]];
+}
+
+- (void)setupScaleView {
+    MKScaleView *scaleView = [MKScaleView scaleViewWithMapView:self.mapView];
+    scaleView.legendAlignment = MKScaleViewAlignmentLeading;
+    scaleView.scaleVisibility = MKFeatureVisibilityVisible;
+    [self.view addSubview:scaleView];
+    self.scaleView = scaleView;
+    [self setConstraintsForScaleView];
+}
+
+- (void)setConstraintsForScaleView {
+    self.scaleView.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:@[
+                                              [self.scaleView.topAnchor constraintEqualToAnchor:self.pickerView.bottomAnchor],
+                                              [self.scaleView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:5.0f]
+                                              ]];
 }
 
 
@@ -169,6 +215,7 @@
      self.mapView.delegate = self;
     [self setConstraintsToMapView];
     [self.mapView setShowsUserLocation:YES];
+    [self.mapView setZoomEnabled:YES];
     
 }
 
@@ -190,6 +237,18 @@
                                               [self.mapView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
                                               [self.mapView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor]
                                               ]];
+}
+
+- (void)showAlertViewController {
+    UIAlertController *alertContoller = [UIAlertController alertControllerWithTitle:kMessageTitle message:kMessageBody preferredStyle:UIAlertControllerStyleAlert];
+    __weak typeof(self) weakSelf = self;
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:kOkButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf deletePointAction];
+    }];
+    [alertContoller addAction:okAction];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:kCancelButtonTitle style:UIAlertActionStyleCancel handler:nil];
+    [alertContoller addAction:cancelAction];
+    [self.parentViewController presentViewController:alertContoller animated:YES completion:nil];
 }
 
 #pragma mark - MapView Delegate
