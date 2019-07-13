@@ -23,7 +23,8 @@
 @property (assign, nonatomic) BOOL isUserLocationUpdated;
 @property (weak, nonatomic) MKUserTrackingButton *trackingButton;
 @property (weak, nonatomic) MKScaleView *scaleView;
-@property (strong, nonatomic) NSMutableArray<Marker *> *markerArray;
+//@property (strong, nonatomic) NSMutableArray<Marker *> *markerArray;
+@property (strong, nonatomic) MarkerRepository *repository;
 @end
 
 @implementation MapViewController
@@ -42,7 +43,8 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     self = [super init];
     if (self) {
         _isUserLocationUpdated = NO;
-        _markerArray = [NSMutableArray<Marker *> array];
+        //_markerArray = [NSMutableArray<Marker *> array];
+        _repository = [[MarkerRepository alloc]init];
     }
     return self;
 }
@@ -62,7 +64,6 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     [self setupScaleView];
     
     
-    //load defaults
 }
 
 
@@ -71,6 +72,10 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     self.isUserLocationUpdated = NO;
     NSString *text = [NSString stringWithFormat:@"%ld", (long)[self.calendarManager currentYear]];
     [self.pickerView setYearText:text];
+    
+    
+    [self removeAnnotations];
+    [self addAnnotations];
     
     //reload annotations
 }
@@ -87,9 +92,15 @@ static NSString *const kCancelButtonTitle = @"Cancel";
 }
 
 - (void) deletePointAction {
+    __weak typeof(self) weakSelf = self;
     NSArray <id<MKAnnotation>> *array = self.mapView.selectedAnnotations;
-    [self.mapView removeAnnotations:array];
-    //remove from defaults
+    NSArray <id<MKAnnotation>> *newArray = [array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSArray<id<MKAnnotation>> *evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [evaluatedObject isMemberOfClass:[MKMarkerAnnotationView class]] ? YES : NO;
+    }]];
+    [self.mapView removeAnnotations:newArray];
+    [newArray enumerateObjectsUsingBlock:^(id<MKAnnotation>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf.repository deleteMarker:obj.title];
+    }];
 }
 
 - (void)nextButtonTapped:(id)sender {
@@ -109,12 +120,50 @@ static NSString *const kCancelButtonTitle = @"Cancel";
 #pragma mark - Private
 
 - (NSArray<Marker *>*)fetchAnnotations {
+    NSArray<Marker *> *annotations = [self.repository allMarkersByYear:self.pickerView.yearLabel.text];
+    return annotations;
+}
+
+- (MKPointAnnotation *)getAnnotattionFromMarker:(Marker *)marker {
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = CLLocationCoordinate2DMake([marker.coordinateY integerValue], [marker.coordinateX integerValue]);
+    point.title = marker.name;
+    point.subtitle = marker.descript;
+    return point;
+}
+
+- (void)addAnnotations {
+    
+    __weak typeof (self) weakSelf = self;
+    NSArray<Marker *> *array = [self fetchAnnotations];
+    [array enumerateObjectsUsingBlock:^(Marker * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        MKPointAnnotation *point = [weakSelf getAnnotattionFromMarker:obj];
+        [weakSelf.mapView addAnnotation:point];
+    }];
     
     
-    return nil;
+    
+//    dispatch_queue_global_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+//    __weak typeof (self) weakSelf = self;
+//    dispatch_async(queue, ^{
+//        NSArray<Marker *> *array = [self fetchAnnotations];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [array enumerateObjectsUsingBlock:^(Marker * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                MKPointAnnotation *point = [weakSelf getAnnotattionFromMarker:obj];
+//                [weakSelf.mapView addAnnotation:point];
+//            }];
+//        });
+//    });
 }
 
 
+- (void)removeAnnotations {
+    NSArray <id<MKAnnotation>> *array = self.mapView.annotations;
+    NSArray <id<MKAnnotation>> *newArray = [array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSArray<id<MKAnnotation>> *evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [evaluatedObject isMemberOfClass:[MKMarkerAnnotationView class]] ? YES : NO;
+    }]];
+    [self.mapView removeAnnotations:newArray];
+}
 
 - (void)setupCalendarManager {
     CalendarManager *calendarManager = [[CalendarManager alloc]init];
@@ -286,11 +335,4 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     [self createAddActionButton];
 }
 
-- (void)addAnnotationToMapView {
-    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-    point.coordinate = self.mapView.userLocation.coordinate;
-    point.title = @"Where am I?";
-    point.subtitle = @"I'm here!!!";
-    [self.mapView addAnnotation:point];
-}
 @end
