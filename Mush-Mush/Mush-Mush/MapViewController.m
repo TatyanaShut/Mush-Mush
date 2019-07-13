@@ -35,7 +35,6 @@
     [self setupLocationManager];
     
     //load defaults
-    
 }
 
 
@@ -47,15 +46,16 @@
 #pragma mark - Actions
 
 - (void) addPointAction {
+    [self addAnnotationToMapView];
     AddPointViewController* addViewController = [[AddPointViewController alloc] init];
     //addViewController.pinLocation = self.locationManager.location;
-    [self.navigationController pushViewController:addViewController animated:YES];
+    //[self.navigationController pushViewController:addViewController animated:YES];
 }
 
-
 - (void) deletePointAction {
-    [self addAnnotationToMapView];
-    //[self.mapView removeAnnotation:<#(nonnull id<MKAnnotation>)#>];
+    NSArray <id<MKAnnotation>> *array = self.mapView.selectedAnnotations;
+    [self.mapView removeAnnotations:array];
+    //remove from defaults
 }
 
 
@@ -77,20 +77,32 @@
                                                                        NSForegroundColorAttributeName: [UIColor whiteColor],
                                                                        NSFontAttributeName: [UIFont systemFontOfSize:17.0 weight:UIFontWeightSemibold]
                                                                        }];
-    [self createActionButtons];
+    [self createAddActionButton];
 }
 
 
 
-- (void)createActionButtons {
+- (void)createAddActionButton {
+    NSUInteger itemsCount = self.navigationController.navigationBar.topItem.rightBarButtonItems.count;
+    if (itemsCount==1) {
+        return;
+    }
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPointAction)];
+    NSArray <UIBarButtonItem *> *array = [NSArray <UIBarButtonItem *> arrayWithObjects:addButton,nil];
+    [self.navigationController.navigationBar.topItem setRightBarButtonItems:array animated:NO];
+}
+
+- (void)createAddAndDeleteActionButtons {
+    NSUInteger itemsCount = self.navigationController.navigationBar.topItem.rightBarButtonItems.count;
+    if (itemsCount==2) {
+        return;
+    }
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPointAction)];
     UIBarButtonItem *deleteButton  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deletePointAction)];
-   
     NSArray <UIBarButtonItem *> *array = [NSArray <UIBarButtonItem *> arrayWithObjects:addButton,deleteButton, nil];
-    
-    
-    [self.navigationController.navigationBar.topItem setRightBarButtonItems:array animated:YES];
+    [self.navigationController.navigationBar.topItem setRightBarButtonItems:array animated:NO];
 }
+
 
 - (void)createMapView {
     MKMapView *mapView = [[MKMapView alloc]init];
@@ -141,15 +153,22 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
-    
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    self.selectedAnnotationView = view;
+    if ([view isMemberOfClass:[MKMarkerAnnotationView class]]) {
+        self.selectedAnnotationView = view;
+        [self createAddAndDeleteActionButtons];
+    }
+    else {
+        self.selectedAnnotationView = nil;
+        [self createAddActionButton];
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
     self.selectedAnnotationView = nil;
+    [self createAddActionButton];
 }
 
 
