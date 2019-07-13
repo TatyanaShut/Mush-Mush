@@ -16,7 +16,7 @@
 @interface AddPointViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property (nonatomic, strong) CLLocationManager* locationManager;
-@property (strong, nonatomic) CLLocation *location;
+
 @end
 
 @implementation AddPointViewController

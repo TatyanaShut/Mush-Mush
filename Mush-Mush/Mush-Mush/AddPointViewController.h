@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class MKMapView;
+@class MKMapView, CLLocationManager, CLLocation;
+
 @interface AddPointViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *currentYearLabel;
 @property (weak, nonatomic) IBOutlet UITextField *namePointTextField;
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *longitudeCoordinatesLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property(nonatomic, strong) CLLocation *location;
 
 
 @end
