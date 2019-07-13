@@ -10,7 +10,8 @@
 #import "Marker.h"
 
 @interface MarkerRepository : NSObject
-- (NSArray<NSNumber*>*) allYears;
-- (NSArray<Marker*>*) allMarkersByYear:(NSNumber*) year;
+- (NSArray<NSString*>*) allYears;
+- (NSArray<Marker*>*) allMarkersByYear:(NSString*) year;
 - (void) saveMarker:(Marker*) marker;
+- (void) deleteMarker:(Marker*) marker;
 @end

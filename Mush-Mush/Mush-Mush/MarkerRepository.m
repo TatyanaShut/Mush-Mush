@@ -25,26 +25,25 @@ static NSString* const MARKERS = @"markers";
     return self;
 }
 
-- (NSArray<NSNumber*>*) allYears {
+- (NSArray<NSString*>*) allYears {
     NSData* unarchiveData = [self.userDefaults objectForKey:MARKERS];
-    NSMutableDictionary<NSNumber*, NSMutableArray<Marker*>*>* markersByYears = [NSKeyedUnarchiver unarchiveObjectWithData:unarchiveData];
+    NSMutableDictionary<NSString*, NSMutableArray<Marker*>*>* markersByYears = [NSKeyedUnarchiver unarchiveObjectWithData:unarchiveData];
     return [markersByYears allKeys];
 }
 
-- (NSArray<Marker*>*) allMarkersByYear:(NSNumber*) year {
+- (NSArray<Marker*>*) allMarkersByYear:(NSString*) year {
     NSData* unarchiveData = [self.userDefaults objectForKey:MARKERS];
-    NSMutableDictionary<NSNumber*, NSMutableArray<Marker*>*>* markersByYears = [NSKeyedUnarchiver unarchiveObjectWithData:unarchiveData];
+    NSMutableDictionary<NSString*, NSMutableArray<Marker*>*>* markersByYears = [NSKeyedUnarchiver unarchiveObjectWithData:unarchiveData];
     return [markersByYears objectForKey:year];
 }
 
 - (void) saveMarker:(Marker*) marker {
     NSData* unarchiveData = [self.userDefaults objectForKey:MARKERS];
-    //    NSMutableDictionary<NSNumber*, NSMutableArray<Marker*>*>* markersByYears = [NSKeyedUnarchiver unarchiveObjectWithData:unarchiveData];
-    NSMutableDictionary<NSNumber*, NSMutableArray<Marker*>*>* markersByYears = [[NSMutableDictionary alloc] initWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:unarchiveData]];
-    NSMutableArray* markers = [markersByYears objectForKey:@(marker.year)];
+    NSMutableDictionary<NSString*, NSMutableArray<Marker*>*>* markersByYears = [[NSMutableDictionary alloc] initWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:unarchiveData]];
+    NSMutableArray* markers = [markersByYears objectForKey:marker.year];
     if (!markers) {
         markers = [NSMutableArray new];
-        [markersByYears setObject:markers forKey:@(marker.year)];
+        [markersByYears setObject:markers forKey:marker.year];
     }
     [markers addObject:marker];
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:markersByYears];
@@ -53,4 +52,52 @@ static NSString* const MARKERS = @"markers";
     [self.userDefaults synchronize];
 }
 
+- (void) deleteMarker:(Marker*) marker {
+    NSData* unarchiveData = [self.userDefaults objectForKey:MARKERS];
+    NSMutableDictionary<NSString*, NSMutableArray<Marker*>*>* markersByYears = [[NSMutableDictionary alloc] initWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:unarchiveData]];
+    NSMutableArray* markers = [markersByYears objectForKey:marker.year];
+    __block NSNumber* indexToRemove = nil;
+    [markers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        Marker* object = (Marker*)obj;
+        if ([marker.identifier isEqualToString:object.identifier]) {
+            indexToRemove = @(idx);
+            *stop = YES;
+        }
+    }];
+    
+    if (indexToRemove) {
+        [markers removeObjectAtIndex:[indexToRemove unsignedIntegerValue]];
+        NSData* data = [NSKeyedArchiver archivedDataWithRootObject:markersByYears];
+        [self.userDefaults setObject:data forKey:MARKERS];
+        [self.userDefaults synchronize];
+    }
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
