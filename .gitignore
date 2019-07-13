@@ -30,6 +30,13 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
+## Xcode Patch
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+
 # CocoaPods
 #
 # We recommend against adding the Pods directory to your .gitignore. However
