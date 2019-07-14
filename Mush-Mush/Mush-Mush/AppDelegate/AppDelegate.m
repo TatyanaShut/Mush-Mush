@@ -61,7 +61,6 @@ static NSString* const MARKERS = @"markers";
 - (void) initUserDefaults {
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     //[userDefaults removeObjectForKey:MARKERS];
-    
     if (![userDefaults objectForKey:MARKERS]) {
         NSData* initialState = [NSKeyedArchiver archivedDataWithRootObject:[NSMutableDictionary new]];
         [userDefaults setObject:initialState forKey:MARKERS];
