@@ -52,7 +52,7 @@ static NSString *const kCancelButtonTitle = @"Cancel";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = [[[NSBundle mainBundle]infoDictionary] valueForKey:@"CFBundleName"];
+    self.title = @"Карта";
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupNavigationBar];
     [self createYearPickerView];

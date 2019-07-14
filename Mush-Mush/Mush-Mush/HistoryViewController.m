@@ -37,7 +37,7 @@ static NSString* const HEADER_IDENTIFIER = @"header";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"History";
+    self.title = @"История";
     self.markerRepository = [[MarkerRepository alloc] init];
     
     UINib* nib = [UINib nibWithNibName:@"CustomTableViewCell" bundle:nil];

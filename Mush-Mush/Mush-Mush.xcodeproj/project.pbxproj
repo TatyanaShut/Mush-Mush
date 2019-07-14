@@ -18,6 +18,7 @@
 		10321C7C22DA09BE003D8DBA /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7722DA09BE003D8DBA /* Annotation.m */; };
 		10321C7D22DA09BE003D8DBA /* AddPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10321C7822DA09BE003D8DBA /* AddPointViewController.xib */; };
 		10321C7E22DA09BE003D8DBA /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7922DA09BE003D8DBA /* AddPointViewController.m */; };
+		107E7E8922DB809E00965FEA /* UIColor+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E7E8822DB809E00965FEA /* UIColor+CustomColor.m */; };
 		10B6D31F22DB3A7B00822BC0 /* DirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B6D31E22DB3A7B00822BC0 /* DirectoryViewController.m */; };
 		10B6D32222DB3ACC00822BC0 /* DirectoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B6D32122DB3ACC00822BC0 /* DirectoryTableViewCell.m */; };
 		10B6D32522DB3B0700822BC0 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B6D32422DB3B0700822BC0 /* DataSource.m */; };
@@ -56,6 +57,8 @@
 		10321C7822DA09BE003D8DBA /* AddPointViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPointViewController.xib; sourceTree = "<group>"; };
 		10321C7922DA09BE003D8DBA /* AddPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
 		10321C7A22DA09BE003D8DBA /* AddPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
+		107E7E8822DB809E00965FEA /* UIColor+CustomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColor.m"; sourceTree = "<group>"; };
+		107E7E8A22DB80A300965FEA /* UIColor+CustomColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColor.h"; sourceTree = "<group>"; };
 		10B6D31D22DB3A7B00822BC0 /* DirectoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DirectoryViewController.h; sourceTree = "<group>"; };
 		10B6D31E22DB3A7B00822BC0 /* DirectoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DirectoryViewController.m; sourceTree = "<group>"; };
 		10B6D32022DB3ACC00822BC0 /* DirectoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DirectoryTableViewCell.h; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 		1004168D22D8ED6E0050E838 /* Mush-Mush */ = {
 			isa = PBXGroup;
 			children = (
+				107E7E8822DB809E00965FEA /* UIColor+CustomColor.m */,
+				107E7E8A22DB80A300965FEA /* UIColor+CustomColor.h */,
 				1004168E22D8ED6E0050E838 /* AppDelegate.h */,
 				1004168F22D8ED6E0050E838 /* AppDelegate.m */,
 				1004169422D8ED6E0050E838 /* Main.storyboard */,
@@ -267,6 +272,7 @@
 				334550F522DA30D000A3A5C1 /* CalendarManager.m in Sources */,
 				CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */,
 				10B6D31F22DB3A7B00822BC0 /* DirectoryViewController.m in Sources */,
+				107E7E8922DB809E00965FEA /* UIColor+CustomColor.m in Sources */,
 				10B6D32222DB3ACC00822BC0 /* DirectoryTableViewCell.m in Sources */,
 				CE55A3F822DA6CB000FEF04F /* CustomTableViewCell.m in Sources */,
 				CE55A3FD22DA748200FEF04F /* MarkerInfoViewController.m in Sources */,
