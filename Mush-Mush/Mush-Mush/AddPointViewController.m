@@ -28,6 +28,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor =[UIColor whiteColor];
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
     
     MKCoordinateSpan span; span.latitudeDelta = .01;
     span.longitudeDelta = .01;
@@ -70,7 +71,7 @@
     self.descriptionTextView.textColor = [UIColor lightGrayColor]; //optional
     
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self addAnnotation];
         //self.latitudeCoordinatesLabel.text = self.location.coordinate.latitude
         self.latitudeCoordinatesLabel.text = [NSString stringWithFormat:@"%.7lf", self.location.coordinate.latitude];
@@ -100,7 +101,7 @@
         MarkerRepository *markerRepository =[[MarkerRepository alloc]init];
         [markerRepository saveMarker:marker];
         [self.navigationController popToRootViewControllerAnimated:YES];
-     
+        
         
     }
 }
