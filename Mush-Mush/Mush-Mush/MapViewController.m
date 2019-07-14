@@ -73,7 +73,6 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     NSString *text = [NSString stringWithFormat:@"%ld", (long)[self.calendarManager currentYear]];
     [self.pickerView setYearText:text];
     
-    
     [self removeAnnotations];
     [self addAnnotations];
     
@@ -85,8 +84,8 @@ static NSString *const kCancelButtonTitle = @"Cancel";
 - (void) addPointAction {
     //[self addAnnotationToMapView];
     AddPointViewController* addViewController = [[AddPointViewController alloc] init];
-    NSInteger latitude = self.mapView.userLocation.coordinate.latitude;
-    NSInteger longitude = self.mapView.userLocation.coordinate.longitude;
+    CGFloat latitude = self.mapView.userLocation.coordinate.latitude;
+    CGFloat longitude = self.mapView.userLocation.coordinate.longitude;
     addViewController.location = [[CLLocation alloc]initWithLatitude:latitude longitude:longitude];
     [self.navigationController pushViewController:addViewController animated:YES];
 }
@@ -126,9 +125,10 @@ static NSString *const kCancelButtonTitle = @"Cancel";
 
 - (MKPointAnnotation *)getAnnotattionFromMarker:(Marker *)marker {
     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-    point.coordinate = CLLocationCoordinate2DMake([marker.coordinateY integerValue], [marker.coordinateX integerValue]);
+    point.coordinate = CLLocationCoordinate2DMake([marker.coordinateX integerValue], [marker.coordinateY integerValue]);
     point.title = marker.name;
     point.subtitle = marker.descript;
+    
     return point;
 }
 
