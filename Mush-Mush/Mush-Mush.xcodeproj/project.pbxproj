@@ -105,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				1004168D22D8ED6E0050E838 /* Mush-Mush */,
+				107E7E9822DB859600965FEA /* Other */,
 				1004168C22D8ED6E0050E838 /* Products */,
 				33797EF222D90552007C3473 /* Frameworks */,
 			);
@@ -121,15 +122,117 @@
 		1004168D22D8ED6E0050E838 /* Mush-Mush */ = {
 			isa = PBXGroup;
 			children = (
+				107E7E9722DB857A00965FEA /* AppDelegate */,
+				107E7E9522DB851A00965FEA /* Map */,
+				107E7E9022DB843E00965FEA /* AddPoint */,
+				107E7E9622DB852D00965FEA /* History */,
+				107E7E8B22DB837E00965FEA /* Directory */,
+				107E7E9422DB84FB00965FEA /* Color */,
+				107E7E9122DB848700965FEA /* Repository */,
+			);
+			path = "Mush-Mush";
+			sourceTree = "<group>";
+		};
+		107E7E8B22DB837E00965FEA /* Directory */ = {
+			isa = PBXGroup;
+			children = (
+				107E7E8C22DB83AE00965FEA /* DetailsVC */,
+				107E7E8D22DB83CB00965FEA /* DirectoryVC */,
+				107E7E8E22DB841000965FEA /* DirectoryCell */,
+				107E7E8F22DB842700965FEA /* DataSource */,
+			);
+			path = Directory;
+			sourceTree = "<group>";
+		};
+		107E7E8C22DB83AE00965FEA /* DetailsVC */ = {
+			isa = PBXGroup;
+			children = (
+				10B6D32622DB3B5700822BC0 /* DetailsViewController.h */,
+				10B6D32722DB3B5700822BC0 /* DetailsViewController.m */,
+			);
+			path = DetailsVC;
+			sourceTree = "<group>";
+		};
+		107E7E8D22DB83CB00965FEA /* DirectoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				10B6D31E22DB3A7B00822BC0 /* DirectoryViewController.m */,
+				10B6D31D22DB3A7B00822BC0 /* DirectoryViewController.h */,
+			);
+			path = DirectoryVC;
+			sourceTree = "<group>";
+		};
+		107E7E8E22DB841000965FEA /* DirectoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				10B6D32122DB3ACC00822BC0 /* DirectoryTableViewCell.m */,
+				10B6D32022DB3ACC00822BC0 /* DirectoryTableViewCell.h */,
+			);
+			path = DirectoryCell;
+			sourceTree = "<group>";
+		};
+		107E7E8F22DB842700965FEA /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				10B6D32322DB3B0700822BC0 /* DataSource.h */,
+				10B6D32422DB3B0700822BC0 /* DataSource.m */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		107E7E9022DB843E00965FEA /* AddPoint */ = {
+			isa = PBXGroup;
+			children = (
+				107E7E9222DB84B400965FEA /* AddPointVC */,
+				107E7E9322DB84D800965FEA /* Annotation */,
+				10321C7522DA09BE003D8DBA /* StyleApp.h */,
+				10321C7622DA09BE003D8DBA /* StyleApp.m */,
+			);
+			path = AddPoint;
+			sourceTree = "<group>";
+		};
+		107E7E9122DB848700965FEA /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				CE55A3EC22D9D33900FEF04F /* Marker.h */,
+				CE55A3ED22D9D33900FEF04F /* Marker.m */,
+				CE55A3EF22D9D35300FEF04F /* MarkerRepository.h */,
+				CE55A3F022D9D35300FEF04F /* MarkerRepository.m */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		107E7E9222DB84B400965FEA /* AddPointVC */ = {
+			isa = PBXGroup;
+			children = (
+				10321C7922DA09BE003D8DBA /* AddPointViewController.m */,
+				10321C7A22DA09BE003D8DBA /* AddPointViewController.h */,
+				10321C7822DA09BE003D8DBA /* AddPointViewController.xib */,
+			);
+			path = AddPointVC;
+			sourceTree = "<group>";
+		};
+		107E7E9322DB84D800965FEA /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				10321C7722DA09BE003D8DBA /* Annotation.m */,
+				10321C7422DA09BE003D8DBA /* Annotation.h */,
+			);
+			path = Annotation;
+			sourceTree = "<group>";
+		};
+		107E7E9422DB84FB00965FEA /* Color */ = {
+			isa = PBXGroup;
+			children = (
 				107E7E8822DB809E00965FEA /* UIColor+CustomColor.m */,
 				107E7E8A22DB80A300965FEA /* UIColor+CustomColor.h */,
-				1004168E22D8ED6E0050E838 /* AppDelegate.h */,
-				1004168F22D8ED6E0050E838 /* AppDelegate.m */,
-				1004169422D8ED6E0050E838 /* Main.storyboard */,
-				1004169722D8ED6F0050E838 /* Assets.xcassets */,
-				1004169922D8ED6F0050E838 /* LaunchScreen.storyboard */,
-				1004169C22D8ED6F0050E838 /* Info.plist */,
-				1004169D22D8ED6F0050E838 /* main.m */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		107E7E9522DB851A00965FEA /* Map */ = {
+			isa = PBXGroup;
+			children = (
 				100416A422D8EF3D0050E838 /* MapViewController.h */,
 				100416A522D8EF3D0050E838 /* MapViewController.m */,
 				334550EE22DA2CA500A3A5C1 /* YearPickerView.h */,
@@ -139,6 +242,13 @@
 				334550F422DA30D000A3A5C1 /* CalendarManager.m */,
 				334550EB22D92A4F00A3A5C1 /* LocationManager.h */,
 				334550EC22D92A4F00A3A5C1 /* LocationManager.m */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		107E7E9622DB852D00965FEA /* History */ = {
+			isa = PBXGroup;
+			children = (
 				100416AA22D8F2AA0050E838 /* HistoryViewController.h */,
 				100416AB22D8F2AA0050E838 /* HistoryViewController.m */,
 				CE55A3FA22DA748200FEF04F /* MarkerInfoViewController.h */,
@@ -149,27 +259,29 @@
 				CE55A3F522DA6CB000FEF04F /* CustomTableViewCell.h */,
 				CE55A3F622DA6CB000FEF04F /* CustomTableViewCell.m */,
 				CE55A3F722DA6CB000FEF04F /* CustomTableViewCell.xib */,
-				CE55A3EC22D9D33900FEF04F /* Marker.h */,
-				CE55A3ED22D9D33900FEF04F /* Marker.m */,
-				CE55A3EF22D9D35300FEF04F /* MarkerRepository.h */,
-				CE55A3F022D9D35300FEF04F /* MarkerRepository.m */,
-				10321C7A22DA09BE003D8DBA /* AddPointViewController.h */,
-				10321C7922DA09BE003D8DBA /* AddPointViewController.m */,
-				10321C7822DA09BE003D8DBA /* AddPointViewController.xib */,
-				10321C7422DA09BE003D8DBA /* Annotation.h */,
-				10321C7722DA09BE003D8DBA /* Annotation.m */,
-				10321C7522DA09BE003D8DBA /* StyleApp.h */,
-				10321C7622DA09BE003D8DBA /* StyleApp.m */,
-				10B6D31D22DB3A7B00822BC0 /* DirectoryViewController.h */,
-				10B6D31E22DB3A7B00822BC0 /* DirectoryViewController.m */,
-				10B6D32022DB3ACC00822BC0 /* DirectoryTableViewCell.h */,
-				10B6D32122DB3ACC00822BC0 /* DirectoryTableViewCell.m */,
-				10B6D32322DB3B0700822BC0 /* DataSource.h */,
-				10B6D32422DB3B0700822BC0 /* DataSource.m */,
-				10B6D32622DB3B5700822BC0 /* DetailsViewController.h */,
-				10B6D32722DB3B5700822BC0 /* DetailsViewController.m */,
 			);
-			path = "Mush-Mush";
+			path = History;
+			sourceTree = "<group>";
+		};
+		107E7E9722DB857A00965FEA /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				1004168E22D8ED6E0050E838 /* AppDelegate.h */,
+				1004168F22D8ED6E0050E838 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		107E7E9822DB859600965FEA /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				1004169422D8ED6E0050E838 /* Main.storyboard */,
+				1004169722D8ED6F0050E838 /* Assets.xcassets */,
+				1004169922D8ED6F0050E838 /* LaunchScreen.storyboard */,
+				1004169C22D8ED6F0050E838 /* Info.plist */,
+				1004169D22D8ED6F0050E838 /* main.m */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		33797EF222D90552007C3473 /* Frameworks */ = {
