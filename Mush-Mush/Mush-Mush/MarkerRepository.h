@@ -13,6 +13,6 @@
 - (NSArray<NSString*>*) allYears;
 - (NSArray<Marker*>*) allMarkersByYear:(NSString*) year;
 - (void) saveMarker:(Marker*) marker;
-- (void) deleteMarker:(Marker*) marker;
+- (void)deleteMarkerWithId:(NSString *)identifier year:(NSString *)year;
 - (NSUInteger) totalMushroomWeightByYear:(NSString*) year;
 @end

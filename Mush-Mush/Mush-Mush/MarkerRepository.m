@@ -57,14 +57,13 @@ static NSString* const MARKERS = @"markers";
     [self.userDefaults synchronize];
 }
 
-- (void) deleteMarker:(Marker*) marker {
+- (void)deleteMarkerWithId:(NSString *)identifier year:(NSString *)year {
     NSData* unarchiveData = [self.userDefaults objectForKey:MARKERS];
     NSMutableDictionary<NSString*, NSMutableArray<Marker*>*>* markersByYears = [[NSMutableDictionary alloc] initWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:unarchiveData]];
-    NSMutableArray* markers = [markersByYears objectForKey:marker.year];
+    NSMutableArray* markers = [markersByYears objectForKey:year];
     __block NSNumber* indexToRemove = nil;
-    [markers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        Marker* object = (Marker*)obj;
-        if ([marker.identifier isEqualToString:object.identifier]) {
+    [markers enumerateObjectsUsingBlock:^(Marker *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([identifier isEqualToString:obj.identifier]) {
             indexToRemove = @(idx);
             *stop = YES;
         }

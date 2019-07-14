@@ -15,6 +15,8 @@
 #import "MarkerRepository.h"
 #import <MapKit/MapKit.h>
 
+#import "Annotation.h"
+
 @interface MapViewController () <MKMapViewDelegate>
 @property (weak, nonatomic) YearPickerView *pickerView;
 @property (strong, nonatomic) LocationManager *locationManager;
@@ -84,7 +86,6 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     CGFloat latitude = self.mapView.userLocation.coordinate.latitude;
     CGFloat longitude = self.mapView.userLocation.coordinate.longitude;
     addViewController.location = [[CLLocation alloc]initWithLatitude:latitude longitude:longitude];
-    //[self addAnnotations];
     [self.navigationController pushViewController:addViewController animated:YES];
 }
 
@@ -92,11 +93,11 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     __weak typeof(self) weakSelf = self;
     NSArray <id<MKAnnotation>> *array = self.mapView.selectedAnnotations;
     NSArray <id<MKAnnotation>> *newArray = [array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSArray<id<MKAnnotation>> *evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return [evaluatedObject isMemberOfClass:[MKMarkerAnnotationView class]] ? YES : NO;
+        return [evaluatedObject isMemberOfClass:[Annotation class]] ? YES : NO;
     }]];
     [self.mapView removeAnnotations:newArray];
-    [newArray enumerateObjectsUsingBlock:^(id<MKAnnotation>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [weakSelf.repository deleteMarker:obj.title];
+    [newArray enumerateObjectsUsingBlock:^(Annotation *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf.repository deleteMarkerWithId:obj.Id year:obj.year];
     }];
 }
 
@@ -125,20 +126,35 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     return annotations;
 }
 
-- (MKPointAnnotation *)getAnnotattionFromMarker:(Marker *)marker {
-    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+- (Annotation *)getAnnotattionFromMarker:(Marker *)marker {
+    Annotation *point = [[Annotation alloc] init];
     point.coordinate = CLLocationCoordinate2DMake([marker.coordinateX floatValue], [marker.coordinateY floatValue]);
+    point.Id = marker.identifier;
+    point.weight = marker.mushroomsWeight;
     point.title = marker.name;
     point.subtitle = marker.descript;
+    point.year = marker.year;
     return point;
 }
+
+
+//- (MKPointAnnotation *)getAnnotattionFromMarker:(Marker *)marker {
+//    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+//    point.coordinate = CLLocationCoordinate2DMake([marker.coordinateX floatValue], [marker.coordinateY floatValue]);
+//    point.title = marker.name;
+//    point.subtitle = marker.descript;
+//    return point;
+//}
 
 - (void)addAnnotations {
     __weak typeof (self) weakSelf = self;
     NSArray<Marker *> *array = [self fetchAnnotations];
     [array enumerateObjectsUsingBlock:^(Marker * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        MKPointAnnotation *point = [weakSelf getAnnotattionFromMarker:obj];
+        
+        Annotation *point = [weakSelf getAnnotattionFromMarker:obj];
         [weakSelf.mapView addAnnotation:point];
+//        MKPointAnnotation *point = [weakSelf getAnnotattionFromMarker:obj];
+//        [weakSelf.mapView addAnnotation:point];
     }];
 
 //    dispatch_queue_global_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
@@ -166,7 +182,6 @@ static NSString *const kCancelButtonTitle = @"Cancel";
 - (void)setupCalendarManager {
     CalendarManager *calendarManager = [[CalendarManager alloc]init];
     self.calendarManager = calendarManager;
-    
 }
 
 - (void)setupLocationManager {
@@ -244,7 +259,7 @@ static NSString *const kCancelButtonTitle = @"Cancel";
         return;
     }
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPointAction)];
-    UIBarButtonItem *deleteButton  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deletePointAction)];
+    UIBarButtonItem *deleteButton  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(showAlertViewController)];
     NSArray <UIBarButtonItem *> *array = [NSArray <UIBarButtonItem *> arrayWithObjects:addButton,deleteButton, nil];
     [self.navigationController.navigationBar.topItem setRightBarButtonItems:array animated:NO];
 }
