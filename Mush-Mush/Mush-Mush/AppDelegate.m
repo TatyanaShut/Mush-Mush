@@ -37,6 +37,7 @@ static NSString* const MARKERS = @"markers";
         UITabBarController *tabBarController = [[UITabBarController alloc] init];
         tabBarController.viewControllers = @[mapNc, historyNc, directoryNc];
         tabBarController.tabBar.barTintColor=[UIColor lightGrayColor];
+        tabBarController.tabBar.tintColor = [UIColor whiteColor];
     
     UITabBarItem *itemMap = [[UITabBarItem alloc] initWithTitle:@"Карта" image:[UIImage imageNamed:@"map"] tag:0];
     UITabBarItem *itemHistory = [[UITabBarItem alloc] initWithTitle:@"История" image:[UIImage imageNamed:@"history"] tag:1];
