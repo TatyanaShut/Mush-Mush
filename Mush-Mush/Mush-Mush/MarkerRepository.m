@@ -31,6 +31,11 @@ static NSString* const MARKERS = @"markers";
     return [markersByYears allKeys];
 }
 
+- (NSUInteger) totalMushroomWeightByYear:(NSString*) year {
+    NSArray<Marker*>* markers = [self allMarkersByYear:year];
+    return [[markers valueForKeyPath:@"@sum.mushroomsWeight"] unsignedIntegerValue];
+}
+
 - (NSArray<Marker*>*) allMarkersByYear:(NSString*) year {
     NSData* unarchiveData = [self.userDefaults objectForKey:MARKERS];
     NSMutableDictionary<NSString*, NSMutableArray<Marker*>*>* markersByYears = [NSKeyedUnarchiver unarchiveObjectWithData:unarchiveData];
@@ -74,30 +79,4 @@ static NSString* const MARKERS = @"markers";
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
