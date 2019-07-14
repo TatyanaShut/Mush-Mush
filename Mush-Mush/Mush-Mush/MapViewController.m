@@ -32,10 +32,10 @@
 
 @implementation MapViewController
 
-static NSString *const kMessageTitle = @"Warning";
-static NSString *const kMessageBody = @"Do you want to delete the pin?";
-static NSString *const kOkButtonTitle = @"Ok";
-static NSString *const kCancelButtonTitle = @"Cancel";
+static NSString *const kMessageTitle = @"Внимание";
+static NSString *const kMessageBody = @"Вы действительно хотите удалить метку?";
+static NSString *const kOkButtonTitle = @"Да";
+static NSString *const kCancelButtonTitle = @"Отменить";
 
 @synthesize mapView = _mapView;
 
@@ -46,7 +46,6 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     self = [super init];
     if (self) {
         _isUserLocationUpdated = NO;
-        //_markerArray = [NSMutableArray<Marker *> array];
         _repository = [[MarkerRepository alloc]init];
     }
     return self;
