@@ -62,8 +62,7 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     [self setupCalendarManager];
     [self setupTrackingButton];
     [self setupScaleView];
-    
-    
+
 }
 
 
@@ -75,18 +74,17 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     
     [self removeAnnotations];
     [self addAnnotations];
-    
-    //reload annotations
+
 }
 
 #pragma mark - Actions
 
 - (void) addPointAction {
-    //[self addAnnotationToMapView];
     AddPointViewController* addViewController = [[AddPointViewController alloc] init];
     CGFloat latitude = self.mapView.userLocation.coordinate.latitude;
     CGFloat longitude = self.mapView.userLocation.coordinate.longitude;
     addViewController.location = [[CLLocation alloc]initWithLatitude:latitude longitude:longitude];
+    //[self addAnnotations];
     [self.navigationController pushViewController:addViewController animated:YES];
 }
 
@@ -106,6 +104,8 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     if (self.calendarManager) {
          NSString *text = [NSString stringWithFormat:@"%ld", (long)[self.calendarManager nextYear]];
         [self.pickerView setYearText:text animated:YES direction:kLeft];
+        [self removeAnnotations];
+        [self addAnnotations];
     }
 }
 
@@ -113,36 +113,34 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     if (self.calendarManager) {
         NSString *text = [NSString stringWithFormat:@"%ld", (long)[self.calendarManager prevYear]];
         [self.pickerView setYearText:text animated:YES direction:kRight];
+        [self removeAnnotations];
+        [self addAnnotations];
     }
 }
 
 #pragma mark - Private
 
-- (NSArray<Marker *>*)fetchAnnotations {
+- (NSArray<Marker *> *)fetchAnnotations {
     NSArray<Marker *> *annotations = [self.repository allMarkersByYear:self.pickerView.yearLabel.text];
     return annotations;
 }
 
 - (MKPointAnnotation *)getAnnotattionFromMarker:(Marker *)marker {
     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-    point.coordinate = CLLocationCoordinate2DMake([marker.coordinateX integerValue], [marker.coordinateY integerValue]);
+    point.coordinate = CLLocationCoordinate2DMake([marker.coordinateX floatValue], [marker.coordinateY floatValue]);
     point.title = marker.name;
     point.subtitle = marker.descript;
-    
     return point;
 }
 
 - (void)addAnnotations {
-    
     __weak typeof (self) weakSelf = self;
     NSArray<Marker *> *array = [self fetchAnnotations];
     [array enumerateObjectsUsingBlock:^(Marker * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MKPointAnnotation *point = [weakSelf getAnnotattionFromMarker:obj];
         [weakSelf.mapView addAnnotation:point];
     }];
-    
-    
-    
+
 //    dispatch_queue_global_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
 //    __weak typeof (self) weakSelf = self;
 //    dispatch_async(queue, ^{
@@ -160,7 +158,7 @@ static NSString *const kCancelButtonTitle = @"Cancel";
 - (void)removeAnnotations {
     NSArray <id<MKAnnotation>> *array = self.mapView.annotations;
     NSArray <id<MKAnnotation>> *newArray = [array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSArray<id<MKAnnotation>> *evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return [evaluatedObject isMemberOfClass:[MKMarkerAnnotationView class]] ? YES : NO;
+        return [evaluatedObject isMemberOfClass:[MKPointAnnotation class]] ? YES : NO;
     }]];
     [self.mapView removeAnnotations:newArray];
 }
