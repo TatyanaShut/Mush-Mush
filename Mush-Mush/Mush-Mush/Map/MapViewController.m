@@ -86,16 +86,38 @@ static NSString *const kCancelButtonTitle = @"Отменить";
     [self.navigationController pushViewController:addViewController animated:YES];
 }
 
-- (void) deletePointAction {
-    __weak typeof(self) weakSelf = self;
-    NSArray <id<MKAnnotation>> *array = self.mapView.selectedAnnotations;
-    NSArray <id<MKAnnotation>> *newArray = [array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSArray<id<MKAnnotation>> *evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return [evaluatedObject isMemberOfClass:[Annotation class]] ? YES : NO;
-    }]];
-    [self.mapView removeAnnotations:newArray];
-    [newArray enumerateObjectsUsingBlock:^(Annotation *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+
+- (void)removeAnnotationsFromRepository:(NSArray <id<MKAnnotation>> *)array {
+     __weak typeof(self) weakSelf = self;
+    [array enumerateObjectsUsingBlock:^(Annotation *obj, NSUInteger idx, BOOL * _Nonnull stop){
         [weakSelf.repository deleteMarkerWithId:obj.Id year:obj.year];
     }];
+}
+
+
+- (void) deletePointAction {
+    NSArray <id<MKAnnotation>> *array = self.mapView.selectedAnnotations;
+    NSArray <id<MKAnnotation>> *annotationArray = [array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSArray<id<MKAnnotation>> *evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [evaluatedObject isMemberOfClass:[Annotation class]] ? YES : NO;
+    }]];
+
+    if (annotationArray > 0) {
+        [self.mapView removeAnnotations:annotationArray];
+        
+        [self removeAnnotationsFromRepository:annotationArray];
+    }
+    
+    NSArray <id<MKAnnotation>> *clusterArray = [array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSArray<id<MKAnnotation>> *evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [evaluatedObject isMemberOfClass:[MKClusterAnnotation class]] ? YES : NO;
+    }]];
+    if (clusterArray >0) {
+        
+        for (id<MKAnnotation> array in clusterArray) {
+            NSArray <id<MKAnnotation>> *annotationArray = ((MKClusterAnnotation *)array).memberAnnotations;
+            [self removeAnnotationsFromRepository:annotationArray];
+            [self.mapView removeAnnotations:annotationArray];
+        }
+    }
 }
 
 - (void)nextButtonTapped:(id)sender {
@@ -135,14 +157,6 @@ static NSString *const kCancelButtonTitle = @"Отменить";
 }
 
 
-//- (MKPointAnnotation *)getAnnotattionFromMarker:(Marker *)marker {
-//    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-//    point.coordinate = CLLocationCoordinate2DMake([marker.coordinateX floatValue], [marker.coordinateY floatValue]);
-//    point.title = marker.name;
-//    point.subtitle = marker.descript;
-//    return point;
-//}
-
 - (void)addAnnotations {
     __weak typeof (self) weakSelf = self;
     NSArray<Marker *> *array = [self fetchAnnotations];
@@ -168,7 +182,7 @@ static NSString *const kCancelButtonTitle = @"Отменить";
 - (void)removeAnnotations {
     NSArray <id<MKAnnotation>> *array = self.mapView.annotations;
     NSArray <id<MKAnnotation>> *newArray = [array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSArray<id<MKAnnotation>> *evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return [evaluatedObject isMemberOfClass:[MKPointAnnotation class]] ? YES : NO;
+        return [evaluatedObject isMemberOfClass:[Annotation class]] ? YES : NO;
     }]];
     [self.mapView removeAnnotations:newArray];
 }
@@ -258,6 +272,15 @@ static NSString *const kCancelButtonTitle = @"Отменить";
     [self.navigationController.navigationBar.topItem setRightBarButtonItems:array animated:NO];
 }
 
+- (void)createShareActionButton {
+     UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActivityViewController)];
+    [self.navigationController.navigationBar.topItem setLeftBarButtonItem:actionButton animated:NO];
+}
+
+- (void)removeShareActionButton {
+    [self.navigationController.navigationBar.topItem setLeftBarButtonItem:nil animated:NO];
+}
+
 - (void)createMapView {
     MKMapView *mapView = [[MKMapView alloc]init];
     [self.view addSubview:mapView];
@@ -319,6 +342,14 @@ static NSString *const kCancelButtonTitle = @"Отменить";
     [self.parentViewController presentViewController:alertContoller animated:YES completion:nil];
 }
 
+- (void)showActivityViewController {
+    UIActivityViewController *moreVC = [[UIActivityViewController alloc] initWithActivityItems:@[
+                                                                                                 
+                                                                                                 ] applicationActivities:nil];
+    [self presentViewController:moreVC animated:YES completion:nil];
+}
+
+
 #pragma mark - MapView Delegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
@@ -329,73 +360,23 @@ static NSString *const kCancelButtonTitle = @"Отменить";
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    if ([view isMemberOfClass:[MKMarkerAnnotationView class]]) {
+    if ([view isMemberOfClass:[MushroomAnnotationView class]]||[view isMemberOfClass:[FieldClusterView class]]) {
         self.selectedAnnotationView = view;
         [self createAddAndDeleteActionButtons];
+        [self createShareActionButton];
     }
     else {
         self.selectedAnnotationView = nil;
         [self createAddActionButton];
+        [self removeShareActionButton];
     }
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
     self.selectedAnnotationView = nil;
     [self createAddActionButton];
+    [self removeShareActionButton];
 }
-
-//- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-//
-//    NSString *kUserViewIdentifier = @"kUserLocationView";
-//    NSString *kMarkerViewIdentifier = @"kMarkerView";
-//
-//    if ([annotation isMemberOfClass:[MKUserLocation class]]) {
-//        return nil;
-//    }
-//    else {
-//        MKMarkerAnnotationView *view = (MKMarkerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:MKMapViewDefaultAnnotationViewReuseIdentifier forAnnotation:(Annotation *)annotation];
-//        [view setCanShowCallout:YES];
-//        [view setCalloutOffset:CGPointMake(0.0f, 5.0f)];
-//        UIImage *image = [UIImage imageNamed:@"mushroom1"];
-//        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
-//        view.leftCalloutAccessoryView = imageView;
-//        return view;
-//    }
-//}
-
-
-
-
-//    var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
-//    pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-//    pinView?.pinTintColor = UIColor.orangeColor()
-//    pinView?.canShowCallout = true
-//    let smallSquare = CGSize(width: 30, height: 30)
-//    let button = UIButton(frame: CGRect(origin: CGPointZero, size: smallSquare))
-//    button.setBackgroundImage(UIImage(named: "car"), forState: .Normal)
-//    button.addTarget(self, action: "getDirections", forControlEvents: .TouchUpInside)
-//    pinView?.leftCalloutAccessoryView = button
-//    return pinView
-
-
-
-//    if annotation is MKUserLocation {
-//        //return nil so map view draws "blue dot" for standard user location
-//        return nil
-//    }
-//    let reuseId = "pin"
-//    var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
-//    pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-//    pinView?.pinTintColor = UIColor.orangeColor()
-//    pinView?.canShowCallout = true
-//    let smallSquare = CGSize(width: 30, height: 30)
-//    let button = UIButton(frame: CGRect(origin: CGPointZero, size: smallSquare))
-//    button.setBackgroundImage(UIImage(named: "car"), forState: .Normal)
-//    button.addTarget(self, action: "getDirections", forControlEvents: .TouchUpInside)
-//    pinView?.leftCalloutAccessoryView = button
-//    return pinView
-//}
-
 
 
 - (void)registerAnnotationViewClasses {
@@ -403,25 +384,4 @@ static NSString *const kCancelButtonTitle = @"Отменить";
     [self.mapView registerClass:[FieldClusterView class] forAnnotationViewWithReuseIdentifier:MKMapViewDefaultClusterAnnotationViewReuseIdentifier];
 }
 
-//- (void)mapViewDidChangeVisibleRegion:(MKMapView *)mapView {
-//
-//
-//
-//}
-
-//func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//    guard annotation is MKPointAnnotation else { return nil }
-//
-//    let identifier = "Annotation"
-//    var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//
-//    if annotationView == nil {
-//        annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//        annotationView!.canShowCallout = true
-//    } else {
-//        annotationView!.annotation = annotation
-//    }
-//
-//    return annotationView
-//}
 @end
