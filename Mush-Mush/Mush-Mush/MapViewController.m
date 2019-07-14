@@ -80,7 +80,7 @@ static NSString *const kCancelButtonTitle = @"Cancel";
 #pragma mark - Actions
 
 - (void) addPointAction {
-    AddPointViewController* addViewController = [[AddPointViewController alloc] init];
+    AddPointViewController* addViewController = [[AddPointViewController alloc] initWithNibName:@"AddPointViewController" bundle:nil];
     CGFloat latitude = self.mapView.userLocation.coordinate.latitude;
     CGFloat longitude = self.mapView.userLocation.coordinate.longitude;
     addViewController.location = [[CLLocation alloc]initWithLatitude:latitude longitude:longitude];
