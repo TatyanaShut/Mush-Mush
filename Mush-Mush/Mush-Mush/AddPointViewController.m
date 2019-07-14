@@ -15,7 +15,7 @@
 #import "MarkerRepository.h"
 
 
-@interface AddPointViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
+@interface AddPointViewController () <MKMapViewDelegate, UITextViewDelegate>
 
 @property (nonatomic, strong) CLLocationManager* locationManager;
 
@@ -65,7 +65,9 @@
     
     [StyleApp styleTextView:self.descriptionTextView];
     
-    
+    self.descriptionTextView.delegate = self;
+    self.descriptionTextView.text = @"Place descriptions";
+    self.descriptionTextView.textColor = [UIColor lightGrayColor]; //optional
     
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -174,6 +176,23 @@
                      }];
 }
 
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"Place descriptions"]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor]; //optional
+    }
+    [textView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"Place descriptions";
+        textView.textColor = [UIColor lightGrayColor]; //optional
+    }
+    [textView resignFirstResponder];
+}
 
 @end
 
