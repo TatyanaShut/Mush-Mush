@@ -16,6 +16,8 @@
 #import <MapKit/MapKit.h>
 
 #import "Annotation.h"
+#import "MushroomAnnotationView.h"
+#import "FieldClusterView.h"
 
 @interface MapViewController () <MKMapViewDelegate>
 @property (weak, nonatomic) YearPickerView *pickerView;
@@ -59,7 +61,7 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     [self setupPickerView];
     [self createMapView];
     [self setupMapView];
-    //[self registerAnnotationViewClasses];
+    [self registerAnnotationViewClasses];
     [self setupLocationManager];
     [self setupCalendarManager];
     [self setupTrackingButton];
@@ -147,7 +149,6 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     __weak typeof (self) weakSelf = self;
     NSArray<Marker *> *array = [self fetchAnnotations];
     [array enumerateObjectsUsingBlock:^(Marker * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
         Annotation *point = [weakSelf getAnnotattionFromMarker:obj];
         [weakSelf.mapView addAnnotation:point];
     }];
@@ -283,6 +284,7 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     [self setConstraintsToMapView];
     [self.mapView setShowsUserLocation:YES];
     [self.mapView setZoomEnabled:YES];
+    [self.mapView setShowsCompass:YES];
     
 }
 
@@ -345,6 +347,48 @@ static NSString *const kCancelButtonTitle = @"Cancel";
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
+    NSString *userViewIdentifier = @"kUserLocationView";
+    
+    if ([annotation isMemberOfClass:[MKUserLocation class]]) {
+        [mapView.userLocation setTitle:@"Я здесь"];
+        return nil;
+    }
+    else {
+        
+        
+    }
+    
+    
+//    var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+//    pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+//    pinView?.pinTintColor = UIColor.orangeColor()
+//    pinView?.canShowCallout = true
+//    let smallSquare = CGSize(width: 30, height: 30)
+//    let button = UIButton(frame: CGRect(origin: CGPointZero, size: smallSquare))
+//    button.setBackgroundImage(UIImage(named: "car"), forState: .Normal)
+//    button.addTarget(self, action: "getDirections", forControlEvents: .TouchUpInside)
+//    pinView?.leftCalloutAccessoryView = button
+//    return pinView
+    
+    
+    
+//    if annotation is MKUserLocation {
+//        //return nil so map view draws "blue dot" for standard user location
+//        return nil
+//    }
+//    let reuseId = "pin"
+//    var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+//    pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+//    pinView?.pinTintColor = UIColor.orangeColor()
+//    pinView?.canShowCallout = true
+//    let smallSquare = CGSize(width: 30, height: 30)
+//    let button = UIButton(frame: CGRect(origin: CGPointZero, size: smallSquare))
+//    button.setBackgroundImage(UIImage(named: "car"), forState: .Normal)
+//    button.addTarget(self, action: "getDirections", forControlEvents: .TouchUpInside)
+//    pinView?.leftCalloutAccessoryView = button
+//    return pinView
+//}
+
     
     
     return nil;
@@ -355,7 +399,13 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     [self.mapView registerClass:[UIView class] forAnnotationViewWithReuseIdentifier:MKMapViewDefaultAnnotationViewReuseIdentifier];
     [self.mapView registerClass:[UIView class] forAnnotationViewWithReuseIdentifier:MKMapViewDefaultClusterAnnotationViewReuseIdentifier];
 }
+
+//- (void)mapViewDidChangeVisibleRegion:(MKMapView *)mapView {
 //
+//
+//
+//}
+
 //func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 //    guard annotation is MKPointAnnotation else { return nil }
 //

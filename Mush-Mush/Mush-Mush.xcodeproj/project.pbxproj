@@ -26,6 +26,8 @@
 		334550F022DA2CA500A3A5C1 /* YearPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 334550EF22DA2CA500A3A5C1 /* YearPickerView.m */; };
 		334550F222DA2CBB00A3A5C1 /* YearPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 334550F122DA2CBB00A3A5C1 /* YearPickerView.xib */; };
 		334550F522DA30D000A3A5C1 /* CalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 334550F422DA30D000A3A5C1 /* CalendarManager.m */; };
+		334550F822DB76F100A3A5C1 /* FieldClusterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 334550F722DB76F100A3A5C1 /* FieldClusterView.m */; };
+		334550FE22DB777B00A3A5C1 /* MushroomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 334550FD22DB777B00A3A5C1 /* MushroomAnnotationView.m */; };
 		33797EF422D90553007C3473 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33797EF322D90553007C3473 /* MapKit.framework */; };
 		CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3ED22D9D33900FEF04F /* Marker.m */; };
 		CE55A3F122D9D35300FEF04F /* MarkerRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3F022D9D35300FEF04F /* MarkerRepository.m */; };
@@ -71,6 +73,10 @@
 		334550F122DA2CBB00A3A5C1 /* YearPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YearPickerView.xib; sourceTree = "<group>"; };
 		334550F322DA30D000A3A5C1 /* CalendarManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarManager.h; sourceTree = "<group>"; };
 		334550F422DA30D000A3A5C1 /* CalendarManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarManager.m; sourceTree = "<group>"; };
+		334550F622DB76F100A3A5C1 /* FieldClusterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FieldClusterView.h; sourceTree = "<group>"; };
+		334550F722DB76F100A3A5C1 /* FieldClusterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FieldClusterView.m; sourceTree = "<group>"; };
+		334550FC22DB777B00A3A5C1 /* MushroomAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MushroomAnnotationView.h; sourceTree = "<group>"; };
+		334550FD22DB777B00A3A5C1 /* MushroomAnnotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MushroomAnnotationView.m; sourceTree = "<group>"; };
 		33797EF322D90553007C3473 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CE55A3EC22D9D33900FEF04F /* Marker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Marker.h; sourceTree = "<group>"; };
 		CE55A3ED22D9D33900FEF04F /* Marker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Marker.m; sourceTree = "<group>"; };
@@ -127,6 +133,10 @@
 				1004169D22D8ED6F0050E838 /* main.m */,
 				100416A422D8EF3D0050E838 /* MapViewController.h */,
 				100416A522D8EF3D0050E838 /* MapViewController.m */,
+				334550F622DB76F100A3A5C1 /* FieldClusterView.h */,
+				334550F722DB76F100A3A5C1 /* FieldClusterView.m */,
+				334550FC22DB777B00A3A5C1 /* MushroomAnnotationView.h */,
+				334550FD22DB777B00A3A5C1 /* MushroomAnnotationView.m */,
 				334550EE22DA2CA500A3A5C1 /* YearPickerView.h */,
 				334550EF22DA2CA500A3A5C1 /* YearPickerView.m */,
 				334550F122DA2CBB00A3A5C1 /* YearPickerView.xib */,
@@ -266,11 +276,13 @@
 				1004169022D8ED6E0050E838 /* AppDelegate.m in Sources */,
 				334550F522DA30D000A3A5C1 /* CalendarManager.m in Sources */,
 				CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */,
+				334550FE22DB777B00A3A5C1 /* MushroomAnnotationView.m in Sources */,
 				10B6D31F22DB3A7B00822BC0 /* DirectoryViewController.m in Sources */,
 				10B6D32222DB3ACC00822BC0 /* DirectoryTableViewCell.m in Sources */,
 				CE55A3F822DA6CB000FEF04F /* CustomTableViewCell.m in Sources */,
 				CE55A3FD22DA748200FEF04F /* MarkerInfoViewController.m in Sources */,
 				10B6D32522DB3B0700822BC0 /* DataSource.m in Sources */,
+				334550F822DB76F100A3A5C1 /* FieldClusterView.m in Sources */,
 				10321C7C22DA09BE003D8DBA /* Annotation.m in Sources */,
 				CE55A3F122D9D35300FEF04F /* MarkerRepository.m in Sources */,
 				334550F022DA2CA500A3A5C1 /* YearPickerView.m in Sources */,
