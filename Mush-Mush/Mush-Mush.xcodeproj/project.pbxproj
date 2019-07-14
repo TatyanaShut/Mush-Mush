@@ -26,6 +26,10 @@
 		CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3ED22D9D33900FEF04F /* Marker.m */; };
 		CE55A3F122D9D35300FEF04F /* MarkerRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3F022D9D35300FEF04F /* MarkerRepository.m */; };
 		CE55A3F422DA136900FEF04F /* CustomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3F322DA136900FEF04F /* CustomHeaderView.m */; };
+		CE55A3F822DA6CB000FEF04F /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3F622DA6CB000FEF04F /* CustomTableViewCell.m */; };
+		CE55A3F922DA6CB000FEF04F /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE55A3F722DA6CB000FEF04F /* CustomTableViewCell.xib */; };
+		CE55A3FD22DA748200FEF04F /* MarkerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3FB22DA748200FEF04F /* MarkerInfoViewController.m */; };
+		CE55A3FE22DA748200FEF04F /* MarkerInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE55A3FC22DA748200FEF04F /* MarkerInfoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +66,12 @@
 		CE55A3F022D9D35300FEF04F /* MarkerRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarkerRepository.m; sourceTree = "<group>"; };
 		CE55A3F222DA136900FEF04F /* CustomHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomHeaderView.h; sourceTree = "<group>"; };
 		CE55A3F322DA136900FEF04F /* CustomHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomHeaderView.m; sourceTree = "<group>"; };
+		CE55A3F522DA6CB000FEF04F /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		CE55A3F622DA6CB000FEF04F /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		CE55A3F722DA6CB000FEF04F /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		CE55A3FA22DA748200FEF04F /* MarkerInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkerInfoViewController.h; sourceTree = "<group>"; };
+		CE55A3FB22DA748200FEF04F /* MarkerInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarkerInfoViewController.m; sourceTree = "<group>"; };
+		CE55A3FC22DA748200FEF04F /* MarkerInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerInfoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +124,14 @@
 				334550EC22D92A4F00A3A5C1 /* LocationManager.m */,
 				100416AA22D8F2AA0050E838 /* HistoryViewController.h */,
 				100416AB22D8F2AA0050E838 /* HistoryViewController.m */,
+				CE55A3FA22DA748200FEF04F /* MarkerInfoViewController.h */,
+				CE55A3FB22DA748200FEF04F /* MarkerInfoViewController.m */,
+				CE55A3FC22DA748200FEF04F /* MarkerInfoViewController.xib */,
 				CE55A3F222DA136900FEF04F /* CustomHeaderView.h */,
 				CE55A3F322DA136900FEF04F /* CustomHeaderView.m */,
+				CE55A3F522DA6CB000FEF04F /* CustomTableViewCell.h */,
+				CE55A3F622DA6CB000FEF04F /* CustomTableViewCell.m */,
+				CE55A3F722DA6CB000FEF04F /* CustomTableViewCell.xib */,
 				CE55A3EC22D9D33900FEF04F /* Marker.h */,
 				CE55A3ED22D9D33900FEF04F /* Marker.m */,
 				CE55A3EF22D9D35300FEF04F /* MarkerRepository.h */,
@@ -206,9 +222,11 @@
 			files = (
 				1004169B22D8ED6F0050E838 /* LaunchScreen.storyboard in Resources */,
 				10321C7D22DA09BE003D8DBA /* AddPointViewController.xib in Resources */,
+				CE55A3F922DA6CB000FEF04F /* CustomTableViewCell.xib in Resources */,
 				1004169822D8ED6F0050E838 /* Assets.xcassets in Resources */,
 				334550F222DA2CBB00A3A5C1 /* YearPickerView.xib in Resources */,
 				1004169622D8ED6E0050E838 /* Main.storyboard in Resources */,
+				CE55A3FE22DA748200FEF04F /* MarkerInfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +245,8 @@
 				1004169022D8ED6E0050E838 /* AppDelegate.m in Sources */,
 				334550F522DA30D000A3A5C1 /* CalendarManager.m in Sources */,
 				CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */,
+				CE55A3F822DA6CB000FEF04F /* CustomTableViewCell.m in Sources */,
+				CE55A3FD22DA748200FEF04F /* MarkerInfoViewController.m in Sources */,
 				10321C7C22DA09BE003D8DBA /* MKAnnotation.m in Sources */,
 				CE55A3F122D9D35300FEF04F /* MarkerRepository.m in Sources */,
 				334550F022DA2CA500A3A5C1 /* YearPickerView.m in Sources */,
