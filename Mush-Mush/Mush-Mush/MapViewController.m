@@ -67,7 +67,6 @@ static NSString *const kCancelButtonTitle = @"Отменить";
     [self setupScaleView];
 }
 
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.isUserLocationUpdated = NO;
