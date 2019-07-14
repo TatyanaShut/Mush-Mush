@@ -52,11 +52,11 @@ static NSString* const MARKERS = @"markers";
     }
 
     // for example. You can create marker using repository.
-//    Marker* marker = [[Marker alloc] initWithName:@"Name" descript:@"desct" year:@"2019" mushroomsWeight:@"30" x:@"2" y:@"1"];
-//    Marker* marker2 = [[Marker alloc] initWithName:@"Name2" descript:@"desct2" year:@"2016" mushroomsWeight:@"34" x:@"10" y:@"3"];
+//    Marker* marker = [[Marker alloc] initWithName:@"Name333" descript:@"desct" year:@"2018" mushroomsWeight:@"100" x:@"2" y:@"1"];
+//    Marker* marker2 = [[Marker alloc] initWithName:@"Name2222" descript:@"desct2" year:@"2000" mushroomsWeight:@"77" x:@"10" y:@"3"];
 //    MarkerRepository* mr = [[MarkerRepository alloc] init];
-    //[mr saveMarker:marker];
-    //[mr saveMarker:marker2];
+//    [mr saveMarker:marker];
+//    [mr saveMarker:marker2];
 //    NSLog(@"allYEars %@", [mr allYears]);
 //    Marker* toDelete = [[mr allMarkersByYear:@"2019"] firstObject];
 //    NSLog(@"allMarkers %@", [mr allMarkersByYear:@"2019"]);

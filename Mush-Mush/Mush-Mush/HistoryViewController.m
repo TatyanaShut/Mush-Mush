@@ -11,11 +11,13 @@
 #import "CustomHeaderView.h"
 #import "CustomTableViewCell.h"
 #import "MarkerInfoViewController.h"
+#import "StatisticCollectionViewController.h"
 
 @interface HistoryViewController () <UITableViewDataSource, UITableViewDelegate, CustomHeaderViewListener, CustomTableViewCellListener>
 @property (strong, nonatomic) MarkerRepository* markerRepository;
 @property (weak, nonatomic) UITableView* tableView;
 @property (strong, nonatomic) NSMutableArray* sectionsExpendedState;
+@property (strong, nonatomic) UIButton* statisticsButton;
 @end
 
 static NSString* const CELL_IDENTIFIER = @"cell";
@@ -23,27 +25,16 @@ static NSString* const HEADER_IDENTIFIER = @"header";
 
 @implementation HistoryViewController
 
-- (void)loadView {
-    [super loadView];
-    CGRect frame = self.view.bounds;
-    frame.origin = CGPointZero;
-    UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    [self.view addSubview:tableView];
-    
-    self.tableView = tableView;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self tableViewSetUp];
     self.title = @"History";
     self.markerRepository = [[MarkerRepository alloc] init];
     
     UINib* nib = [UINib nibWithNibName:@"CustomTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:CELL_IDENTIFIER];
     [self.tableView registerClass:[CustomHeaderView class] forHeaderFooterViewReuseIdentifier:HEADER_IDENTIFIER];
-    self.tableView.tableFooterView = [UIView new];
+    //self.tableView.tableFooterView = [UIView new];
     self.sectionsExpendedState = [NSMutableArray array];
     for (int i = 0; i < [[self.markerRepository allYears] count]; i++) {
         [self.sectionsExpendedState addObject:@NO];
@@ -131,6 +122,50 @@ static NSString* const HEADER_IDENTIFIER = @"header";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 65;
+}
+
+#pragma mark - TableViewSetUp
+
+- (void) tableViewSetUp {
+    CGRect frame = self.view.bounds;
+    frame.origin = CGPointZero;
+    UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    [self.view addSubview:tableView];
+    
+    self.tableView = tableView;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:@[
+                                              [self.tableView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+                                              [self.tableView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+                                              [self.tableView.topAnchor constraintEqualToAnchor:self.view.topAnchor]
+                                              ]];
+    
+    UIButton* statisticsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:statisticsButton];
+    self.statisticsButton = statisticsButton;
+    [self.statisticsButton addTarget:self action:@selector(checkStatistick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.statisticsButton setTitle:@"Statistics" forState:UIControlStateNormal];
+    self.statisticsButton.backgroundColor = [UIColor lightGrayColor];
+    self.statisticsButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:@[
+                                              [self.statisticsButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+                                              [self.statisticsButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+                                              [self.statisticsButton.topAnchor constraintEqualToAnchor:self.tableView.bottomAnchor],
+                                              [self.statisticsButton.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor],
+                                              [self.statisticsButton.heightAnchor constraintEqualToConstant:60]
+                                              ]];
+}
+
+#pragma mark - Statistick button
+
+- (void) checkStatistick:(id) sender {
+    UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    StatisticCollectionViewController* svc = [[StatisticCollectionViewController alloc] initWithCollectionViewLayout:flowLayout];
+    [self.navigationController pushViewController:svc animated:YES];
 }
 
 #pragma mark - CustomHeaderViewDelegate
