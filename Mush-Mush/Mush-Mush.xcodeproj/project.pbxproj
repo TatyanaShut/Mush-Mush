@@ -35,6 +35,8 @@
 		CE55A3F922DA6CB000FEF04F /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE55A3F722DA6CB000FEF04F /* CustomTableViewCell.xib */; };
 		CE55A3FD22DA748200FEF04F /* MarkerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3FB22DA748200FEF04F /* MarkerInfoViewController.m */; };
 		CE55A3FE22DA748200FEF04F /* MarkerInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE55A3FC22DA748200FEF04F /* MarkerInfoViewController.xib */; };
+		CEC6968922DB901300FEBD2A /* StatisticCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC6968822DB901300FEBD2A /* StatisticCollectionViewController.m */; };
+		CEC6968C22DB903E00FEBD2A /* StatisticCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC6968B22DB903E00FEBD2A /* StatisticCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,10 @@
 		CE55A3FA22DA748200FEF04F /* MarkerInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkerInfoViewController.h; sourceTree = "<group>"; };
 		CE55A3FB22DA748200FEF04F /* MarkerInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarkerInfoViewController.m; sourceTree = "<group>"; };
 		CE55A3FC22DA748200FEF04F /* MarkerInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerInfoViewController.xib; sourceTree = "<group>"; };
+		CEC6968722DB901300FEBD2A /* StatisticCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatisticCollectionViewController.h; sourceTree = "<group>"; };
+		CEC6968822DB901300FEBD2A /* StatisticCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatisticCollectionViewController.m; sourceTree = "<group>"; };
+		CEC6968A22DB903E00FEBD2A /* StatisticCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatisticCollectionViewCell.h; sourceTree = "<group>"; };
+		CEC6968B22DB903E00FEBD2A /* StatisticCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatisticCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +265,10 @@
 				CE55A3F522DA6CB000FEF04F /* CustomTableViewCell.h */,
 				CE55A3F622DA6CB000FEF04F /* CustomTableViewCell.m */,
 				CE55A3F722DA6CB000FEF04F /* CustomTableViewCell.xib */,
+				CEC6968722DB901300FEBD2A /* StatisticCollectionViewController.h */,
+				CEC6968822DB901300FEBD2A /* StatisticCollectionViewController.m */,
+				CEC6968A22DB903E00FEBD2A /* StatisticCollectionViewCell.h */,
+				CEC6968B22DB903E00FEBD2A /* StatisticCollectionViewCell.m */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -381,6 +391,7 @@
 				1004169E22D8ED6F0050E838 /* main.m in Sources */,
 				100416AC22D8F2AA0050E838 /* HistoryViewController.m in Sources */,
 				1004169022D8ED6E0050E838 /* AppDelegate.m in Sources */,
+				CEC6968C22DB903E00FEBD2A /* StatisticCollectionViewCell.m in Sources */,
 				334550F522DA30D000A3A5C1 /* CalendarManager.m in Sources */,
 				CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */,
 				10B6D31F22DB3A7B00822BC0 /* DirectoryViewController.m in Sources */,
@@ -389,6 +400,7 @@
 				CE55A3F822DA6CB000FEF04F /* CustomTableViewCell.m in Sources */,
 				CE55A3FD22DA748200FEF04F /* MarkerInfoViewController.m in Sources */,
 				10B6D32522DB3B0700822BC0 /* DataSource.m in Sources */,
+				CEC6968922DB901300FEBD2A /* StatisticCollectionViewController.m in Sources */,
 				10321C7C22DA09BE003D8DBA /* Annotation.m in Sources */,
 				CE55A3F122D9D35300FEF04F /* MarkerRepository.m in Sources */,
 				334550F022DA2CA500A3A5C1 /* YearPickerView.m in Sources */,
@@ -537,7 +549,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Mush-Mush/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -555,7 +567,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Mush-Mush/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
