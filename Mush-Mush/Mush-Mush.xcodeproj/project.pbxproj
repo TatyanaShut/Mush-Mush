@@ -27,6 +27,8 @@
 		334550F022DA2CA500A3A5C1 /* YearPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 334550EF22DA2CA500A3A5C1 /* YearPickerView.m */; };
 		334550F222DA2CBB00A3A5C1 /* YearPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 334550F122DA2CBB00A3A5C1 /* YearPickerView.xib */; };
 		334550F522DA30D000A3A5C1 /* CalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 334550F422DA30D000A3A5C1 /* CalendarManager.m */; };
+		3345510322DBAC0700A3A5C1 /* MushroomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3345510222DBAC0700A3A5C1 /* MushroomAnnotationView.m */; };
+		3345510622DBAC9900A3A5C1 /* FieldClusterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3345510522DBAC9900A3A5C1 /* FieldClusterView.m */; };
 		33797EF422D90553007C3473 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33797EF322D90553007C3473 /* MapKit.framework */; };
 		CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3ED22D9D33900FEF04F /* Marker.m */; };
 		CE55A3F122D9D35300FEF04F /* MarkerRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55A3F022D9D35300FEF04F /* MarkerRepository.m */; };
@@ -76,6 +78,10 @@
 		334550F122DA2CBB00A3A5C1 /* YearPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YearPickerView.xib; sourceTree = "<group>"; };
 		334550F322DA30D000A3A5C1 /* CalendarManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarManager.h; sourceTree = "<group>"; };
 		334550F422DA30D000A3A5C1 /* CalendarManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarManager.m; sourceTree = "<group>"; };
+		3345510122DBAC0700A3A5C1 /* MushroomAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MushroomAnnotationView.h; sourceTree = "<group>"; };
+		3345510222DBAC0700A3A5C1 /* MushroomAnnotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MushroomAnnotationView.m; sourceTree = "<group>"; };
+		3345510422DBAC9900A3A5C1 /* FieldClusterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FieldClusterView.h; sourceTree = "<group>"; };
+		3345510522DBAC9900A3A5C1 /* FieldClusterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FieldClusterView.m; sourceTree = "<group>"; };
 		33797EF322D90553007C3473 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CE55A3EC22D9D33900FEF04F /* Marker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Marker.h; sourceTree = "<group>"; };
 		CE55A3ED22D9D33900FEF04F /* Marker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Marker.m; sourceTree = "<group>"; };
@@ -248,6 +254,10 @@
 				334550F422DA30D000A3A5C1 /* CalendarManager.m */,
 				334550EB22D92A4F00A3A5C1 /* LocationManager.h */,
 				334550EC22D92A4F00A3A5C1 /* LocationManager.m */,
+				3345510122DBAC0700A3A5C1 /* MushroomAnnotationView.h */,
+				3345510222DBAC0700A3A5C1 /* MushroomAnnotationView.m */,
+				3345510422DBAC9900A3A5C1 /* FieldClusterView.h */,
+				3345510522DBAC9900A3A5C1 /* FieldClusterView.m */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -390,8 +400,10 @@
 				100416A622D8EF3D0050E838 /* MapViewController.m in Sources */,
 				1004169E22D8ED6F0050E838 /* main.m in Sources */,
 				100416AC22D8F2AA0050E838 /* HistoryViewController.m in Sources */,
+				3345510622DBAC9900A3A5C1 /* FieldClusterView.m in Sources */,
 				1004169022D8ED6E0050E838 /* AppDelegate.m in Sources */,
 				CEC6968C22DB903E00FEBD2A /* StatisticCollectionViewCell.m in Sources */,
+				3345510322DBAC0700A3A5C1 /* MushroomAnnotationView.m in Sources */,
 				334550F522DA30D000A3A5C1 /* CalendarManager.m in Sources */,
 				CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */,
 				10B6D31F22DB3A7B00822BC0 /* DirectoryViewController.m in Sources */,
