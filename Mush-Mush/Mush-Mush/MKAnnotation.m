@@ -6,9 +6,9 @@
 //  Copyright © 2019 Tatyana Shut. All rights reserved.
 //
 
-#import "MKAnnotation.h"
+#import "Annotation.h"
 
-@implementation MKAnnotation
+@implementation Annotation
 
 
 

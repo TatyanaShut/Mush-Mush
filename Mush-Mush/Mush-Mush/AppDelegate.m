@@ -11,6 +11,7 @@
 #import "HistoryViewController.h"
 #import "Marker.h"
 #import "MarkerRepository.h"
+#import "DirectoryViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,24 +22,27 @@ static NSString* const MARKERS = @"markers";
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [UINavigationBar appearance].shadowImage = [[UIImage alloc]init];
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    MapViewController *mapVc = [[MapViewController alloc] init];
-    UINavigationController *mapNc = [[UINavigationController alloc] initWithRootViewController:mapVc];
-    
-    HistoryViewController *historyVc = [[HistoryViewController alloc] init];
-    UINavigationController *historyNc = [[UINavigationController alloc] initWithRootViewController:historyVc];
-    
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[mapNc, historyNc];
-    
-    [self.window setRootViewController:tabBarController];
-    [self.window makeKeyAndVisible];
-    
-    [self initUserDefaults];
-    
-    return YES;
+        [UINavigationBar appearance].shadowImage = [[UIImage alloc]init];
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        
+        MapViewController *mapVc = [[MapViewController alloc] init];
+        UINavigationController *mapNc = [[UINavigationController alloc] initWithRootViewController:mapVc];
+        
+        HistoryViewController *historyVc = [[HistoryViewController alloc] init];
+        UINavigationController *historyNc = [[UINavigationController alloc] initWithRootViewController:historyVc];
+        
+        DirectoryViewController *directoryVc = [[DirectoryViewController alloc]init];
+        UINavigationController *directoryNc = [[UINavigationController alloc]initWithRootViewController:directoryVc];
+        
+        UITabBarController *tabBarController = [[UITabBarController alloc] init];
+        tabBarController.viewControllers = @[mapNc, historyNc, directoryNc];
+        
+        [self.window setRootViewController:tabBarController];
+        [self.window makeKeyAndVisible];
+        
+        [self initUserDefaults];
+        
+        return YES;
 }
 
 - (void) initUserDefaults {

@@ -9,7 +9,7 @@
 #import "AddPointViewController.h"
 #import "StyleApp.h"
 #import <MapKit/MapKit.h>
-#import "MKAnnotation.h"
+#import "Annotation.h"
 #import "MapViewController.h"
 
 
@@ -136,7 +136,7 @@
 
 -(void) addAnnotation{
     
-    MKAnnotation *annotation = [[MKAnnotation alloc]init];
+    Annotation *annotation = [[Annotation alloc]init];
     annotation.title = @"Test";
     annotation.subtitle = @"TestSubtitle";
     annotation.coordinate = self.location.coordinate;

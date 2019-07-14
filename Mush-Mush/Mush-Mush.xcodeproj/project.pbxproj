@@ -18,6 +18,10 @@
 		10321C7C22DA09BE003D8DBA /* MKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7722DA09BE003D8DBA /* MKAnnotation.m */; };
 		10321C7D22DA09BE003D8DBA /* AddPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10321C7822DA09BE003D8DBA /* AddPointViewController.xib */; };
 		10321C7E22DA09BE003D8DBA /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7922DA09BE003D8DBA /* AddPointViewController.m */; };
+		10B6D31F22DB3A7B00822BC0 /* DirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B6D31E22DB3A7B00822BC0 /* DirectoryViewController.m */; };
+		10B6D32222DB3ACC00822BC0 /* DirectoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B6D32122DB3ACC00822BC0 /* DirectoryTableViewCell.m */; };
+		10B6D32522DB3B0700822BC0 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B6D32422DB3B0700822BC0 /* DataSource.m */; };
+		10B6D32822DB3B5700822BC0 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B6D32722DB3B5700822BC0 /* DetailsViewController.m */; };
 		334550ED22D92A4F00A3A5C1 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 334550EC22D92A4F00A3A5C1 /* LocationManager.m */; };
 		334550F022DA2CA500A3A5C1 /* YearPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 334550EF22DA2CA500A3A5C1 /* YearPickerView.m */; };
 		334550F222DA2CBB00A3A5C1 /* YearPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 334550F122DA2CBB00A3A5C1 /* YearPickerView.xib */; };
@@ -45,13 +49,21 @@
 		100416A522D8EF3D0050E838 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		100416AA22D8F2AA0050E838 /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		100416AB22D8F2AA0050E838 /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
-		10321C7422DA09BE003D8DBA /* MKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKAnnotation.h; sourceTree = "<group>"; };
+		10321C7422DA09BE003D8DBA /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		10321C7522DA09BE003D8DBA /* StyleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleApp.h; sourceTree = "<group>"; };
 		10321C7622DA09BE003D8DBA /* StyleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleApp.m; sourceTree = "<group>"; };
 		10321C7722DA09BE003D8DBA /* MKAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKAnnotation.m; sourceTree = "<group>"; };
 		10321C7822DA09BE003D8DBA /* AddPointViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPointViewController.xib; sourceTree = "<group>"; };
 		10321C7922DA09BE003D8DBA /* AddPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
 		10321C7A22DA09BE003D8DBA /* AddPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
+		10B6D31D22DB3A7B00822BC0 /* DirectoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DirectoryViewController.h; sourceTree = "<group>"; };
+		10B6D31E22DB3A7B00822BC0 /* DirectoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DirectoryViewController.m; sourceTree = "<group>"; };
+		10B6D32022DB3ACC00822BC0 /* DirectoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DirectoryTableViewCell.h; sourceTree = "<group>"; };
+		10B6D32122DB3ACC00822BC0 /* DirectoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DirectoryTableViewCell.m; sourceTree = "<group>"; };
+		10B6D32322DB3B0700822BC0 /* DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		10B6D32422DB3B0700822BC0 /* DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		10B6D32622DB3B5700822BC0 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		10B6D32722DB3B5700822BC0 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		334550EB22D92A4F00A3A5C1 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		334550EC22D92A4F00A3A5C1 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		334550EE22DA2CA500A3A5C1 /* YearPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YearPickerView.h; sourceTree = "<group>"; };
@@ -139,10 +151,18 @@
 				10321C7A22DA09BE003D8DBA /* AddPointViewController.h */,
 				10321C7922DA09BE003D8DBA /* AddPointViewController.m */,
 				10321C7822DA09BE003D8DBA /* AddPointViewController.xib */,
-				10321C7422DA09BE003D8DBA /* MKAnnotation.h */,
+				10321C7422DA09BE003D8DBA /* Annotation.h */,
 				10321C7722DA09BE003D8DBA /* MKAnnotation.m */,
 				10321C7522DA09BE003D8DBA /* StyleApp.h */,
 				10321C7622DA09BE003D8DBA /* StyleApp.m */,
+				10B6D31D22DB3A7B00822BC0 /* DirectoryViewController.h */,
+				10B6D31E22DB3A7B00822BC0 /* DirectoryViewController.m */,
+				10B6D32022DB3ACC00822BC0 /* DirectoryTableViewCell.h */,
+				10B6D32122DB3ACC00822BC0 /* DirectoryTableViewCell.m */,
+				10B6D32322DB3B0700822BC0 /* DataSource.h */,
+				10B6D32422DB3B0700822BC0 /* DataSource.m */,
+				10B6D32622DB3B5700822BC0 /* DetailsViewController.h */,
+				10B6D32722DB3B5700822BC0 /* DetailsViewController.m */,
 			);
 			path = "Mush-Mush";
 			sourceTree = "<group>";
@@ -239,14 +259,18 @@
 			files = (
 				CE55A3F422DA136900FEF04F /* CustomHeaderView.m in Sources */,
 				334550ED22D92A4F00A3A5C1 /* LocationManager.m in Sources */,
+				10B6D32822DB3B5700822BC0 /* DetailsViewController.m in Sources */,
 				100416A622D8EF3D0050E838 /* MapViewController.m in Sources */,
 				1004169E22D8ED6F0050E838 /* main.m in Sources */,
 				100416AC22D8F2AA0050E838 /* HistoryViewController.m in Sources */,
 				1004169022D8ED6E0050E838 /* AppDelegate.m in Sources */,
 				334550F522DA30D000A3A5C1 /* CalendarManager.m in Sources */,
 				CE55A3EE22D9D33900FEF04F /* Marker.m in Sources */,
+				10B6D31F22DB3A7B00822BC0 /* DirectoryViewController.m in Sources */,
+				10B6D32222DB3ACC00822BC0 /* DirectoryTableViewCell.m in Sources */,
 				CE55A3F822DA6CB000FEF04F /* CustomTableViewCell.m in Sources */,
 				CE55A3FD22DA748200FEF04F /* MarkerInfoViewController.m in Sources */,
+				10B6D32522DB3B0700822BC0 /* DataSource.m in Sources */,
 				10321C7C22DA09BE003D8DBA /* MKAnnotation.m in Sources */,
 				CE55A3F122D9D35300FEF04F /* MarkerRepository.m in Sources */,
 				334550F022DA2CA500A3A5C1 /* YearPickerView.m in Sources */,
