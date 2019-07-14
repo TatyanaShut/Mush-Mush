@@ -285,6 +285,7 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     [self.mapView setShowsUserLocation:YES];
     [self.mapView setZoomEnabled:YES];
     [self.mapView setShowsCompass:YES];
+    [self.mapView.userLocation setTitle:@"Я здесь"];
     
 }
 
@@ -345,18 +346,26 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     [self createAddActionButton];
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+//- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+//
+//    NSString *kUserViewIdentifier = @"kUserLocationView";
+//    NSString *kMarkerViewIdentifier = @"kMarkerView";
+//
+//    if ([annotation isMemberOfClass:[MKUserLocation class]]) {
+//        return nil;
+//    }
+//    else {
+//        MKMarkerAnnotationView *view = (MKMarkerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:MKMapViewDefaultAnnotationViewReuseIdentifier forAnnotation:(Annotation *)annotation];
+//        [view setCanShowCallout:YES];
+//        [view setCalloutOffset:CGPointMake(0.0f, 5.0f)];
+//        UIImage *image = [UIImage imageNamed:@"mushroom1"];
+//        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+//        view.leftCalloutAccessoryView = imageView;
+//        return view;
+//    }
+//}
+
     
-    NSString *userViewIdentifier = @"kUserLocationView";
-    
-    if ([annotation isMemberOfClass:[MKUserLocation class]]) {
-        [mapView.userLocation setTitle:@"Я здесь"];
-        return nil;
-    }
-    else {
-        
-        
-    }
     
     
 //    var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
@@ -389,15 +398,11 @@ static NSString *const kCancelButtonTitle = @"Cancel";
 //    return pinView
 //}
 
-    
-    
-    return nil;
-}
 
 
 - (void)registerAnnotationViewClasses {
-    [self.mapView registerClass:[UIView class] forAnnotationViewWithReuseIdentifier:MKMapViewDefaultAnnotationViewReuseIdentifier];
-    [self.mapView registerClass:[UIView class] forAnnotationViewWithReuseIdentifier:MKMapViewDefaultClusterAnnotationViewReuseIdentifier];
+    [self.mapView registerClass:[MushroomAnnotationView class] forAnnotationViewWithReuseIdentifier:MKMapViewDefaultAnnotationViewReuseIdentifier];
+    [self.mapView registerClass:[FieldClusterView class] forAnnotationViewWithReuseIdentifier:MKMapViewDefaultClusterAnnotationViewReuseIdentifier];
 }
 
 //- (void)mapViewDidChangeVisibleRegion:(MKMapView *)mapView {

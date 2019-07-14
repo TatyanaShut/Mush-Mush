@@ -7,20 +7,48 @@
 //
 
 #import "MushroomAnnotationView.h"
+#import "UIColor+CustomColor.h"
+
+static NSString *const kMushroomClusterInentifier = @"Mushroom";
 
 @implementation MushroomAnnotationView
 
-- (id<MKAnnotation>)annotation {
-    
-    
-    return nil;
+#pragma mark - Lifecycle
+
+- (instancetype)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier {
+    if ((self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier])) {
+        self.clusteringIdentifier = kMushroomClusterInentifier;
+        [self setCollisionMode:MKAnnotationViewCollisionModeCircle];
+        [self setClusteringIdentifier:kMushroomClusterInentifier];
+        [self setMarkerTintColor:[UIColor brown]];
+        [self setGlyphImage:[UIImage imageNamed:@"mushroom3"]];
+        [self setDisplayPriority:MKFeatureDisplayPriorityDefaultHigh];
+        [self setCanShowCallout:YES];
+        self.collisionMode = MKAnnotationViewCollisionModeCircle;
+        [self setCalloutOffset:CGPointMake(0.0f, 5.0f)];
+        UIImage *image = [UIImage imageNamed:@"mushroom1"];
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+        self.leftCalloutAccessoryView = imageView;
+    }
+    return self;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+#pragma mark - Custom accessories
+
+- (void)setAnnotation:(id<MKAnnotation>)annotation {
+    if (self.annotation != annotation) {
+        [super setAnnotation:annotation];
+        [self setClusteringIdentifier:kMushroomClusterInentifier];
+        [self setMarkerTintColor:[UIColor brown]];
+        [self setGlyphImage:[UIImage imageNamed:@"mushroom3"]];
+        [self setDisplayPriority:MKFeatureDisplayPriorityDefaultHigh];
+        [self setCanShowCallout:YES];
+        [self setCollisionMode:MKAnnotationViewCollisionModeCircle];
+        [self setCalloutOffset:CGPointMake(0.0f, 5.0f)];
+         UIImage *image = [UIImage imageNamed:@"mushroom1"];
+         UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+         self.leftCalloutAccessoryView = imageView;
+    }
 }
-*/
 
 @end
