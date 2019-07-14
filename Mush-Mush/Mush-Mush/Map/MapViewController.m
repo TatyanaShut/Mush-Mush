@@ -127,9 +127,9 @@ static NSString *const kCancelButtonTitle = @"Отменить";
     Annotation *point = [[Annotation alloc] init];
     point.coordinate = CLLocationCoordinate2DMake([marker.coordinateX floatValue], [marker.coordinateY floatValue]);
     point.Id = marker.identifier;
-    point.weight = marker.mushroomsWeight;
+    point.weight = marker.descript;
     point.title = marker.name;
-    point.subtitle = marker.descript;
+    point.subtitle = [NSString stringWithFormat:@"%@ кг.", marker.mushroomsWeight];
     point.year = marker.year;
     return point;
 }
