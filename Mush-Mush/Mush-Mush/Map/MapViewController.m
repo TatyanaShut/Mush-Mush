@@ -273,7 +273,7 @@ static NSString *const kCancelButtonTitle = @"Отменить";
 }
 
 - (void)createShareActionButton {
-     UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActivityViewController)];
+    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActivityViewController:)];
     [self.navigationController.navigationBar.topItem setLeftBarButtonItem:actionButton animated:NO];
 }
 
@@ -342,12 +342,36 @@ static NSString *const kCancelButtonTitle = @"Отменить";
     [self.parentViewController presentViewController:alertContoller animated:YES completion:nil];
 }
 
-- (void)showActivityViewController {
-    UIActivityViewController *moreVC = [[UIActivityViewController alloc] initWithActivityItems:@[
-                                                                                                 
-                                                                                                 ] applicationActivities:nil];
-    [self presentViewController:moreVC animated:YES completion:nil];
+- (void)showActivityViewController:(id)sender {
+    
+    NSMutableArray *array = [NSMutableArray array];
+    NSString *activity = [NSString stringWithFormat:@"Я нашел грибные места, координаты - "];
+    [array addObject:activity];
+    for (MKPointAnnotation *point in self.mapView.selectedAnnotations) {
+        NSString *latitude = [NSString stringWithFormat:@"%f", point.coordinate.latitude];
+        NSString *longitude = [NSString stringWithFormat:@"%f", point.coordinate.longitude];
+        NSString *result = [NSString stringWithFormat: @"широта:%@ долгота %@ ", latitude, longitude];
+        [array addObject:result];
+    }
+    
+    UIActivityViewController *moreViewController = [[UIActivityViewController alloc] initWithActivityItems:array applicationActivities:nil];
+    moreViewController.popoverPresentationController.barButtonItem = (UIBarButtonItem*)sender;
+    [self presentViewController:moreViewController animated:YES completion:nil];
 }
+
+//-(NSString *)activityViewController:(UIActivityViewController *)activityViewController subjectForActivityType:(UIActivityType)activityType
+//{
+//    NSLog(@"DELEGATE METHOD CALLED");
+//
+//    if (activityType == UIActivityTypeMessage) {
+//        return @"My message";
+//    } else if (activityType == UIActivityTypeMail) {
+//        return @"My email text";
+//    }
+//    else {
+//        return @"My default text";
+//    }
+//}
 
 
 #pragma mark - MapView Delegate
