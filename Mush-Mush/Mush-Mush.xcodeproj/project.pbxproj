@@ -15,7 +15,7 @@
 		100416A622D8EF3D0050E838 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100416A522D8EF3D0050E838 /* MapViewController.m */; };
 		100416AC22D8F2AA0050E838 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100416AB22D8F2AA0050E838 /* HistoryViewController.m */; };
 		10321C7B22DA09BE003D8DBA /* StyleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7622DA09BE003D8DBA /* StyleApp.m */; };
-		10321C7C22DA09BE003D8DBA /* MKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7722DA09BE003D8DBA /* MKAnnotation.m */; };
+		10321C7C22DA09BE003D8DBA /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7722DA09BE003D8DBA /* Annotation.m */; };
 		10321C7D22DA09BE003D8DBA /* AddPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10321C7822DA09BE003D8DBA /* AddPointViewController.xib */; };
 		10321C7E22DA09BE003D8DBA /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7922DA09BE003D8DBA /* AddPointViewController.m */; };
 		10B6D31F22DB3A7B00822BC0 /* DirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B6D31E22DB3A7B00822BC0 /* DirectoryViewController.m */; };
@@ -52,7 +52,7 @@
 		10321C7422DA09BE003D8DBA /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		10321C7522DA09BE003D8DBA /* StyleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleApp.h; sourceTree = "<group>"; };
 		10321C7622DA09BE003D8DBA /* StyleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleApp.m; sourceTree = "<group>"; };
-		10321C7722DA09BE003D8DBA /* MKAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKAnnotation.m; sourceTree = "<group>"; };
+		10321C7722DA09BE003D8DBA /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 		10321C7822DA09BE003D8DBA /* AddPointViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPointViewController.xib; sourceTree = "<group>"; };
 		10321C7922DA09BE003D8DBA /* AddPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
 		10321C7A22DA09BE003D8DBA /* AddPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 				10321C7922DA09BE003D8DBA /* AddPointViewController.m */,
 				10321C7822DA09BE003D8DBA /* AddPointViewController.xib */,
 				10321C7422DA09BE003D8DBA /* Annotation.h */,
-				10321C7722DA09BE003D8DBA /* MKAnnotation.m */,
+				10321C7722DA09BE003D8DBA /* Annotation.m */,
 				10321C7522DA09BE003D8DBA /* StyleApp.h */,
 				10321C7622DA09BE003D8DBA /* StyleApp.m */,
 				10B6D31D22DB3A7B00822BC0 /* DirectoryViewController.h */,
@@ -271,7 +271,7 @@
 				CE55A3F822DA6CB000FEF04F /* CustomTableViewCell.m in Sources */,
 				CE55A3FD22DA748200FEF04F /* MarkerInfoViewController.m in Sources */,
 				10B6D32522DB3B0700822BC0 /* DataSource.m in Sources */,
-				10321C7C22DA09BE003D8DBA /* MKAnnotation.m in Sources */,
+				10321C7C22DA09BE003D8DBA /* Annotation.m in Sources */,
 				CE55A3F122D9D35300FEF04F /* MarkerRepository.m in Sources */,
 				334550F022DA2CA500A3A5C1 /* YearPickerView.m in Sources */,
 				10321C7B22DA09BE003D8DBA /* StyleApp.m in Sources */,

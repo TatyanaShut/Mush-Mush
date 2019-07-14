@@ -11,6 +11,8 @@
 #import <MapKit/MapKit.h>
 #import "Annotation.h"
 #import "MapViewController.h"
+#import "Marker.h"
+#import "MarkerRepository.h"
 
 
 @interface AddPointViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
@@ -92,7 +94,10 @@
     }
     else
     {
-        MapViewController* mapVc = [[MapViewController alloc] init];
+        Marker *marker = [[Marker alloc]initWithName:self.namePointTextField.text descript:self.descriptionTextView.text year:self.currentYearLabel.text mushroomsWeight:self.massOfMushroomsTextField.text x:self.latitudeCoordinatesLabel.text y:self.longitudeCoordinatesLabel.text];
+        MarkerRepository *markerRepository =[[MarkerRepository alloc]init];
+        [markerRepository saveMarker:marker];
+        MapViewController *mapVc = [[MapViewController alloc] init];
         [self.navigationController pushViewController:mapVc animated:YES];
         
     }
