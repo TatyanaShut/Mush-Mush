@@ -11,11 +11,13 @@
 #import "CustomHeaderView.h"
 #import "CustomTableViewCell.h"
 #import "MarkerInfoViewController.h"
+#import "StatisticCollectionViewController.h"
 
 @interface HistoryViewController () <UITableViewDataSource, UITableViewDelegate, CustomHeaderViewListener, CustomTableViewCellListener>
 @property (strong, nonatomic) MarkerRepository* markerRepository;
 @property (weak, nonatomic) UITableView* tableView;
 @property (strong, nonatomic) NSMutableArray* sectionsExpendedState;
+@property (strong, nonatomic) UIButton* statisticsButton;
 @end
 
 static NSString* const CELL_IDENTIFIER = @"cell";
@@ -23,20 +25,9 @@ static NSString* const HEADER_IDENTIFIER = @"header";
 
 @implementation HistoryViewController
 
-- (void)loadView {
-    [super loadView];
-    CGRect frame = self.view.bounds;
-    frame.origin = CGPointZero;
-    UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    [self.view addSubview:tableView];
-    
-    self.tableView = tableView;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self tableViewSetUp];
     self.title = @"История";
     self.markerRepository = [[MarkerRepository alloc] init];
     
@@ -133,6 +124,50 @@ static NSString* const HEADER_IDENTIFIER = @"header";
     return 65;
 }
 
+#pragma mark - TableViewSetUp
+
+- (void) tableViewSetUp {
+    CGRect frame = self.view.bounds;
+    frame.origin = CGPointZero;
+    UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    [self.view addSubview:tableView];
+    
+    self.tableView = tableView;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:@[
+                                              [self.tableView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+                                              [self.tableView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+                                              [self.tableView.topAnchor constraintEqualToAnchor:self.view.topAnchor]
+                                              ]];
+    
+    UIButton* statisticsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:statisticsButton];
+    self.statisticsButton = statisticsButton;
+    [self.statisticsButton addTarget:self action:@selector(checkStatistick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.statisticsButton setTitle:@"Statistics" forState:UIControlStateNormal];
+    self.statisticsButton.backgroundColor = [UIColor lightGrayColor];
+    self.statisticsButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:@[
+                                              [self.statisticsButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+                                              [self.statisticsButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+                                              [self.statisticsButton.topAnchor constraintEqualToAnchor:self.tableView.bottomAnchor],
+                                              [self.statisticsButton.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor],
+                                              [self.statisticsButton.heightAnchor constraintEqualToConstant:60]
+                                              ]];
+}
+
+#pragma mark - Statistick button
+
+- (void) checkStatistick:(id) sender {
+    UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    StatisticCollectionViewController* svc = [[StatisticCollectionViewController alloc] initWithCollectionViewLayout:flowLayout];
+    [self.navigationController pushViewController:svc animated:YES];
+}
+
 #pragma mark - CustomHeaderViewDelegate
 
 - (void) didTapOnHeaderView:(CustomHeaderView *)header {
@@ -183,7 +218,7 @@ static NSString* const HEADER_IDENTIFIER = @"header";
     NSString* currentYear = [[self.markerRepository allYears] objectAtIndex:path.section];
     NSArray<Marker*>* markers = [self.markerRepository allMarkersByYear:currentYear];
     Marker* marker = [markers objectAtIndex:path.row];
-
+    
     MarkerInfoViewController* markerInfo = [[MarkerInfoViewController alloc] initWithNibName:@"MarkerInfoViewController" bundle:nil];
     markerInfo.identifier = marker.identifier;
     markerInfo.name = marker.name;
@@ -197,6 +232,7 @@ static NSString* const HEADER_IDENTIFIER = @"header";
 
 
 @end
+
 
 
 

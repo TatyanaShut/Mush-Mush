@@ -29,7 +29,7 @@
     
     self.view.backgroundColor =[UIColor whiteColor];
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
-    
+    [ self centerMapOnUserLoacation ];
     MKCoordinateSpan span; span.latitudeDelta = .01;
     span.longitudeDelta = .01;
     MKCoordinateRegion region;
@@ -193,7 +193,10 @@
     }
     [textView resignFirstResponder];
 }
-
+- (void)centerMapOnUserLoacation {
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 800, 800);
+    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+}
 @end
 
 
