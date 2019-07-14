@@ -99,8 +99,8 @@
         Marker *marker = [[Marker alloc]initWithName:self.namePointTextField.text descript:self.descriptionTextView.text year:self.currentYearLabel.text mushroomsWeight:self.massOfMushroomsTextField.text x:self.latitudeCoordinatesLabel.text y:self.longitudeCoordinatesLabel.text];
         MarkerRepository *markerRepository =[[MarkerRepository alloc]init];
         [markerRepository saveMarker:marker];
-        MapViewController *mapVc = [[MapViewController alloc] init];
-        [self.navigationController pushViewController:mapVc animated:YES];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+     
         
     }
 }
