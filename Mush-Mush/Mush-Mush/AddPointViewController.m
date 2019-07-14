@@ -143,7 +143,6 @@
 }
 
 -(void) addAnnotation{
-    
     Annotation *annotation = [[Annotation alloc]init];
     annotation.title = @"Test";
     annotation.subtitle = @"TestSubtitle";

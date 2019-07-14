@@ -25,7 +25,6 @@
 @property (assign, nonatomic) BOOL isUserLocationUpdated;
 @property (weak, nonatomic) MKUserTrackingButton *trackingButton;
 @property (weak, nonatomic) MKScaleView *scaleView;
-//@property (strong, nonatomic) NSMutableArray<Marker *> *markerArray;
 @property (strong, nonatomic) MarkerRepository *repository;
 @end
 
@@ -60,11 +59,11 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     [self setupPickerView];
     [self createMapView];
     [self setupMapView];
+    //[self registerAnnotationViewClasses];
     [self setupLocationManager];
     [self setupCalendarManager];
     [self setupTrackingButton];
     [self setupScaleView];
-
 }
 
 
@@ -73,10 +72,8 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     self.isUserLocationUpdated = NO;
     NSString *text = [NSString stringWithFormat:@"%ld", (long)[self.calendarManager currentYear]];
     [self.pickerView setYearText:text];
-    
     [self removeAnnotations];
     [self addAnnotations];
-
 }
 
 #pragma mark - Actions
@@ -153,8 +150,6 @@ static NSString *const kCancelButtonTitle = @"Cancel";
         
         Annotation *point = [weakSelf getAnnotattionFromMarker:obj];
         [weakSelf.mapView addAnnotation:point];
-//        MKPointAnnotation *point = [weakSelf getAnnotattionFromMarker:obj];
-//        [weakSelf.mapView addAnnotation:point];
     }];
 
 //    dispatch_queue_global_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
@@ -348,4 +343,32 @@ static NSString *const kCancelButtonTitle = @"Cancel";
     [self createAddActionButton];
 }
 
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    
+    
+    
+    return nil;
+}
+
+
+- (void)registerAnnotationViewClasses {
+    [self.mapView registerClass:[UIView class] forAnnotationViewWithReuseIdentifier:MKMapViewDefaultAnnotationViewReuseIdentifier];
+    [self.mapView registerClass:[UIView class] forAnnotationViewWithReuseIdentifier:MKMapViewDefaultClusterAnnotationViewReuseIdentifier];
+}
+//
+//func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//    guard annotation is MKPointAnnotation else { return nil }
+//
+//    let identifier = "Annotation"
+//    var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+//
+//    if annotationView == nil {
+//        annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+//        annotationView!.canShowCallout = true
+//    } else {
+//        annotationView!.annotation = annotation
+//    }
+//
+//    return annotationView
+//}
 @end
