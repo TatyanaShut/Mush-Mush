@@ -55,22 +55,22 @@
     NSString *yearString = [formatter stringFromDate:[NSDate date]];
     self.currentYearLabel.text = yearString;
     
-    [StyleApp styleTextField:self.namePointTextField andPlaceholder:@"Name"];
+    [StyleApp styleTextField:self.namePointTextField andPlaceholder:@"Имя места"];
     
-    [StyleApp styleTextField:self.massOfMushroomsTextField andPlaceholder:@"Mass of mushrooms"];
+    [StyleApp styleTextField:self.massOfMushroomsTextField andPlaceholder:@"Масса нетто грибов (кг)"];
     self.massOfMushroomsTextField.keyboardType = UIKeyboardTypePhonePad;
     
     [StyleApp styleLabel:self.latitudeCoordinatesLabel];
-    self.latitudeCoordinatesLabel.text = @"latitude";
+    self.latitudeCoordinatesLabel.text = @"Широта";
     
     [StyleApp styleLabel:self.longitudeCoordinatesLabel];
-    self.longitudeCoordinatesLabel.text = @"longitude";
+    self.longitudeCoordinatesLabel.text = @"Долгота";
     
     
     [StyleApp styleTextView:self.descriptionTextView];
     
     self.descriptionTextView.delegate = self;
-    self.descriptionTextView.text = @"Place descriptions";
+    self.descriptionTextView.text = @"Описание места";
     self.descriptionTextView.textColor = [UIColor lightGrayColor]; //optional
     
     
@@ -181,7 +181,7 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    if ([textView.text isEqualToString:@"Place descriptions"]) {
+    if ([textView.text isEqualToString:@"Описание места"]) {
         textView.text = @"";
         textView.textColor = [UIColor blackColor]; //optional
     }
@@ -191,7 +191,7 @@
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:@""]) {
-        textView.text = @"Place descriptions";
+        textView.text = @"Описание места";
         textView.textColor = [UIColor lightGrayColor]; //optional
     }
     [textView resignFirstResponder];
