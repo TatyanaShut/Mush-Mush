@@ -365,20 +365,6 @@ static NSString *const kCancelButtonTitle = @"Отменить";
     [self presentViewController:moreViewController animated:YES completion:nil];
 }
 
-//-(NSString *)activityViewController:(UIActivityViewController *)activityViewController subjectForActivityType:(UIActivityType)activityType
-//{
-//    NSLog(@"DELEGATE METHOD CALLED");
-//
-//    if (activityType == UIActivityTypeMessage) {
-//        return @"My message";
-//    } else if (activityType == UIActivityTypeMail) {
-//        return @"My email text";
-//    }
-//    else {
-//        return @"My default text";
-//    }
-//}
-
 
 #pragma mark - MapView Delegate
 

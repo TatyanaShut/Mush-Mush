@@ -29,15 +29,15 @@
     }];
     
     if ([self.descript isEqualToString:@""]) {
-        self.descriptionLabel.text = @"Description:  without description.";
+        self.descriptionLabel.text = @"Описание:";
     } else {
-        self.descriptionLabel.text = [NSString stringWithFormat:@"Description:  %@", self.descript];
+        self.descriptionLabel.text = [NSString stringWithFormat:@"Описание  %@", self.descript];
     }
     
-    self.yearLabel.text = [NSString stringWithFormat:@"Year:  %@", self.year];
-    self.weightLabel.text = [NSString stringWithFormat:@"Total weight:  %@kg", self.mushroomsWeight];
-    self.yLabel.text = [NSString stringWithFormat:@"Coordinate Y:  %@", self.coordinateY];
-    self.xLabel.text = [NSString stringWithFormat:@"Coordinate X:  %@", self.coordinateX];
+    self.yearLabel.text = [NSString stringWithFormat:@"Год:  %@", self.year];
+    self.weightLabel.text = [NSString stringWithFormat:@"Масса  грибов:  %@кг", self.mushroomsWeight];
+    self.yLabel.text = [NSString stringWithFormat:@"Ширинна:  %@", self.coordinateY];
+    self.xLabel.text = [NSString stringWithFormat:@"Долгота:  %@", self.coordinateX];
     //self.view.backgroundColor = [UIColor whiteColor];
     self.yearLabel.font =  [UIFont fontWithName:@"Helvetica-Bold" size:18];
     self.descriptionLabel.font =  [UIFont fontWithName:@"Helvetica-Bold" size:18];

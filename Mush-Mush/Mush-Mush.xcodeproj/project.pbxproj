@@ -120,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				1004168D22D8ED6E0050E838 /* Mush-Mush */,
+				10672AE722DCC5CF0049AF4F /* Networking */,
 				107E7E9822DB859600965FEA /* Other */,
 				1004168C22D8ED6E0050E838 /* Products */,
 				33797EF222D90552007C3473 /* Frameworks */,
@@ -137,7 +138,6 @@
 		1004168D22D8ED6E0050E838 /* Mush-Mush */ = {
 			isa = PBXGroup;
 			children = (
-				10672AE722DCC5CF0049AF4F /* Networking */,
 				107E7E9722DB857A00965FEA /* AppDelegate */,
 				107E7E9522DB851A00965FEA /* Map */,
 				107E7E9022DB843E00965FEA /* AddPoint */,
