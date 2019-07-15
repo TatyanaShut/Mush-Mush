@@ -52,6 +52,8 @@
     [self.locationManager startUpdatingLocation];
     ///////
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(donePointAction)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor greenDark];
+    self.navigationItem.backBarButtonItem.tintColor = [UIColor greenDark];
     
     
     //[StyleApp styleLabel:self.currentYearLabel];

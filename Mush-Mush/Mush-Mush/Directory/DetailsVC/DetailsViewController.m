@@ -65,7 +65,7 @@
         imageView.frame = CGRectMake(0, 0, self.view.frame.size.width, imageView.frame.size.height);
         imageView.translatesAutoresizingMaskIntoConstraints = NO;
         [NSLayoutConstraint activateConstraints:@[
-                                                  [imageView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:-50],
+                                                  [imageView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:-90],
                                                   [imageView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:30],
                                                   [imageView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor constant:-30]
                                                   ]];
@@ -79,7 +79,7 @@
 - (void)addConsctraint {
     self.descriptionMush.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
-                                              [self.descriptionMush.topAnchor constraintEqualToAnchor:self.customView.bottomAnchor constant:-125],
+                                              [self.descriptionMush.topAnchor constraintEqualToAnchor:self.customView.bottomAnchor constant:-175],
                                               [self.descriptionMush.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-30],
                                               [self.descriptionMush.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:30],
                                               ]];

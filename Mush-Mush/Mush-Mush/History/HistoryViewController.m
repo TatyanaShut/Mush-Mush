@@ -40,7 +40,7 @@ static NSString* const HEADER_IDENTIFIER = @"header";
     for (int i = 0; i < [[self.markerRepository allYears] count]; i++) {
         [self.sectionsExpendedState addObject:@NO];
     }
-    self.title = @"История";
+    //self.title = @"История";
     
     
 }

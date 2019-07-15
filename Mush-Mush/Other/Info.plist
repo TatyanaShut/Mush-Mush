@@ -2,21 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>UISupportsDocumentBrowser</key>
-	<true/>
-	<key>NSLocationUsageDescription</key>
-	<string>We track you location in order to point mushroom places.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We track you location in order to point mushroom places.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We track you location in order to point mushroom places.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We track you location in order to point mushroom places.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDocumentTypes</key>
@@ -55,6 +40,19 @@
 		<string>MKDirectionsModeRideShare</string>
 		<string>MKDirectionsModeStreetCar</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We track you location in order to point mushroom places.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We track you location in order to point mushroom places.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>We track you location in order to point mushroom places.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We track you location in order to point mushroom places.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -76,5 +74,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UISupportsDocumentBrowser</key>
+	<true/>
 </dict>
 </plist>

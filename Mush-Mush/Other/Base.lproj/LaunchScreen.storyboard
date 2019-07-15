@@ -18,30 +18,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Грибной завоеватель" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAT-iE-TYU">
-                                <rect key="frame" x="20" y="423" width="374" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="LCq-uK-Kxj"/>
-                                    <constraint firstAttribute="width" constant="374" id="Rsb-iN-hkm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторы: TatyanaShut DimaNosko Big_Muzzy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvZ-Nc-iuz">
+                                <rect key="frame" x="20" y="827.5" width="374" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторы: TatyanaShut DimaNosko Dmitriy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvZ-Nc-iuz">
-                                <rect key="frame" x="20" y="827.5" width="374" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Грибной завоеватель" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAT-iE-TYU">
+                                <rect key="frame" x="20" y="215" width="374" height="157"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="157" id="X0Y-AT-JVE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="pAT-iE-TYU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="171" id="8ot-rb-Usv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tvZ-Nc-iuz" secondAttribute="bottom" constant="20" id="NhQ-Q0-mp7"/>
                             <constraint firstItem="tvZ-Nc-iuz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QQB-OZ-gep"/>
-                            <constraint firstItem="pAT-iE-TYU" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Rvw-ri-a55"/>
+                            <constraint firstItem="pAT-iE-TYU" firstAttribute="leading" secondItem="tvZ-Nc-iuz" secondAttribute="leading" id="Rau-le-rpg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tvZ-Nc-iuz" secondAttribute="trailing" constant="20" id="TnB-ao-lBx"/>
-                            <constraint firstItem="pAT-iE-TYU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="d4w-Gb-6fr"/>
+                            <constraint firstItem="pAT-iE-TYU" firstAttribute="trailing" secondItem="tvZ-Nc-iuz" secondAttribute="trailing" id="k6s-va-mBV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
