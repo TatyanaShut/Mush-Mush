@@ -7,6 +7,7 @@
 //
 
 #import "CustomHeaderView.h"
+#import "UIColor+CustomColor.h"
 
 @interface CustomHeaderView ()
 @end
@@ -16,7 +17,7 @@
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithReuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backgroundView.backgroundColor = [UIColor colorWithRed:223 green:223 blue:223 alpha:1];
+        self.backgroundView.backgroundColor = [UIColor brownLight];
         self.expandButon = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.expandButon setImage:[UIImage imageNamed:@"arrow_down"]forState:UIControlStateNormal];
         self.expandButon.backgroundColor = [UIColor clearColor];

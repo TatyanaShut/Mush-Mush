@@ -10,7 +10,7 @@
 
 
 @interface UIColor (CustomColor)
-
++ (UIColor *) brownLight;
 + (UIColor *) brown;
 + (UIColor *) greenTransparent;
 + (UIColor *) greenLight;

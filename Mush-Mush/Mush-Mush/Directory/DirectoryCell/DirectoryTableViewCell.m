@@ -27,9 +27,11 @@
     
     return self;
 }
+
+
 - (void)styleLabel:(UILabel *)label {
     
-    label.text = @"NO description";
+    label.text = @"Загрузка";
     label.numberOfLines = 0;
     label.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:label];

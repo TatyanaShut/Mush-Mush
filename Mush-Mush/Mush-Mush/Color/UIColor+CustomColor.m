@@ -8,13 +8,17 @@
 #import "UIColor+CustomColor.h"
 
 @implementation UIColor (CustomColor)
-
++ (UIColor *) brownLight {
+    return [UIColor colorWithRed:0xBA/255.0f
+                           green:0xAD/255.0f
+                            blue:0x7A/255.0f alpha:1];
+}
 
 + (UIColor *) brown {
     
     return [UIColor colorWithRed:0xCD/255.0f
                            green:0x85/255.0f
-                            blue:0x3F/255.0f alpha:1];;
+                            blue:0x3F/255.0f alpha:1];
 }
 
 + (UIColor *) greenTransparent {

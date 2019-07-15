@@ -12,6 +12,7 @@
 #import "CustomTableViewCell.h"
 #import "MarkerInfoViewController.h"
 #import "StatisticCollectionViewController.h"
+#import "UIColor+CustomColor.h"
 
 @interface HistoryViewController () <UITableViewDataSource, UITableViewDelegate, CustomHeaderViewListener, CustomTableViewCellListener>
 @property (strong, nonatomic) MarkerRepository* markerRepository;
@@ -95,7 +96,7 @@ static NSString* const HEADER_IDENTIFIER = @"header";
                                               ]];
     
     yearLabel.text = [NSString stringWithFormat:@"%@", sectionYearLabel];
-    yearLabel.textColor = [UIColor blackColor];
+    yearLabel.textColor = [UIColor brown];
     yearLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     customHeader.yearLabel = yearLabel;
     
@@ -156,8 +157,8 @@ static NSString* const HEADER_IDENTIFIER = @"header";
     [self.view addSubview:statisticsButton];
     self.statisticsButton = statisticsButton;
     [self.statisticsButton addTarget:self action:@selector(checkStatistick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.statisticsButton setTitle:@"Statistics" forState:UIControlStateNormal];
-    self.statisticsButton.backgroundColor = [UIColor lightGrayColor];
+    [self.statisticsButton setTitle:@"Статистика" forState:UIControlStateNormal];
+    self.statisticsButton.backgroundColor = [UIColor brownLight];
     self.statisticsButton.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
                                               [self.statisticsButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
@@ -223,11 +224,11 @@ static NSString* const HEADER_IDENTIFIER = @"header";
 
 - (void) setUpHeaderCollor:(CustomHeaderView*) header {
     if (header.isExpanded) {
-        header.yearLabel.textColor = [UIColor colorWithRed:(217/255.0) green:(145/255.0) blue:(0/255.0) alpha:1];
-        header.mushroomsWeight.textColor = [UIColor colorWithRed:(217/255.0) green:(145/255.0) blue:(0/255.0) alpha:1];
+        header.yearLabel.textColor = [UIColor brown];
+        header.mushroomsWeight.textColor = [UIColor brownLight];
     } else {
-        header.yearLabel.textColor = [UIColor blackColor];
-        header.mushroomsWeight.textColor = [UIColor colorWithRed:(153/255.0) green:(153/255.0) blue:(153/255.0) alpha:1];
+        header.yearLabel.textColor = [UIColor brown];
+        header.mushroomsWeight.textColor = [ UIColor brownLight];
     }
 }
 
