@@ -60,38 +60,26 @@ NSString *const cellReuseIdentifier = @"imageID";
 }
 
 - (void)operationQueue {
-    NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
-    NSOperation *lastTask = nil;
     
+    NSOperationQueue *myQueue = [[NSOperationQueue alloc] init];
     for (NSInteger index = 0; index < self.urlArray.count; index++) {
-        NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
-                NSOperation *finalOperation = [NSBlockOperation blockOperationWithBlock:^{
-                NSString *dataMushroom = [[NSString alloc]initWithFormat:@"%@", self.nameMushroom[index]];
-                NSURL *url = [NSURL URLWithString:self.urlArray[index]];
-                NSData *data = [NSData dataWithContentsOfURL:url];
-                UIImage *image = [UIImage imageWithData:data];
-                NSMutableDictionary *imageInfo = self.tableDataModel[index];
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-                [imageInfo setDictionary:@{
-                                           @"url": dataMushroom ,
-                                           @"image": image,
-                                           }];
-                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-            }];
-            [mainQueue addOperation:finalOperation];
+        [myQueue addOperationWithBlock:^{
+            
+            NSURL *url = [NSURL URLWithString:self.urlArray[index]];
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            UIImage *image = [UIImage imageWithData:data];
+            NSMutableDictionary *imageInfo = self.tableDataModel[index];
+            
+            [imageInfo setDictionary:@{
+                                       @"url": data ,
+                                       @"image": image,
+                                       }];
+            
         }];
-        if (lastTask) {
-            [operation addDependency:lastTask];
-        }
-        
-        lastTask = operation;
-        
-        [self.customQueue addOperation:operation];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+        });
     }
-    // dispatch_async(dispatch_get_main_queue(), ^{
-    //  [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-    //});
-    //}
     
 }
 
