@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MarkerInfoViewController">
             <connections>
                 <outlet property="descriptionLabel" destination="w4h-Zf-1v0" id="XSC-ZL-32p"/>
+                <outlet property="stackView" destination="2z3-m9-hmm" id="8WB-it-Smr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weightLabel" destination="NxX-8o-16h" id="J8z-sM-Xhq"/>
                 <outlet property="xLabel" destination="GM9-aw-xDX" id="Yqj-ru-2kz"/>

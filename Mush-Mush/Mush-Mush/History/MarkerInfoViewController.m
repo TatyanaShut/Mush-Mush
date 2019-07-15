@@ -9,6 +9,7 @@
 #import "MarkerInfoViewController.h"
 
 @interface MarkerInfoViewController ()
+@property (weak, nonatomic) IBOutlet UIStackView *stackView;
 @property (strong, nonatomic) IBOutlet UILabel *yearLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *weightLabel;
@@ -22,6 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = self.name;
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.stackView.frame = CGRectMake(self.stackView.frame.origin.x + 350, self.stackView.frame.origin.y, self.stackView.frame.size.width, self.stackView.frame.size.height);
+    }];
     
     if ([self.descript isEqualToString:@""]) {
         self.descriptionLabel.text = @"Description:  without description.";
