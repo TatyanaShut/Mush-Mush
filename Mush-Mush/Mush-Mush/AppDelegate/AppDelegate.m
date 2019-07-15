@@ -13,13 +13,14 @@
 #import "MarkerRepository.h"
 #import "DirectoryViewController.h"
 #import "UIColor+CustomColor.h"
+#import "Reachability.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) UIView* maskBgView;
 @property (strong, nonatomic) CAKeyframeAnimation* transformAnimation;
-@property (strong, nonatomic) NSValue* initialBounds;
-@property (strong, nonatomic) NSValue* secondBounds;
-@property (strong, nonatomic) NSValue* finalBounds;
+@property (strong, nonatomic) Reachability* checker;
+
+
 @end
 
 static NSString* const MARKERS = @"markers";
@@ -31,7 +32,8 @@ static NSString* const MARKERS = @"markers";
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor colorWithRed:241/255 green:196/255 blue:15/255 alpha:1];
     
-    
+    self.warningLabel = [[UILabel alloc] init];
+
     MapViewController *mapVc = [[MapViewController alloc] init];
     UINavigationController *mapNc = [[UINavigationController alloc] initWithRootViewController:mapVc];
    
@@ -85,5 +87,14 @@ static NSString* const MARKERS = @"markers";
 
 }
 
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    NetworkStatus status = [_checker currentReachabilityStatus];
+    if (status == NotReachable) {
+        NSLog(@"not reachable");
+    } else {
+        NSLog(@"reachable");
+    }
+
+}
 
 @end

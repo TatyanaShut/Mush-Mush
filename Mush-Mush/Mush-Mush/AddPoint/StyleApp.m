@@ -20,7 +20,7 @@
     label.textColor = [UIColor blackColor];
     label.font = [UIFont systemFontOfSize:15.f];
     label.textColor = [UIColor blackColor];
-    label.backgroundColor = [UIColor greenLight];
+    label.backgroundColor = [UIColor backgroundHeader];
    
     
 }
@@ -32,7 +32,7 @@
     textField.textColor = [UIColor blackColor];
     textField.font = [UIFont systemFontOfSize:15.f];
     textField.placeholder = placeholder;
-    textField.backgroundColor = [UIColor greenLight];
+    textField.backgroundColor = [UIColor backgroundHeader];
 
 }
 + (void) styleTextView:(UITextView *)textView {
@@ -42,7 +42,7 @@
     textView.layer.borderWidth = 1;
     textView.textColor = [UIColor blackColor];
     textView.font = [UIFont systemFontOfSize:15.f];
-    textView.backgroundColor = [UIColor greenLight];
+    textView.backgroundColor = [UIColor backgroundHeader];
     
 }
 @end

@@ -33,13 +33,16 @@
     
     self.view.backgroundColor =[UIColor whiteColor];
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
-    self.scrollView.backgroundColor = [UIColor greenLight];
+    self.scrollView.backgroundColor = [UIColor backgroundHeader];
     [ self centerMapOnUserLoacation ];
     MKCoordinateSpan span; span.latitudeDelta = .01;
     span.longitudeDelta = .01;
     MKCoordinateRegion region;
     region.center = self.location.coordinate; region.span = span;
     [self.mapView setRegion:region animated:YES];
+    self.mapView.layer.borderWidth = 1.0f;
+    self.mapView.layer.cornerRadius = 10.f;
+    self.mapView.layer.borderColor = [UIColor brown].CGColor;
     
     UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeTextInput)];
     tapGesture.cancelsTouchesInView = NO;

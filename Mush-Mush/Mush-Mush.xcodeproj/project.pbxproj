@@ -18,6 +18,7 @@
 		10321C7C22DA09BE003D8DBA /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7722DA09BE003D8DBA /* Annotation.m */; };
 		10321C7D22DA09BE003D8DBA /* AddPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10321C7822DA09BE003D8DBA /* AddPointViewController.xib */; };
 		10321C7E22DA09BE003D8DBA /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10321C7922DA09BE003D8DBA /* AddPointViewController.m */; };
+		10672AEA22DCC5F30049AF4F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 10672AE922DCC5F30049AF4F /* Reachability.m */; };
 		107E7E8922DB809E00965FEA /* UIColor+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E7E8822DB809E00965FEA /* UIColor+CustomColor.m */; };
 		10B6D31F22DB3A7B00822BC0 /* DirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B6D31E22DB3A7B00822BC0 /* DirectoryViewController.m */; };
 		10B6D32222DB3ACC00822BC0 /* DirectoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B6D32122DB3ACC00822BC0 /* DirectoryTableViewCell.m */; };
@@ -61,6 +62,8 @@
 		10321C7822DA09BE003D8DBA /* AddPointViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPointViewController.xib; sourceTree = "<group>"; };
 		10321C7922DA09BE003D8DBA /* AddPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
 		10321C7A22DA09BE003D8DBA /* AddPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
+		10672AE822DCC5F30049AF4F /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		10672AE922DCC5F30049AF4F /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		107E7E8822DB809E00965FEA /* UIColor+CustomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColor.m"; sourceTree = "<group>"; };
 		107E7E8A22DB80A300965FEA /* UIColor+CustomColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColor.h"; sourceTree = "<group>"; };
 		10B6D31D22DB3A7B00822BC0 /* DirectoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DirectoryViewController.h; sourceTree = "<group>"; };
@@ -134,6 +137,7 @@
 		1004168D22D8ED6E0050E838 /* Mush-Mush */ = {
 			isa = PBXGroup;
 			children = (
+				10672AE722DCC5CF0049AF4F /* Networking */,
 				107E7E9722DB857A00965FEA /* AppDelegate */,
 				107E7E9522DB851A00965FEA /* Map */,
 				107E7E9022DB843E00965FEA /* AddPoint */,
@@ -143,6 +147,15 @@
 				107E7E9122DB848700965FEA /* Repository */,
 			);
 			path = "Mush-Mush";
+			sourceTree = "<group>";
+		};
+		10672AE722DCC5CF0049AF4F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				10672AE822DCC5F30049AF4F /* Reachability.h */,
+				10672AE922DCC5F30049AF4F /* Reachability.m */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		107E7E8B22DB837E00965FEA /* Directory */ = {
@@ -398,6 +411,7 @@
 				334550ED22D92A4F00A3A5C1 /* LocationManager.m in Sources */,
 				10B6D32822DB3B5700822BC0 /* DetailsViewController.m in Sources */,
 				100416A622D8EF3D0050E838 /* MapViewController.m in Sources */,
+				10672AEA22DCC5F30049AF4F /* Reachability.m in Sources */,
 				1004169E22D8ED6F0050E838 /* main.m in Sources */,
 				100416AC22D8F2AA0050E838 /* HistoryViewController.m in Sources */,
 				3345510622DBAC9900A3A5C1 /* FieldClusterView.m in Sources */,
