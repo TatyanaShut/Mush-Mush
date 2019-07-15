@@ -11,7 +11,7 @@
 @interface DetailsViewController ()
 
 @property (nonatomic, strong) UILabel *descriptionMush;
-//@property(nonatomic, strong) UIView *customView;
+@property(nonatomic, strong) UIImageView *customView;
 
 @end
 
@@ -21,20 +21,21 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.title =  self.titleDetailsVc;
-    self.descriptionMush =[[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, 400.f)];
-    self.descriptionMush .lineBreakMode = NSLineBreakByWordWrapping;
-    self.descriptionMush .numberOfLines = 0;
-    self.descriptionMush.text = self.descriptionMushroom;
-    self.descriptionMush.translatesAutoresizingMaskIntoConstraints = NO;
-    //[self addConsctraint];
-    [self.view addSubview:self.descriptionMush];
-    
-    
     UIImageView *imageView = [[UIImageView alloc] initWithImage:self.imageFull];
     [self.view addSubview:imageView];
+    self.customView = imageView;
+    [self checkImageSize:self.customView];
     
-    [self checkImageSize:imageView];
+    self.title =  self.titleDetailsVc;
+    self.descriptionMush = [[UILabel alloc] init];
+    self.descriptionMush .lineBreakMode = NSLineBreakByWordWrapping;
+    self.descriptionMush .numberOfLines = 0;
+    self.descriptionMush.textAlignment = NSTextAlignmentCenter;
+    self.descriptionMush.text = self.descriptionMushroom;
+    [self.view addSubview:self.descriptionMush];
+    [self addConsctraint];
+    
+    
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *backButtonnImage = [UIImage imageNamed:@"arrow_left"];
@@ -61,10 +62,10 @@
         imageView.frame = CGRectMake(0, 0, self.view.frame.size.width, imageView.frame.size.height);
         imageView.translatesAutoresizingMaskIntoConstraints = NO;
         [NSLayoutConstraint activateConstraints:@[
-                                                  [imageView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+                                                  [imageView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:-50],
                                                   // [imageView.heightAnchor constraintEqualToConstant:44.0f],
-                                                  [imageView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
-                                                  [imageView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor]
+                                                  [imageView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:30],
+                                                  [imageView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor constant:-30]
                                                   ]];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
@@ -74,30 +75,12 @@
 }
 
 - (void)addConsctraint {
-    
-    
-    //    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.descriptionMush attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:100];
-    //    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.descriptionMush attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:200];
-    //
-    //    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.descriptionMush attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:50];
-    //    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.descriptionMush attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:50];
-    //
-    //    [self.view addConstraints:@[left, top]];
-    //    [self.descriptionMush addConstraints:@[height, width]];
-    //    [NSLayoutConstraint activateConstraints:@[
-    //                                              [self.descriptionMush .topAnchor constraintEqualToAnchor:self.customView.topAnchor],
-    //                                              // [imageView.heightAnchor constraintEqualToConstant:44.0f],
-    //                                              [self.descriptionMush .leadingAnchor constraintEqualToAnchor:self.customView.safeAreaLayoutGuide.leadingAnchor],
-    //                                              [self.descriptionMush .trailingAnchor constraintEqualToAnchor:self.customView.safeAreaLayoutGuide.trailingAnchor]
-    //                                              ]];
-    
+    self.descriptionMush.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
-                                              [self.descriptionMush.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor]
-                                              // [self.descriptionMush.widthAnchor constraintEqualToConstant:((DSHCustomView*)view).image.size.width],
-                                              //[self.descriptionMush.heightAnchor constraintEqualToConstant:((DSHCustomView*)view).image.size.height],
-                                              //[self.descriptionMush.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor constant:100]
+                                              [self.descriptionMush.topAnchor constraintEqualToAnchor:self.customView.bottomAnchor constant:-125],
+                                              [self.descriptionMush.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-30],
+                                              [self.descriptionMush.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:30],
                                               ]];
-    [self.descriptionMush layoutIfNeeded];
 }
 
 @end

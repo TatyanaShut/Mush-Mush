@@ -15,7 +15,11 @@
 #import "UIColor+CustomColor.h"
 
 @interface AppDelegate ()
-
+@property (strong, nonatomic) UIView* maskBgView;
+@property (strong, nonatomic) CAKeyframeAnimation* transformAnimation;
+@property (strong, nonatomic) NSValue* initialBounds;
+@property (strong, nonatomic) NSValue* secondBounds;
+@property (strong, nonatomic) NSValue* finalBounds;
 @end
 
 static NSString* const MARKERS = @"markers";
@@ -23,22 +27,24 @@ static NSString* const MARKERS = @"markers";
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-        [UINavigationBar appearance].shadowImage = [[UIImage alloc]init];
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [UINavigationBar appearance].shadowImage = [[UIImage alloc]init];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor colorWithRed:241/255 green:196/255 blue:15/255 alpha:1];
+    
+    
+    MapViewController *mapVc = [[MapViewController alloc] init];
+    UINavigationController *mapNc = [[UINavigationController alloc] initWithRootViewController:mapVc];
         
-        MapViewController *mapVc = [[MapViewController alloc] init];
-        UINavigationController *mapNc = [[UINavigationController alloc] initWithRootViewController:mapVc];
+    HistoryViewController *historyVc = [[HistoryViewController alloc] init];
+    UINavigationController *historyNc = [[UINavigationController alloc] initWithRootViewController:historyVc];
         
-        HistoryViewController *historyVc = [[HistoryViewController alloc] init];
-        UINavigationController *historyNc = [[UINavigationController alloc] initWithRootViewController:historyVc];
+    DirectoryViewController *directoryVc = [[DirectoryViewController alloc]init];
+    UINavigationController *directoryNc = [[UINavigationController alloc]initWithRootViewController:directoryVc];
         
-        DirectoryViewController *directoryVc = [[DirectoryViewController alloc]init];
-        UINavigationController *directoryNc = [[UINavigationController alloc]initWithRootViewController:directoryVc];
-        
-        UITabBarController *tabBarController = [[UITabBarController alloc] init];
-        tabBarController.viewControllers = @[mapNc, historyNc, directoryNc];
-        tabBarController.tabBar.barTintColor=[UIColor green];
-        tabBarController.tabBar.tintColor = [UIColor greenDark];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[ mapNc, historyNc, directoryNc];
+    tabBarController.tabBar.barTintColor=[UIColor green];
+    tabBarController.tabBar.tintColor = [UIColor greenDark];
     
     UITabBarItem *itemMap = [[UITabBarItem alloc] initWithTitle:@"Карта" image:[UIImage imageNamed:@"map"] tag:0];
     UITabBarItem *itemHistory = [[UITabBarItem alloc] initWithTitle:@"История" image:[UIImage imageNamed:@"history"] tag:1];
@@ -49,13 +55,17 @@ static NSString* const MARKERS = @"markers";
     historyVc.tabBarItem = itemHistory;
     directoryNc.tabBarItem = itemDirectory;
     
-        
-        [self.window setRootViewController:tabBarController];
-        [self.window makeKeyAndVisible];
-        
-        [self initUserDefaults];
-        
-        return YES;
+    [self.window setRootViewController:tabBarController];
+    [self.window makeKeyAndVisible];
+    
+//    Marker* marker = [[Marker alloc] initWithName:@"mark" descript:@"descs" year:@"2019" mushroomsWeight:@"100" x:@"32" y:@"32"];
+//    Marker* marker2 = [[Marker alloc] initWithName:@"mark2" descript:@"descs2" year:@"2015" mushroomsWeight:@"50" x:@"32" y:@"32"];
+//    MarkerRepository* m = [[MarkerRepository alloc] init];
+//    [m saveMarker:marker];
+//    [m saveMarker:marker2];
+    
+    [self initUserDefaults];
+    return YES;
 }
 
 - (void) initUserDefaults {

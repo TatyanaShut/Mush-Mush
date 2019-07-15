@@ -56,6 +56,8 @@ static NSString* const HEADER_IDENTIFIER = @"header";
     CustomTableViewCell* cell = (CustomTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
     cell.listener = self;
     
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
     NSString* currentYear = [[self.markerRepository allYears] objectAtIndex:indexPath.section];
     NSArray<Marker*>* markers = [self.markerRepository allMarkersByYear:currentYear];
     NSString* name = [markers objectAtIndex:indexPath.row].name;
@@ -75,10 +77,10 @@ static NSString* const HEADER_IDENTIFIER = @"header";
     customHeader.layer.borderColor = [UIColor colorWithRed:(223/255.0) green:(223/255.0) blue:(223/255.0) alpha:1].CGColor;
     customHeader.expandButon.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
-                                              [customHeader.expandButon.trailingAnchor constraintEqualToAnchor:customHeader.trailingAnchor constant:-20],
+                                              [customHeader.expandButon.trailingAnchor constraintEqualToAnchor:customHeader.trailingAnchor constant:-15],
                                               [customHeader.expandButon.centerYAnchor constraintEqualToAnchor:customHeader.centerYAnchor],
-                                              [customHeader.expandButon.heightAnchor constraintEqualToConstant:50],
-                                              [customHeader.expandButon.widthAnchor constraintEqualToConstant:50]
+                                              [customHeader.expandButon.heightAnchor constraintEqualToConstant:40],
+                                              [customHeader.expandButon.widthAnchor constraintEqualToConstant:40]
                                               ]];
     
     UILabel* yearLabel = [[UILabel alloc] init];
@@ -88,22 +90,28 @@ static NSString* const HEADER_IDENTIFIER = @"header";
                                               [yearLabel.leadingAnchor constraintEqualToAnchor:customHeader.leadingAnchor constant:25],
                                               [yearLabel.centerYAnchor constraintEqualToAnchor:customHeader.centerYAnchor],
                                               [yearLabel.heightAnchor constraintEqualToConstant:30],
-                                              [yearLabel.widthAnchor constraintEqualToConstant:65]
+                                              [yearLabel.widthAnchor constraintEqualToConstant:45]
                                               ]];
     
     yearLabel.text = [NSString stringWithFormat:@"%@", sectionYearLabel];
     yearLabel.textColor = [UIColor blackColor];
-    yearLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:19];
+    yearLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     customHeader.yearLabel = yearLabel;
     
+    NSLog(@"dasdas = %@", @(self.view.frame.size.width));
     UILabel* mushroomWeight = [[UILabel alloc] init];
     [customHeader addSubview:mushroomWeight];
+    if (self.view.frame.size.width <= 320) {
+        mushroomWeight.font = [UIFont fontWithName:@"Helvetica-Bold" size:14];
+    } else {
+        mushroomWeight.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
+    }
     mushroomWeight.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
                                               [mushroomWeight.leadingAnchor constraintEqualToAnchor:yearLabel.trailingAnchor constant:1],
                                               [mushroomWeight.centerYAnchor constraintEqualToAnchor:customHeader.centerYAnchor],
                                               [mushroomWeight.heightAnchor constraintEqualToConstant:35],
-                                              [mushroomWeight.widthAnchor constraintEqualToConstant:250]
+                                              [mushroomWeight.widthAnchor constraintEqualToConstant:255]
                                               ]];
     
     mushroomWeight.text = [NSString stringWithFormat:@"Total mushrooms weignt: %@", @([self.markerRepository totalMushroomWeightByYear:sectionYearLabel])];
@@ -162,21 +170,33 @@ static NSString* const HEADER_IDENTIFIER = @"header";
 #pragma mark - Statistick button
 
 - (void) checkStatistick:(id) sender {
+    if ([[self.markerRepository allYears] count] != 0) {
     UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     StatisticCollectionViewController* svc = [[StatisticCollectionViewController alloc] initWithCollectionViewLayout:flowLayout];
     [self.navigationController pushViewController:svc animated:YES];
+} else {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"You don't have markers"
+                                                                   message:@"You must add marker to see statistics"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self.navigationController presentViewController:alert animated:YES completion:nil];
+}
 }
 
 #pragma mark - CustomHeaderViewDelegate
 
 - (void) didTapOnHeaderView:(CustomHeaderView *)header {
+        BOOL state = [self.sectionsExpendedState[header.section] boolValue];
+        self.sectionsExpendedState[header.section] = @(!state);
+        header.isExpanded = !state;
+        [self setUpHeaderExpanding:header];
+        [self setUpHeaderCollor:header];
     
-    BOOL state = [self.sectionsExpendedState[header.section] boolValue];
-    self.sectionsExpendedState[header.section] = @(!state);
-    header.isExpanded = !state;
-    [self setUpHeaderExpanding:header];
-    [self setUpHeaderCollor:header];
 }
 
 - (void) setUpHeaderExpanding:(CustomHeaderView*) header {
