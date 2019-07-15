@@ -65,7 +65,7 @@ NSString *const cellReuseIdentifier = @"imageID";
     
     for (NSInteger index = 0; index < self.urlArray.count; index++) {
         NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
-            NSOperation *finalOperation = [NSBlockOperation blockOperationWithBlock:^{
+                NSOperation *finalOperation = [NSBlockOperation blockOperationWithBlock:^{
                 NSString *dataMushroom = [[NSString alloc]initWithFormat:@"%@", self.nameMushroom[index]];
                 NSURL *url = [NSURL URLWithString:self.urlArray[index]];
                 NSData *data = [NSData dataWithContentsOfURL:url];
