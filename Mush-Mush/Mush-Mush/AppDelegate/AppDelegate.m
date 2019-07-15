@@ -65,11 +65,11 @@ static NSString* const MARKERS = @"markers";
     [self.window setRootViewController:tabBarController];
     [self.window makeKeyAndVisible];
     
-    Marker* marker = [[Marker alloc] initWithName:@"Berestovica" descript:@"descs23" year:@"2015" mushroomsWeight:@"100" x:@"302" y:@"22"];
-    Marker* marker2 = [[Marker alloc] initWithName:@"Bereza" descript:@"descs2" year:@"2014" mushroomsWeight:@"43" x:@"38" y:@"42"];
-    MarkerRepository* m = [[MarkerRepository alloc] init];
-    [m saveMarker:marker];
-    [m saveMarker:marker2];
+//    Marker* marker = [[Marker alloc] initWithName:@"Berestovica" descript:@"super" year:@"2018" mushroomsWeight:@"100" x:@"302" y:@"22"];
+//    Marker* marker2 = [[Marker alloc] initWithName:@"Bereza" descript:@"klassno" year:@"2017" mushroomsWeight:@"43" x:@"38" y:@"42"];
+//    MarkerRepository* m = [[MarkerRepository alloc] init];
+//    [m saveMarker:marker];
+//    [m saveMarker:marker2];
     
     [self initUserDefaults];
     return YES;
