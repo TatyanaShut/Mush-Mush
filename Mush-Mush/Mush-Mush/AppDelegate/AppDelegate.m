@@ -34,7 +34,7 @@ static NSString* const MARKERS = @"markers";
     
     MapViewController *mapVc = [[MapViewController alloc] init];
     UINavigationController *mapNc = [[UINavigationController alloc] initWithRootViewController:mapVc];
-        
+   
     HistoryViewController *historyVc = [[HistoryViewController alloc] init];
     UINavigationController *historyNc = [[UINavigationController alloc] initWithRootViewController:historyVc];
         
@@ -50,6 +50,11 @@ static NSString* const MARKERS = @"markers";
     UITabBarItem *itemHistory = [[UITabBarItem alloc] initWithTitle:@"История" image:[UIImage imageNamed:@"history"] tag:1];
     UITabBarItem *itemDirectory = [[UITabBarItem alloc] initWithTitle:@"Справочник" image:[UIImage imageNamed:@"news"] tag:2];
 
+    directoryNc.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    historyNc.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    
+    directoryNc.navigationBar.barTintColor = [UIColor green];
+    historyNc.navigationBar.barTintColor = [UIColor green];
     
     mapNc.tabBarItem = itemMap;
     historyVc.tabBarItem = itemHistory;

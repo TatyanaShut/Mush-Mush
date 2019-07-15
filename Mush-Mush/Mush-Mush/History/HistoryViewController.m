@@ -28,7 +28,7 @@ static NSString* const HEADER_IDENTIFIER = @"header";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self tableViewSetUp];
-    self.title = @"История";
+    
     self.markerRepository = [[MarkerRepository alloc] init];
     
     UINib* nib = [UINib nibWithNibName:@"CustomTableViewCell" bundle:nil];
@@ -39,6 +39,7 @@ static NSString* const HEADER_IDENTIFIER = @"header";
     for (int i = 0; i < [[self.markerRepository allYears] count]; i++) {
         [self.sectionsExpendedState addObject:@NO];
     }
+    self.title = @"История";
 }
 
 #pragma mark - UITableViewDataSource

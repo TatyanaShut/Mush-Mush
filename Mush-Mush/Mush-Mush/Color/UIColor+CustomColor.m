@@ -24,9 +24,9 @@
 }
 
 + (UIColor *) greenLight {
-    return [UIColor colorWithRed:0xE5/255.0f
-                           green:0xFF/255.0f
-                         blue:0xCC/255.0f alpha:1];
+    return [UIColor colorWithRed:0xD6/255.0f
+                           green:0xE4/255.0f
+                         blue:0xD4/255.0f alpha:1];
 }
 
 + (UIColor *) greenDark {

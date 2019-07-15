@@ -13,6 +13,7 @@
 #import "MapViewController.h"
 #import "Marker.h"
 #import "MarkerRepository.h"
+#import "UIColor+CustomColor.h"
 
 
 @interface AddPointViewController () <MKMapViewDelegate, UITextViewDelegate>
@@ -26,9 +27,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Добавить точку";
     
     self.view.backgroundColor =[UIColor whiteColor];
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+    self.scrollView.backgroundColor = [UIColor greenLight];
     [ self centerMapOnUserLoacation ];
     MKCoordinateSpan span; span.latitudeDelta = .01;
     span.longitudeDelta = .01;
@@ -42,8 +45,8 @@
     
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager startUpdatingLocation];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePointAction)];
+    ///////
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(donePointAction)];
     
     
     //[StyleApp styleLabel:self.currentYearLabel];
@@ -116,7 +119,7 @@
     MKPinAnnotationView *pin = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
     if (!pin){
         pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:identifier];
-        pin.pinTintColor =[UIColor redColor];
+        pin.pinTintColor =[UIColor brownColor];
         pin.animatesDrop = YES;
         pin.canShowCallout = YES;
         pin.draggable = YES;

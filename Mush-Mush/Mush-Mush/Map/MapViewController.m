@@ -14,7 +14,7 @@
 #import "Marker.h"
 #import "MarkerRepository.h"
 #import <MapKit/MapKit.h>
-
+#import "UIColor+CustomColor.h"
 #import "Annotation.h"
 #import "MushroomAnnotationView.h"
 #import "FieldClusterView.h"
@@ -204,6 +204,7 @@ static NSString *const kCancelButtonTitle = @"Отменить";
     [trackingButton.layer setBorderColor:[UIColor colorWithWhite:1.0 alpha:0.8].CGColor];
     [trackingButton.layer setBorderWidth:1.0f];
     [trackingButton.layer setCornerRadius:6.0f];
+    trackingButton.tintColor = [UIColor greenDark];
     [self.view addSubview:trackingButton];
     self.trackingButton = trackingButton;
     [self setConstraintsForTrackingButton];
@@ -237,7 +238,7 @@ static NSString *const kCancelButtonTitle = @"Отменить";
 
 - (void)setupNavigationBar {
     [self.navigationController.navigationBar setTranslucent:NO];
-    [self.navigationController.navigationBar setBarTintColor:[UIColor lightGrayColor]];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor green]];
     [self.navigationController.navigationBar setBarStyle: UIBarStyleBlack];
     [self.navigationController.navigationBar setTitleTextAttributes: @{
                                                                        NSForegroundColorAttributeName: [UIColor whiteColor],
@@ -256,7 +257,9 @@ static NSString *const kCancelButtonTitle = @"Отменить";
     if (itemsCount==1) {
         return;
     }
+  
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPointAction)];
+    addButton.tintColor = [UIColor greenDark];
     NSArray <UIBarButtonItem *> *array = [NSArray <UIBarButtonItem *> arrayWithObjects:addButton,nil];
     [self.navigationController.navigationBar.topItem setRightBarButtonItems:array animated:NO];
 }
@@ -267,13 +270,16 @@ static NSString *const kCancelButtonTitle = @"Отменить";
         return;
     }
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPointAction)];
+    addButton.tintColor = [UIColor greenDark];
     UIBarButtonItem *deleteButton  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(showAlertViewController)];
+    deleteButton.tintColor = [UIColor greenDark];
     NSArray <UIBarButtonItem *> *array = [NSArray <UIBarButtonItem *> arrayWithObjects:addButton,deleteButton, nil];
     [self.navigationController.navigationBar.topItem setRightBarButtonItems:array animated:NO];
 }
 
 - (void)createShareActionButton {
     UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActivityViewController:)];
+    actionButton.tintColor = [UIColor greenDark];
     [self.navigationController.navigationBar.topItem setLeftBarButtonItem:actionButton animated:NO];
 }
 
@@ -295,7 +301,7 @@ static NSString *const kCancelButtonTitle = @"Отменить";
 
 - (void)setupPickerView {
     [self setConstraintsToPickerView];
-    [self.pickerView setBackgroundColor:[UIColor lightGrayColor]];
+    [self.pickerView setBackgroundColor:[UIColor green]];
     [self.pickerView.prevButton addTarget:self action:@selector(prevButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.pickerView.nextButton addTarget:self action:@selector(nextButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
