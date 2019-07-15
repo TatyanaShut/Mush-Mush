@@ -52,7 +52,6 @@ static NSString* const MARKERS = @"markers";
     }
     [markers addObject:marker];
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:markersByYears];
-    
     [self.userDefaults setObject:data forKey:MARKERS];
     [self.userDefaults synchronize];
 }

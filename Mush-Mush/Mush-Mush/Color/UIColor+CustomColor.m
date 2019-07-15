@@ -8,6 +8,19 @@
 #import "UIColor+CustomColor.h"
 
 @implementation UIColor (CustomColor)
+
++(UIColor *) backgroundColon {
+    return [UIColor colorWithRed:0xEB/255.0f
+                           green:0xCF/255.0f
+                            blue:0x8D/255.0f alpha:1];
+
+}
++(UIColor *) backgroundHeader {
+    return [UIColor colorWithRed:0xF2/255.0f
+                           green:0xF2/255.0f
+                            blue:0xE6/255.0f alpha:1];
+    
+}
 + (UIColor *) brownLight {
     return [UIColor colorWithRed:0xBA/255.0f
                            green:0xAD/255.0f

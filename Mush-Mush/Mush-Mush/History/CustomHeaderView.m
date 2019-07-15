@@ -23,6 +23,13 @@
         self.expandButon.backgroundColor = [UIColor clearColor];
         [self.expandButon addTarget:self action:@selector(expandRows:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:self.expandButon];
+        
+        self.yearLabel = [UILabel new];
+        [self.contentView addSubview:self.yearLabel];
+        
+        self.mushroomsWeight = [UILabel new];
+        [self.contentView addSubview:self.mushroomsWeight];
+        
     }
     return self;
 }
@@ -32,7 +39,6 @@
         [self.listener didTapOnHeaderView:self];
     }
 }
-
 
 
 @end

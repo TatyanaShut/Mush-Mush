@@ -29,7 +29,7 @@ static NSString* const HEADER_IDENTIFIER = @"header";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self tableViewSetUp];
-    
+    //self.view.backgroundColor = [UIColor greenLight];
     self.markerRepository = [[MarkerRepository alloc] init];
     
     UINib* nib = [UINib nibWithNibName:@"CustomTableViewCell" bundle:nil];
@@ -41,9 +41,17 @@ static NSString* const HEADER_IDENTIFIER = @"header";
         [self.sectionsExpendedState addObject:@NO];
     }
     self.title = @"История";
+    
+    
 }
 
+
 #pragma mark - UITableViewDataSource
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+    
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [[self.markerRepository allYears] count];
@@ -64,19 +72,20 @@ static NSString* const HEADER_IDENTIFIER = @"header";
     NSArray<Marker*>* markers = [self.markerRepository allMarkersByYear:currentYear];
     NSString* name = [markers objectAtIndex:indexPath.row].name;
     cell.infLabel.text = [NSString stringWithFormat:@"%@", name];
+    cell.backgroundColor = [UIColor greenLight];
+    
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
     NSString* sectionYearLabel = [[self.markerRepository allYears] objectAtIndex:section];
     
     CustomHeaderView* customHeader = (CustomHeaderView*)[tableView dequeueReusableHeaderFooterViewWithIdentifier:HEADER_IDENTIFIER];
-    
+    customHeader.layer.backgroundColor = [UIColor backgroundHeader].CGColor;
     customHeader.layer.borderWidth = 0.5f;
-    customHeader.layer.borderColor = [UIColor colorWithRed:(223/255.0) green:(223/255.0) blue:(223/255.0) alpha:1].CGColor;
+    customHeader.layer.borderColor = [UIColor greenLight].CGColor;
     customHeader.expandButon.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
                                               [customHeader.expandButon.trailingAnchor constraintEqualToAnchor:customHeader.trailingAnchor constant:-15],
@@ -85,46 +94,54 @@ static NSString* const HEADER_IDENTIFIER = @"header";
                                               [customHeader.expandButon.widthAnchor constraintEqualToConstant:40]
                                               ]];
     
-    UILabel* yearLabel = [[UILabel alloc] init];
-    [customHeader addSubview:yearLabel];
-    yearLabel.translatesAutoresizingMaskIntoConstraints = NO;
+//    UILabel* yearLabel = [[UILabel alloc] init];
+//    [customHeader addSubview:yearLabel];
+//    customHeader.yearLabel = yearLabel;
+    customHeader.yearLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
-                                              [yearLabel.leadingAnchor constraintEqualToAnchor:customHeader.leadingAnchor constant:25],
-                                              [yearLabel.centerYAnchor constraintEqualToAnchor:customHeader.centerYAnchor],
-                                              [yearLabel.heightAnchor constraintEqualToConstant:30],
-                                              [yearLabel.widthAnchor constraintEqualToConstant:45]
+                                              [customHeader.yearLabel.leadingAnchor constraintEqualToAnchor:customHeader.leadingAnchor constant:25],
+                                              [customHeader.yearLabel.centerYAnchor constraintEqualToAnchor:customHeader.centerYAnchor],
+                                              [customHeader.yearLabel.heightAnchor constraintEqualToConstant:30],
+                                              [customHeader.yearLabel.widthAnchor constraintEqualToConstant:50]
                                               ]];
     
-    yearLabel.text = [NSString stringWithFormat:@"%@", sectionYearLabel];
-    yearLabel.textColor = [UIColor brown];
-    yearLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
-    customHeader.yearLabel = yearLabel;
+    customHeader.yearLabel.text = [NSString stringWithFormat:@"%@", sectionYearLabel];
+    customHeader.yearLabel.textColor = [UIColor brown];
+    customHeader.yearLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     
-    NSLog(@"dasdas = %@", @(self.view.frame.size.width));
-    UILabel* mushroomWeight = [[UILabel alloc] init];
-    [customHeader addSubview:mushroomWeight];
+//    UILabel* mushroomWeight = [[UILabel alloc] init];
+//    [customHeader addSubview:mushroomWeight];
+//    customHeader.mushroomsWeight = mushroomWeight;
     if (self.view.frame.size.width <= 320) {
-        mushroomWeight.font = [UIFont fontWithName:@"Helvetica-Bold" size:14];
+        customHeader.mushroomsWeight.font = [UIFont fontWithName:@"Helvetica-Bold" size:14];
+        customHeader.mushroomsWeight.translatesAutoresizingMaskIntoConstraints = NO;
+        [NSLayoutConstraint activateConstraints:@[
+                                                  [customHeader.mushroomsWeight.leadingAnchor constraintEqualToAnchor:customHeader.yearLabel.trailingAnchor constant:1],
+                                                  [customHeader.mushroomsWeight.centerYAnchor constraintEqualToAnchor:customHeader.centerYAnchor],
+                                                  [customHeader.mushroomsWeight.heightAnchor constraintEqualToConstant:35],
+                                                  [customHeader.mushroomsWeight.widthAnchor constraintEqualToConstant:255]
+                                                  ]];
     } else {
-        mushroomWeight.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
+        customHeader.mushroomsWeight.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
+        customHeader.mushroomsWeight.translatesAutoresizingMaskIntoConstraints = NO;
+        [NSLayoutConstraint activateConstraints:@[
+                                                  [customHeader.mushroomsWeight.leadingAnchor constraintEqualToAnchor:customHeader.yearLabel.trailingAnchor constant:1],
+                                                  [customHeader.mushroomsWeight.centerYAnchor constraintEqualToAnchor:customHeader.centerYAnchor],
+                                                  [customHeader.mushroomsWeight.heightAnchor constraintEqualToConstant:35],
+                                                  [customHeader.mushroomsWeight.widthAnchor constraintEqualToConstant:300]
+                                                  ]];
     }
-    mushroomWeight.translatesAutoresizingMaskIntoConstraints = NO;
-    [NSLayoutConstraint activateConstraints:@[
-                                              [mushroomWeight.leadingAnchor constraintEqualToAnchor:yearLabel.trailingAnchor constant:1],
-                                              [mushroomWeight.centerYAnchor constraintEqualToAnchor:customHeader.centerYAnchor],
-                                              [mushroomWeight.heightAnchor constraintEqualToConstant:35],
-                                              [mushroomWeight.widthAnchor constraintEqualToConstant:255]
-                                              ]];
     
-    mushroomWeight.text = [NSString stringWithFormat:@"Total mushrooms weignt: %@", @([self.markerRepository totalMushroomWeightByYear:sectionYearLabel])];
-    mushroomWeight.textColor= [UIColor colorWithRed:(153/255.0) green:(153/255.0) blue:(153/255.0) alpha:1];
-    customHeader.mushroomsWeight = mushroomWeight;
+    
+    customHeader.mushroomsWeight.text = [NSString stringWithFormat:@"Общая масса: %@ кг", @([self.markerRepository totalMushroomWeightByYear:sectionYearLabel])];
+    customHeader.mushroomsWeight.textColor= [UIColor colorWithRed:(153/255.0) green:(153/255.0) blue:(153/255.0) alpha:1];
     
     customHeader.section = section;
     customHeader.listener = self;
-    
     return customHeader;
 }
+
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 80;
@@ -141,6 +158,7 @@ static NSString* const HEADER_IDENTIFIER = @"header";
     frame.origin = CGPointZero;
     UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
     [self.view addSubview:tableView];
+    self.tableView.backgroundColor = [UIColor brownLight];
     
     self.tableView = tableView;
     self.tableView.delegate = self;
@@ -158,7 +176,11 @@ static NSString* const HEADER_IDENTIFIER = @"header";
     self.statisticsButton = statisticsButton;
     [self.statisticsButton addTarget:self action:@selector(checkStatistick:) forControlEvents:UIControlEventTouchUpInside];
     [self.statisticsButton setTitle:@"Статистика" forState:UIControlStateNormal];
-    self.statisticsButton.backgroundColor = [UIColor brownLight];
+    //[self.statisticsButton setTintColor:[UIColor redColor]];
+    [self.statisticsButton setTitleColor:[UIColor colorWithRed:(153/255.0) green:(153/255.0) blue:(153/255.0) alpha:1] forState:UIControlStateNormal];
+    //statisticsButton.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
+    self.statisticsButton.titleLabel.font =  [UIFont fontWithName:@"Helvetica-Bold" size:18];
+    self.statisticsButton.backgroundColor = [UIColor backgroundHeader];
     self.statisticsButton.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
                                               [self.statisticsButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],

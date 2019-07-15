@@ -7,7 +7,7 @@
 //
 
 #import "StatisticCollectionViewCell.h"
-
+#import "UIColor+CustomColor.h"
 #import "StatisticCollectionViewCell.h"
 
 @interface StatisticCollectionViewCell ()
@@ -23,7 +23,7 @@
         
         [UIView animateWithDuration:1 animations:^{
             self.statisticView = [UIView new];
-            self.statisticView.backgroundColor = [UIColor lightGrayColor];
+            self.statisticView.backgroundColor = [UIColor backgroundColon];
             [self.contentView addSubview:self.statisticView];
             
             self.statisticHeightConstraints = [[NSLayoutConstraint alloc] init];
@@ -33,6 +33,7 @@
             
             self.yearLabel = [UILabel new];
             [self.contentView addSubview:self.yearLabel];
+            self.yearLabel.textColor = [UIColor brown];
             
             self.statisticView.translatesAutoresizingMaskIntoConstraints = NO;
             [NSLayoutConstraint activateConstraints:@[
@@ -43,6 +44,7 @@
                                                       ]];
             
             self.totalWeightLabel = [UILabel new];
+            self.totalWeightLabel.textColor= [UIColor brown];
             [self.contentView addSubview:self.totalWeightLabel];
             self.totalWeightLabel.textAlignment = NSTextAlignmentCenter;
             self.totalWeightLabel.translatesAutoresizingMaskIntoConstraints = NO;

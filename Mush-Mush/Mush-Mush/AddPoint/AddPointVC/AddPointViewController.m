@@ -22,6 +22,8 @@
 
 @end
 
+
+
 @implementation AddPointViewController
 
 
@@ -55,7 +57,7 @@
     NSString *yearString = [formatter stringFromDate:[NSDate date]];
     self.currentYearLabel.text = yearString;
     
-    [StyleApp styleTextField:self.namePointTextField andPlaceholder:@"Имя места"];
+    [StyleApp styleTextField:self.namePointTextField andPlaceholder:@"Место расположения"];
     
     [StyleApp styleTextField:self.massOfMushroomsTextField andPlaceholder:@"Масса нетто грибов (кг)"];
     self.massOfMushroomsTextField.keyboardType = UIKeyboardTypePhonePad;
@@ -147,8 +149,8 @@
 
 -(void) addAnnotation{
     Annotation *annotation = [[Annotation alloc]init];
-    annotation.title = @"Test";
-    annotation.subtitle = @"TestSubtitle";
+    annotation.title = @"Место расположения";
+    annotation.subtitle = @"Масса нетто грибов (кг)";
     annotation.coordinate = self.location.coordinate;
     [self.mapView addAnnotation:annotation];
     

@@ -7,6 +7,7 @@
 //
 
 #import "DetailsViewController.h"
+#import "UIColor+CustomColor.h"
 
 @interface DetailsViewController ()
 
@@ -19,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor backgroundHeader];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:self.imageFull];
     [self.view addSubview:imageView];
@@ -31,7 +32,9 @@
     self.descriptionMush .lineBreakMode = NSLineBreakByWordWrapping;
     self.descriptionMush .numberOfLines = 0;
     self.descriptionMush.textAlignment = NSTextAlignmentCenter;
+    self.descriptionMush.textColor = [UIColor lightGrayColor];
     self.descriptionMush.text = self.descriptionMushroom;
+    
     [self.view addSubview:self.descriptionMush];
     [self addConsctraint];
     
@@ -63,7 +66,6 @@
         imageView.translatesAutoresizingMaskIntoConstraints = NO;
         [NSLayoutConstraint activateConstraints:@[
                                                   [imageView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:-50],
-                                                  // [imageView.heightAnchor constraintEqualToConstant:44.0f],
                                                   [imageView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:30],
                                                   [imageView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor constant:-30]
                                                   ]];

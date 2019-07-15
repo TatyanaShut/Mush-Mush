@@ -9,7 +9,7 @@
 #import "StatisticCollectionViewController.h"
 #import "StatisticCollectionViewCell.h"
 #import "MarkerRepository.h"
-
+#import "UIColor+CustomColor.h"
 @interface StatisticCollectionViewController () <UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) MarkerRepository* markerRepository;
 @property (strong, nonatomic) UILabel* informationLabel;
@@ -21,14 +21,16 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Statistics";
+    self.title = @"Статистика";
+    self.collectionView.backgroundColor = [UIColor backgroundHeader];
     self.markerRepository = [[MarkerRepository alloc] init];
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    //self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerClass:[StatisticCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     self.informationLabel = [[UILabel alloc] initWithFrame:CGRectMake(-300, self.view.frame.size.height / 2 + 120, 300, 100)];
-    self.informationLabel.text = @"In this screen you can see the statistics of the collected mushrooms.";
+    self.informationLabel.text = @"Этот экран поможет вам отследить статистику сбора грибов по годам";
     self.informationLabel.numberOfLines = 0;
+    self.informationLabel.textColor = [UIColor lightGrayColor];
     [self.collectionView addSubview:self.informationLabel];
     
     [UIView animateWithDuration:1 animations:^{

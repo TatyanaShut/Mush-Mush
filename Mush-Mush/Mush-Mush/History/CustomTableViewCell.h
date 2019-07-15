@@ -15,8 +15,9 @@
 
 @interface CustomTableViewCell : UITableViewCell
 @property (weak, nonatomic) id<CustomTableViewCellListener> listener;
+@property (weak, nonatomic) IBOutlet UIButton *infButton;
 
-@property (strong, nonatomic) IBOutlet UIButton *infButton;
+
 @property (strong, nonatomic) IBOutlet UILabel *infLabel;
 
 @end

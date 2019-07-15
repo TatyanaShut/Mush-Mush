@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = self.name;
+    
     if ([self.descript isEqualToString:@""]) {
         self.descriptionLabel.text = @"Description:  without description.";
     } else {
@@ -32,7 +33,13 @@
     self.weightLabel.text = [NSString stringWithFormat:@"Total weight:  %@kg", self.mushroomsWeight];
     self.yLabel.text = [NSString stringWithFormat:@"Coordinate Y:  %@", self.coordinateY];
     self.xLabel.text = [NSString stringWithFormat:@"Coordinate X:  %@", self.coordinateX];
-    self.view.backgroundColor = [UIColor whiteColor];
+    //self.view.backgroundColor = [UIColor whiteColor];
+    self.yearLabel.font =  [UIFont fontWithName:@"Helvetica-Bold" size:18];
+    self.descriptionLabel.font =  [UIFont fontWithName:@"Helvetica-Bold" size:18];
+    self.weightLabel.font =  [UIFont fontWithName:@"Helvetica-Bold" size:18];
+    self.xLabel.font =  [UIFont fontWithName:@"Helvetica-Bold" size:18];
+     self.yLabel.font =  [UIFont fontWithName:@"Helvetica-Bold" size:18];
+    
 }
 
 

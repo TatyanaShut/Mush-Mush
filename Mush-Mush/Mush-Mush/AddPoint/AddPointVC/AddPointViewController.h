@@ -10,6 +10,7 @@
 
 @class MKMapView, CLLocationManager, CLLocation;
 
+
 @interface AddPointViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *currentYearLabel;
 @property (weak, nonatomic) IBOutlet UITextField *namePointTextField;

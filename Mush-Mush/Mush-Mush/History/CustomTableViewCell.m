@@ -14,17 +14,20 @@
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self.infButton addTarget:self action:@selector(pushToInfoButton:) forControlEvents:UIControlEventTouchUpInside];
+        [self.infButton addTarget:self action:@selector(oushToInfo:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:self.infButton];
+        self.infButton.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
 
-- (IBAction)pushToInfoButton:(id)sender {
+- (IBAction)oushToInfo:(id)sender {
     if ([self.listener respondsToSelector:@selector(didTapOnCustomViewCell:)]) {
         [self.listener didTapOnCustomViewCell:self];
     }
+    
 }
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

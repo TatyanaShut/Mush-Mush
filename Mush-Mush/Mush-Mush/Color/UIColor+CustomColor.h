@@ -10,6 +10,9 @@
 
 
 @interface UIColor (CustomColor)
+
++ (UIColor *) backgroundColon;
++ (UIColor *) backgroundHeader;
 + (UIColor *) brownLight;
 + (UIColor *) brown;
 + (UIColor *) greenTransparent;

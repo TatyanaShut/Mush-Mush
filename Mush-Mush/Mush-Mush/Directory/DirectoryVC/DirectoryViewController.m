@@ -10,6 +10,7 @@
 #import "DataSource.h"
 #import "DirectoryTableViewCell.h"
 #import "DetailsViewController.h"
+#import "UIColor+CustomColor.h"
 
 
 NSString *const cellReuseIdentifier = @"imageID";
@@ -30,7 +31,7 @@ NSString *const cellReuseIdentifier = @"imageID";
     [super viewDidLoad];
     
     self.tableDataModel = [NSMutableArray array];
-    
+    self.view.backgroundColor = [UIColor backgroundHeader];
     [self tableViewSetUp];
     [self.tableView registerClass:[DirectoryTableViewCell class] forCellReuseIdentifier:cellReuseIdentifier];
     
@@ -127,6 +128,7 @@ NSString *const cellReuseIdentifier = @"imageID";
     
     NSDictionary *imageInfo = self.tableDataModel[indexPath.row];
     UIImage *image = [imageInfo objectForKey:@"image"];
+    cell.backgroundColor = [UIColor backgroundHeader];
     
     if (image) {
         cell.imageFromUrlView.image = [imageInfo objectForKey:@"image"];

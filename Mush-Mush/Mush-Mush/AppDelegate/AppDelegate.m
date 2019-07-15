@@ -13,6 +13,7 @@
 #import "MarkerRepository.h"
 #import "DirectoryViewController.h"
 #import "UIColor+CustomColor.h"
+#import "Reachability.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) UIView* maskBgView;
@@ -20,6 +21,7 @@
 @property (strong, nonatomic) NSValue* initialBounds;
 @property (strong, nonatomic) NSValue* secondBounds;
 @property (strong, nonatomic) NSValue* finalBounds;
+@property (strong, nonatomic) Re
 @end
 
 static NSString* const MARKERS = @"markers";
@@ -63,11 +65,11 @@ static NSString* const MARKERS = @"markers";
     [self.window setRootViewController:tabBarController];
     [self.window makeKeyAndVisible];
     
-//    Marker* marker = [[Marker alloc] initWithName:@"mark" descript:@"descs" year:@"2019" mushroomsWeight:@"100" x:@"32" y:@"32"];
-//    Marker* marker2 = [[Marker alloc] initWithName:@"mark2" descript:@"descs2" year:@"2015" mushroomsWeight:@"50" x:@"32" y:@"32"];
-//    MarkerRepository* m = [[MarkerRepository alloc] init];
+//    Marker* marker = [[Marker alloc] initWithName:@"mark276" descript:@"descs2" year:@"2016" mushroomsWeight:@"100" x:@"302" y:@"22"];
+//    Marker* marker2 = [[Marker alloc] initWithName:@"mark2" descript:@"descs2" year:@"2017" mushroomsWeight:@"43" x:@"38" y:@"32"];
+ //   MarkerRepository* m = [[MarkerRepository alloc] init];
 //    [m saveMarker:marker];
-//    [m saveMarker:marker2];
+    //[m saveMarker:marker2];
     
     [self initUserDefaults];
     return YES;

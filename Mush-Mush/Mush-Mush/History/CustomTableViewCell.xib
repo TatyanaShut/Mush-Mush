@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,36 +20,35 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufz-PT-tsK">
-                        <rect key="frame" x="25" y="27" width="228" height="20.5"/>
+                        <rect key="frame" x="25" y="27" width="42" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaL-Qc-o01">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCW-Bd-USw">
                         <rect key="frame" x="273" y="27" width="27" height="27"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="27" id="lZo-Nj-czC"/>
-                            <constraint firstAttribute="height" constant="27" id="rCh-wJ-bAD"/>
+                            <constraint firstAttribute="height" constant="27" id="2bG-p9-bvn"/>
+                            <constraint firstAttribute="width" constant="27" id="zNG-7I-mjc"/>
                         </constraints>
-                        <state key="normal" title="Button" image="info"/>
+                        <state key="normal" image="info"/>
                         <connections>
-                            <action selector="pushToInfoButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ogk-BR-vzo"/>
+                            <action selector="oushToInfo:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="682-Zj-Sfx"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Ufz-PT-tsK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="42s-LO-edV"/>
-                    <constraint firstItem="xaL-Qc-o01" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="84k-Xz-y3a"/>
+                    <constraint firstAttribute="bottom" secondItem="UCW-Bd-USw" secondAttribute="bottom" constant="27" id="9cF-Ly-g05"/>
                     <constraint firstItem="Ufz-PT-tsK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="JuA-Ns-m96"/>
-                    <constraint firstAttribute="bottom" secondItem="xaL-Qc-o01" secondAttribute="bottom" constant="27" id="V8D-I3-axx"/>
-                    <constraint firstItem="xaL-Qc-o01" firstAttribute="leading" secondItem="Ufz-PT-tsK" secondAttribute="trailing" constant="20" id="fM8-q7-CNS"/>
-                    <constraint firstAttribute="trailing" secondItem="xaL-Qc-o01" secondAttribute="trailing" constant="20" id="jsQ-2m-NFN"/>
+                    <constraint firstAttribute="trailing" secondItem="UCW-Bd-USw" secondAttribute="trailing" constant="20" id="N1O-cc-cjB"/>
+                    <constraint firstItem="UCW-Bd-USw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="hpW-M2-tH4"/>
                     <constraint firstAttribute="bottom" secondItem="Ufz-PT-tsK" secondAttribute="bottom" constant="27" id="pEI-gV-rwW"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
-                <outlet property="infButton" destination="xaL-Qc-o01" id="geG-s4-os1"/>
+                <outlet property="infButton" destination="UCW-Bd-USw" id="UFv-xE-hSO"/>
                 <outlet property="infLabel" destination="Ufz-PT-tsK" id="ZXf-PY-8MD"/>
             </connections>
             <point key="canvasLocation" x="-208" y="4"/>
