@@ -30,6 +30,7 @@
             self.statisticHeightConstraints = [self.statisticView.heightAnchor constraintEqualToConstant:300];
             self.statisticHeightConstraints.constant = 0;
             
+            
             self.yearLabel = [UILabel new];
             [self.contentView addSubview:self.yearLabel];
             

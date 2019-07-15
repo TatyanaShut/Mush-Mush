@@ -16,7 +16,7 @@ NSString *const cellReuseIdentifier = @"imageID";
 
 @interface DirectoryViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) UITableView *tableView;
 @property(strong, nonatomic) NSArray *urlArray;
 @property(strong, nonatomic) NSArray *nameMushroom;
 @property(strong, nonatomic) NSMutableArray *tableDataModel;
@@ -29,16 +29,10 @@ NSString *const cellReuseIdentifier = @"imageID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     self.tableDataModel = [NSMutableArray array];
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    [self tableViewSetUp];
     [self.tableView registerClass:[DirectoryTableViewCell class] forCellReuseIdentifier:cellReuseIdentifier];
-    
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    
-    [self.view addSubview: self.tableView];
     
     self.navigationItem.title = @"Справочник грибов";
     
@@ -98,6 +92,26 @@ NSString *const cellReuseIdentifier = @"imageID";
     //});
     //}
     
+}
+
+- (void) tableViewSetUp {
+    CGRect frame = self.view.bounds;
+    frame.origin = CGPointZero;
+    UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    [self.view addSubview:tableView];
+    
+    self.tableView = tableView;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:@[
+                                              [self.tableView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+                                              [self.tableView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+                                              [self.tableView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+                                              [self.tableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+                                              ]];
+    self.tableView.tableFooterView = [UIView new];
 }
 
 #pragma mark - UITableViewDataSource
