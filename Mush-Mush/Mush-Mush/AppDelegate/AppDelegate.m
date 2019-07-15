@@ -13,7 +13,6 @@
 #import "MarkerRepository.h"
 #import "DirectoryViewController.h"
 #import "UIColor+CustomColor.h"
-#import "Reachability.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) UIView* maskBgView;
@@ -21,7 +20,6 @@
 @property (strong, nonatomic) NSValue* initialBounds;
 @property (strong, nonatomic) NSValue* secondBounds;
 @property (strong, nonatomic) NSValue* finalBounds;
-@property (strong, nonatomic) Re
 @end
 
 static NSString* const MARKERS = @"markers";
@@ -86,5 +84,6 @@ static NSString* const MARKERS = @"markers";
     }
 
 }
+
 
 @end
